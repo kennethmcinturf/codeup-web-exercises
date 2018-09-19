@@ -7,46 +7,50 @@
 <body>
 
     <form method="POST" action="https://http-inspector.glitch.me/">
+        <div>
+            <h2>Pizza Dog Registration</h2>
 
-        <h2>Pizza Dog Registration</h2>
+            <label for="username">Desired Username</label>
+            <input id="username" name="username" type="text">
 
-        <label for="username">Desired Username</label>
-        <input id="username" name="username" type="text">
+            <br>
 
-        <br>
+            <label for="password">Desired Password</label>
+            <input id="password" name="password" type="password">
+        </div>
 
-        <label for="password">Desired Password</label>
-        <input id="password" name="password" type="password">
+        <div>
+            <label for="reference">How'd you here about Pizza Dog</label><br>
+            <textarea name="reference" id="reference" cols="30" rows="10"></textarea>
+        </div>
 
-        <br>
+        <div>
+            <label for="newsletter_sign_up">Would you like to sign up for the newsletter</label>
+            <input name="newsletter_sign_up" value="true" type="checkbox" id="newsletter_sign_up">
+        </div>
 
-        <label for="reference">How'd you here about Pizza Dog</label><br>
-        <textarea name="reference" id="reference" cols="30" rows="10"></textarea>
+        <div>
+            <p>Which services are you interested in?</p>
+            <label>
+                <input type="radio" name="question_1" value="Pizza">Pizza
+            </label>
+            <label>
+                <input type="radio" name="question_1" value="Dog-Walking">Dog-Walking
+            </label>
+            <label>
+                <input type="radio" name="question_1" value="other">Other
+            </label><br>
+        </div>
 
-        <br>
+        <div>
+            <label for="size">What size is your Pizza/Dog?</label>
+                <select name="size" id="size">
+                    <option value="large">large</option>
+                    <option value="medium">medium</option>
+                    <option value="small">small</option>
+                </select><br>
+        </div>
 
-        <label for="newsletter_sign_up">Would you like to sign up for the newsletter</label>
-        <input name="newsletter_sign_up" value="true" type="checkbox" id="newsletter_sign_up">
-
-        <br>
-
-        <p>Which services are you interested in?</p>
-        <label>
-            <input type="radio" name="question_1" value="Pizza">Pizza
-        </label>
-        <label>
-            <input type="radio" name="question_1" value="Dog-Walking">Dog-Walking
-        </label>
-        <label>
-            <input type="radio" name="question_1" value="other">Other
-        </label><br>
-
-        <label for="size">What size is your Pizza/Dog?</label>
-            <select name="size" id="size">
-                <option value="large">large</option>
-                <option value="medium">medium</option>
-                <option value="small">small</option>
-            </select><br>
         <input type="submit">
 
     </form>
