@@ -7,29 +7,20 @@
 <body>
 
     <form method="POST" action="https://http-inspector.glitch.me/">
-
-        <section>
-            <h2>Veridian Dynamics Registration</h2>
-            <label for="username">Email</label>
-            <input id="username" name="username" type="text" placeholder="username">
-
-            <br>
-
+            <h2>Register With Veridian</h2>
+        <div>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="username"><br>
+            
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="password">
-            <input type="submit">
-        </section>
-
-            <br>
-
-        <section>
-            <label for="bio">Biography</label>
-            <textarea name="bio" id="bio" cols="30" rows="10" placeholder="short bio"></textarea>
-            <input type="submit">
-        </section>
-
-        <section>
-            <h2>How Did You Hear about us?</h2>
+            <input type="password" name="password" id="password" placeholder="password"><br>
+        </div>
+        <div>
+            <label for="bio">Biography</label><br>
+            <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="how">How did you hear about us?</label><br>
             <label>
                 <input name="billboard" value="true" type="checkbox">billboard
             </label>
@@ -42,19 +33,17 @@
             <label>
                 <input name="other" value="true" type="checkbox">other
             </label>
-            <input type="submit">
-        </section>
-
-        <section>
-            <h2>What type of browser are you using?</h2>
+        </div>
+        <div>
+            <p>What Web Broswer are you using?</p>
             <select name="browser" id="browser">
-                <option value="Chrome">Chrome</option>
-                <option value="Firefox">Firefox</option>
-                <option value="Other">Other</option>
+                <option value="chrome">chrome</option>
+                <option value="internet_explorer">internet explorer</option>
+                <option value="other">other</option>
             </select>
-            <input type="submit">
-        </section>
+        </div>
 
+        <input type="submit">
     </form>
 
 
