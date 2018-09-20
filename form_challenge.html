@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Residential Lease Application</title>
+    <link rel="stylesheet" href="css/form_challenge_style.css">
 </head>
 <body>
     <header>
         <p>Recieved on <input type="text" placeholder="Date"> at <input type="text" placeholder="Time"> (time)</p>
-        <img src="img/30x30.svg" alt="logo">
+        <img src="img/Relator.png" alt="logo">
         <h4>Texas Association of Realtors</h4>
         <h1>Residential Lease Application</h1>
         <p>use of the form by persons who are not members of texas association of Realtors&#169; is not authorized</p>
@@ -17,7 +18,7 @@
         <hr>
     </header>
     <main>
-        <div>
+        <div class="address">
             <br>
             <label for="address">Property Address</label>
             <input id="address" name="address" type="text" placeholder="Property Address"><br>
@@ -28,7 +29,7 @@
             <label for="deposit">Security Deposit:$</label>
             <input id="deposit" name="deposit" type="text" placeholder="Deposit">
         </div>
-        <div>
+        <div class="reference">
             <br>
             <label name="reference">Applicant was referred to Landlord by:</label>
                 <label for="agent">Real Estate Agent</label>
@@ -44,19 +45,19 @@
             <input type="checkbox" name="other" value="true" id="other">
             <input type="text" id="other" placeholder="person referred">
         </div>
-        <div>
+        <div class="applicant-name">
             <br>
             <label name="name">Applicant Name </label>
             <input id="first_name" name="first_name" type="text" placeholder="first">
             <input id="middle_name" name="middle_name" type="text" placeholder="middle">
             <input id="last_name" name="last_name" type="text" placeholder="last"><br>
         </div>
-        <div>
+        <div class="co-applicant">
             <br>
             <label for="co-applicant">Is there a co-applicant?</label>
             <input type="checkbox" name="co-applicant" value="true" id="co-applicant">
         </div>
-        <div>
+        <div class="applicant-info">
             <br>
             <label name="maiden">Applicant's former last name(maiden or married)</label>
             <input name="maiden" id="maiden" type="text" placeholder="maiden name"><br>
@@ -89,7 +90,7 @@
             <label for="citizen">Citizenship</label>
             <input id="citizen" name="citizen" placeholder="Citizenship" type="text">
         </div>
-        <div>
+        <div class="emergency contact">
             <p>Emergency Contact</p>
             <label for="em_name">Name</label>
             <input name="em_name" id="em_name" type="text" placeholder="Emergency Name"><br>
@@ -100,7 +101,7 @@
             <label for="em_email">Email</label>
             <input name="em_email" id="em_email" type="text" placeholder="Emergency Email"><br>
         </div>
-        <div>
+        <div class="occupants">
             <p>Name all other persons who will occupy the Property:</p>
             <label for="occ_name">Occupant Name</label>
             <input name="occ_name" id="occ_name" type="text" placeholder="Occupant Name">
@@ -127,7 +128,7 @@
             <label for="occ_age">Occupant Age</label>
             <input name="occ_age" id="occ_age" type="text" placeholder="Occupant Age"><br>
         </div>
-        <div>
+        <div class="current_address">
             <br>
             <label for="current_add">Applicant's Current Address</label>
             <input name="current_add" id="current_add" type="text" placeholder="Current Address">
@@ -155,7 +156,7 @@
             <label for="cur_reason">Reason for Move:</label>
             <input name="cur_reason" id="cur_reason" type="text" placeholder="Why?">
         </div>
-        <div>
+        <div class="previous_address">
             <br>
             <label for="prev_add">Applicant's Previous Address</label>
             <input name="prev_add" id="prev_add" type="text" placeholder="Previous Address">
@@ -183,33 +184,31 @@
             <label for="prev_reason">Reason for Move:</label>
             <input name="prev_reason" id="prev_reason" type="text" placeholder="Why?">
         </div>
-        <div>
+        <div class="employer">
             <br>
             <label for="employer">Applicant's Current Employer</label>
-            <input name="employer" id="employer" type="text" placeholder="Employer">
-            <label for="prev_no">Apt No.</label>
-            <input name="prev_no" id="prev_no" type="text" placeholder="Number"><br>
-            <input name="prev_loc" id="prev_loc" type="text" placeholder="Location">(city,state,zip)<br>
-            <label for="prev_lord_name">Landlord Name</label>
-            <input name="prev_lord_name" id="prev_lord_name" type="text" placeholder="Landlord Name">
-            <label for="prev_lord_email">Email</label>
-            <input name="prev_lord_email" id="prev_lord_email" type="text" placeholder="Landlord Email"><br>
-            <label for="prev_lord_phone_day">Phone:day:</label>
-            <input name="prev_lord_phone_day" id="prev_lord_phone_day" type="text" placeholder="Day Phone">
-            <label for="prev_lord_phone_nt">Nt:</label>
-            <input name="prev_lord_phone_nt" id="prev_lord_phone_nt" type="text" placeholder="Night Phone">
-            <label for="prev_lord_phone_mb">mb:</label>
-            <input name="prev_lord_phone_mb" id="prev_lord_phone_mb" type="text" placeholder="Mobile Phone">
-            <label for="prev_lord_fax">fax:</label>
-            <input name="prev_lord_fax" id="prev_lord_fax" type="text" placeholder="Fax"><br>
-            <label for="prev_mov_in">Date Moved-In</label>
-            <input name="prev_mov_in" id="prev_mov_in" type="text" placeholder="Date">
-            <label for="prev_mov_out">Date Moved-Out</label>
-            <input name="prev_mov_out" id="prev_mov_out" type="text" placeholder="Date">
-            <label for="prev_rent">Rent $</label>
-            <input name="prev_rent" id="prev_rent" type="text" placeholder="Amount"><br>
-            <label for="prev_reason">Reason for Move:</label>
-            <input name="prev_reason" id="prev_reason" type="text" placeholder="Why?">
+            <input name="employer" id="employer" type="text" placeholder="Employer"><br>
+            <label for="emp_add">Address:</label>
+            <input name="emp_add" id="emp_add" type="text" placeholder="Address">(city,state,zip)<br>
+            <label for="sup_name">Supervisor's Name</label>
+            <input name="sup_name" id="sup_name" type="text" placeholder="Landlord Name">
+            <label for="prev_emp_phone">Phone:</label>
+            <input name="prev_emp_phone" id="prev_emp_phone" type="text" placeholder="Phone">
+            <label for="prev_emp_fax">Fax:</label>
+            <input name="prev_emp_fax" id="prev_emp_fax" type="text" placeholder="Fax"><br>
+            <label for="prev_emp_email">Email</label>
+            <input name="prev_emp_email" id="prev_emp_email" type="text" placeholder="Email"><br>
+            <label for="start_date">Start Date:</label>
+            <input name="start_date" id="start_date" type="text" placeholder="Start Date">
+            <label for="gross_income">Gross Monthly Income:$</label>
+            <input name="gross_income" id="gross_income" type="text" placeholder="Gross Income">
+            <label for="posistion">Posistion</label>
+            <input name="posistion" id="posistion" type="text" placeholder="Posisition"><br>
         </div>
+    </main>
+    <footer>
+        <p>(TAR-2003) 10-16-17</p>
+        <p style="float: right">Page 1 of 4</p>
+    </footer>
 </body>
 </html>

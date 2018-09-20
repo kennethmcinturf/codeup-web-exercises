@@ -1,0 +1,34 @@
+header{
+    text-align: center;
+    background-color: red;
+}
+footer{
+    background-color: yellow;
+}
+body{
+    background-color: pink;
+}
+.address{
+    background-color: orange;
+}
+.reference {
+    background-color: yellow;
+}
+.applicant-name{
+    background-color: green;
+}
+.emergency{
+    background-color: blue;
+}
+.occupants{
+    background-color: indigo;
+}
+.current_address{
+    background-color: violet;
+}
+.previous_address{
+    background-color: red;
+}
+.employer{
+    background-color: orange;
+}

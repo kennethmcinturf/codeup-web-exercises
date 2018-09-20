@@ -1,17 +1,77 @@
 h1{
     color: #5a29ff;
     text-decoration: underline;
+    text-align: center;
 }
 
 body{
     background-color: aliceblue;
     /*look up how to scale*/
-    background-image: url("../img/48x48.svg");
+    background-image: url("/Users/kennethmcinturf/IdeaProjects/codeup-web-exercises/img/white_bricks.jpeg");
+    background-repeat: no-repeat;
     font-family: "Times New Roman", Times, Serif;
 }
 
 ul{
     list-style: square;
+}
+
+ul, ol {
+    font-family: "American Typewriter", Serif;
+}
+
+tr{
+    padding: 1.2em;
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+th{
+    padding: 1.3em;
+    font-size: 1.3em;
+    text-decoration: underline;
+}
+
+td{
+    padding: 1.4em;
+    font-size: 1.4em;
+    text-decoration: underline overline;
+}
+
+a{
+    float: right;
+}
+
+table{
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+
+td{
+    table-layout: auto;
+    border: 3px solid black;
+}
+
+a:link{
+    color: firebrick;
+}
+
+a:visited{
+    color: darkorange;
+}
+
+a:hover{
+    color: deeppink;
+}
+
+a:active{
+    color: darkolivegreen;
+}
+
+footer{
+    text-decoration: underline overline #FF3028;
 }
 
 .fancy-header{
