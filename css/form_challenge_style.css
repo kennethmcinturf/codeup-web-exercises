@@ -17,7 +17,10 @@ body{
 .applicant-name{
     background-color: green;
 }
-.emergency{
+.applicant-info{
+    background-color: blue;
+}
+.emergency_contact{
     background-color: blue;
 }
 .occupants{
