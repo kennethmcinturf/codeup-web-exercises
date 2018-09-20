@@ -1,4 +1,21 @@
-.fancy-header{
-    color: purple;
+h1{
+    color: #5a29ff;
     text-decoration: underline;
+}
+
+body{
+    background-color: aliceblue;
+    /*look up how to scale*/
+    background-image: url("../img/48x48.svg");
+    font-family: "Times New Roman", Times, Serif;
+}
+
+ul{
+    list-style: square;
+}
+
+.fancy-header{
+    color: #80152d;
+    text-decoration: underline;
+    text-align: center;
 }
