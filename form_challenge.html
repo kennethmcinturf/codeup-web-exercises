@@ -28,14 +28,20 @@
             <input id="deposit" name="deposit" type="text" placeholder="Deposit">
         </div>
         <div>
+
             <label name="reference">Applicant was referred to Landlord by:</label>
-                <input type="checkbox" name="agent" value="true" id="reference">Real Estate Agent
+                <label for="agent">Real Estate Agent</label>
+                <input type="checkbox" name="agent" value="true" id="agent">
                     <input type="text" id="agent" placeholder="Agent Name"><br>
-                <input type="checkbox" name="newspaper" value="true" id="reference">Newspaper
-                <input type="checkbox" name="sign" value="true" id="reference">Sign
-                <input type="checkbox" name="internet" value="true" id="reference">Internet
-                <input type="checkbox" name="other" value="true" id="reference">Other
-                    <input type="text" id="other" placeholder="Refferal's Name">
+            <label for="newspaper">Newspaper</label>
+            <input type="checkbox" name="newspaper" value="true" id="newspaper">
+            <label for="sign">Sign</label>
+            <input type="checkbox" name="sign" value="true" id="sign">
+            <label for="internet">Internet</label>
+            <input type="checkbox" name="internet" value="true" id="internet">
+            <label for="other">Other</label>
+            <input type="checkbox" name="other" value="true" id="other">
+            <input type="text" id="other" placeholder="person referred">
         </div>
         <div>
             <label name="name">Applicant Name </label>
@@ -78,6 +84,100 @@
             <input id="marrige" name="marrige" placeholder="Marital Status" type="text">
             <label for="citizen">Citizenship</label>
             <input id="citizen" name="citizen" placeholder="Citizenship" type="text">
+        </div>
+        <div>
+            <p>Emergency Contact</p>
+            <label for="em_name">Name</label>
+            <input name="em_name" id="em_name" type="text" placeholder="Emergency Name"><br>
+            <label for="em_address">Address</label>
+            <input name="em_address" id="em_address" type="text" placeholder="Emergency Address"><br>
+            <label for="em_phone">Phone</label>
+            <input name="em_phone" id="em_phone" type="text" placeholder="Emergency Phone">
+            <label for="em_email">Email</label>
+            <input name="em_email" id="em_email" type="text" placeholder="Emergency Email"><br>
+        </div>
+        <div>
+            <p>Name all other persons who will occupy the Property:</p>
+            <label for="occ_name">Occupant Name</label>
+            <input name="occ_name" id="occ_name" type="text" placeholder="Occupant Name">
+            <label for="occ_rel">Occupant Relationship</label>
+            <input name="occ_rel" id="occ_rel" type="text" placeholder="Occupant Relationship">
+            <label for="occ_age">Occupant Age</label>
+            <input name="occ_age" id="occ_age" type="text" placeholder="Occupant Age"><br>
+            <label for="occ_name">Occupant Name</label>
+            <input name="occ_name" id="occ_name" type="text" placeholder="Occupant Name">
+            <label for="occ_rel">Occupant Relationship</label>
+            <input name="occ_rel" id="occ_rel" type="text" placeholder="Occupant Relationship">
+            <label for="occ_age">Occupant Age</label>
+            <input name="occ_age" id="occ_age" type="text" placeholder="Occupant Age"><br>
+            <label for="occ_name">Occupant Name</label>
+            <input name="occ_name" id="occ_name" type="text" placeholder="Occupant Name">
+            <label for="occ_rel">Occupant Relationship</label>
+            <input name="occ_rel" id="occ_rel" type="text" placeholder="Occupant Relationship">
+            <label for="occ_age">Occupant Age</label>
+            <input name="occ_age" id="occ_age" type="text" placeholder="Occupant Age"><br>
+            <label for="occ_name">Occupant Name</label>
+            <input name="occ_name" id="occ_name" type="text" placeholder="Occupant Name">
+            <label for="occ_rel">Occupant Relationship</label>
+            <input name="occ_rel" id="occ_rel" type="text" placeholder="Occupant Relationship">
+            <label for="occ_age">Occupant Age</label>
+            <input name="occ_age" id="occ_age" type="text" placeholder="Occupant Age"><br>
+        </div>
+        <div>
+            <br>
+            <label for="current_add">Applicant's Current Address</label>
+            <input name="current_add" id="current_add" type="text" placeholder="Current Address">
+            <label for="cur_no">Apt No.</label>
+            <input name="cur_no" id="cur_no" type="text" placeholder="Current Number"><br>
+            <input name="cur_loc" id="cur_loc" type="text" placeholder="Current Location">(city,state,zip)<br>
+            <label for="lord_name">Landlord Name</label>
+            <input name="lord_name" id="lord_name" type="text" placeholder="Landlord Name">
+            <label for="lord_email">Email</label>
+            <input name="lord_email" id="lord_email" type="text" placeholder="Landlord Email"><br>
+            <label for="lord_phone_day">Phone:day:</label>
+            <input name="lord_phone_day" id="lord_phone_day" type="text" placeholder="Day Phone">
+            <label for="lord_phone_nt">Nt:</label>
+            <input name="lord_phone_nt" id="lord_phone_nt" type="text" placeholder="Night Phone">
+            <label for="lord_phone_mb">mb:</label>
+            <input name="lord_phone_mb" id="lord_phone_mb" type="text" placeholder="Mobile Phone">
+            <label for="lord_fax">fax:</label>
+            <input name="lord_fax" id="lord_fax" type="text" placeholder="Fax"><br>
+            <label for="cur_mov_in">Date Moved-In</label>
+            <input name="cur_mov_in" id="cur_mov_in" type="text" placeholder="Date">
+            <label for="cur_mov_out">Date Moved-Out</label>
+            <input name="cur_mov_out" id="cur_mov_out" type="text" placeholder="Date">
+            <label for="cur_rent">Rent $</label>
+            <input name="cur_rent" id="cur_rent" type="text" placeholder="Amount"><br>
+            <label for="cur_reason">Reason for Move:</label>
+            <input name="cur_reason" id="cur_reason" type="text" placeholder="Why?">
+        </div>
+        <div>
+            <br>
+            <label for="prev_add">Applicant's Previous Address</label>
+            <input name="prev_add" id="prev_add" type="text" placeholder="Previous Address">
+            <label for="prev_no">Apt No.</label>
+            <input name="prev_no" id="prev_no" type="text" placeholder="Number"><br>
+            <input name="prev_loc" id="prev_loc" type="text" placeholder="Location">(city,state,zip)<br>
+            <label for="prev_lord_name">Landlord Name</label>
+            <input name="prev_lord_name" id="prev_lord_name" type="text" placeholder="Landlord Name">
+            <label for="prev_lord_email">Email</label>
+            <input name="lord_email" id="lord_email" type="text" placeholder="Landlord Email"><br>
+            <label for="lord_phone_day">Phone:day:</label>
+            <input name="lord_phone_day" id="lord_phone_day" type="text" placeholder="Day Phone">
+            <label for="lord_phone_nt">Nt:</label>
+            <input name="lord_phone_nt" id="lord_phone_nt" type="text" placeholder="Night Phone">
+            <label for="lord_phone_mb">mb:</label>
+            <input name="lord_phone_mb" id="lord_phone_mb" type="text" placeholder="Mobile Phone">
+            <label for="lord_fax">fax:</label>
+            <input name="lord_fax" id="lord_fax" type="text" placeholder="Fax"><br>
+            <label for="cur_mov_in">Date Moved-In</label>
+            <input name="cur_mov_in" id="cur_mov_in" type="text" placeholder="Date">
+            <label for="cur_mov_out">Date Moved-Out</label>
+            <input name="cur_mov_out" id="cur_mov_out" type="text" placeholder="Date">
+            <label for="cur_rent">Rent $</label>
+            <input name="cur_rent" id="cur_rent" type="text" placeholder="Amount"><br>
+            <label for="cur_reason">Reason for Move:</label>
+            <input name="cur_reason" id="cur_reason" type="text" placeholder="Why?">
         </div>
 </body>
 </html>
