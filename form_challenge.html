@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Residential Lease Application</title>
+</head>
+<body>
+    <header>
+        <p>Recieved on <input type="text" placeholder="Date"> at <input type="text" placeholder="Time"> (time)</p>
+        <img src="img/30x30.svg" alt="logo">
+        <h4>Texas Association of Realtors</h4>
+        <h1>Residential Lease Application</h1>
+        <p>use of the form by persons who are not members of texas association of Realtors&#169; is not authorized</p>
+        <p><em>&#169;Texas Association of Realtors&#169;, Inc. 2007</em></p>
+        <br>
+        <h3><em><strong>Each occupant and co-applicant 18 years or older must submit a seperate application</strong></em></h3>
+        <hr>
+    </header>
+    <main>
+        <div>
+            <label for="address">Property Address</label>
+            <input id="address" name="address" type="text" placeholder="Property Address"><br>
+            <label for="move-in">Move-in Date:</label>
+            <input id="move-in" name="move-in" type="text" placeholder="Move-in Date">
+            <label for="rent">Monthly Rent:$</label>
+            <input id="rent" name="rent" type="text" placeholder="Monthly Rent">
+            <label for="deposit">Security Deposit:$</label>
+            <input id="deposit" name="deposit" type="text" placeholder="Deposit">
+        </div>
+        <div>
+            <label name="reference">Applicant was referred to Landlord by:</label>
+                <input type="checkbox" name="agent" value="true" id="reference">Real Estate Agent
+                    <input type="text" id="agent" placeholder="Agent Name"><br>
+                <input type="checkbox" name="newspaper" value="true" id="reference">Newspaper
+                <input type="checkbox" name="sign" value="true" id="reference">Sign
+                <input type="checkbox" name="internet" value="true" id="reference">Internet
+                <input type="checkbox" name="other" value="true" id="reference">Other
+                    <input type="text" id="other" placeholder="Refferal's Name">
+        </div>
+        <div>
+            <label name="name">Applicant Name </label>
+            <input id="first_name" name="first_name" type="text" placeholder="first">
+            <input id="middle_name" name="middle_name" type="text" placeholder="middle">
+            <input id="last_name" name="last_name" type="text" placeholder="last"><br>
+        </div>
+        <div>
+            <label for="co-applicant">Is there a co-applicant?</label>
+            <input type="checkbox" name="co-applicant" value="true" id="co-applicant">
+        </div>
+        <div>
+            <label name="maiden">Applicant's former last name(maiden or married)</label>
+            <input name="maiden" id="maiden" type="text" placeholder="maiden name"><br>
+            <label for="email">Email</label>
+            <input id="email" name="email" placeholder="email" type="text">
+            <label for="home_phone">Home Phone</label>
+            <input id="home_phone" name="home_phone" placeholder="home phone" type="text"><br>
+            <label for="work_phone">Work Phone</label>
+            <input id="work_phone" name="work_phone" placeholder="work phone" type="text">
+            <label for="cell_phone">Cell Phone</label>
+            <input id="cell_phone" name="cell_phone" placeholder="cell phone" type="text"><br>
+            <label for="ss_number">SS Number</label>
+            <input id="ss_number" name="ss_number" placeholder="SS Number" type="text">
+            <label for="license#">Driver</label>
+            <input id="license#" name="license#" placeholder="license#" type="text">
+            <label for="state">in</label>
+            <input id="state" name="state" placeholder="state" type="text"><br>
+            <label for="dob">Date of Birth</label>
+            <input id="dob" name="dob" placeholder="DD/MM/YYYY" type="text">
+            <label for="height">Height</label>
+            <input id="height" name="height" placeholder="Height" type="text">
+            <label for="weight">Weight</label>
+            <input id="weight" name="weight" placeholder="Weight" type="text">
+            <label for="eye_color">Eye Color</label>
+            <input id="eye_color" name="eye_color" placeholder="Eye Color" type="text"><br>
+            <label for="hair_color">Hair Color</label>
+            <input id="hair_color" name="hair_color" placeholder="Hair Color" type="text">
+            <label for="marrige">Marrital Status</label>
+            <input id="marrige" name="marrige" placeholder="Marital Status" type="text">
+            <label for="citizen">Citizenship</label>
+            <input id="citizen" name="citizen" placeholder="Citizenship" type="text">
+        </div>
+</body>
+</html>
