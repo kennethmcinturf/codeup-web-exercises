@@ -1,37 +1,83 @@
 header{
     text-align: center;
     background-color: red;
+    color: magenta;
+    border: 3px solid black;
 }
 footer{
-    background-color: yellow;
+    background-color: blue;
+    border: 3px solid black;
+    color: orange;
 }
 body{
-    background-color: pink;
+    background-color: white;
+    border: 3px solid black;
+    margin: 0;
 }
+
+img{
+    border: black solid 2px;
+}
+
+div{
+    margin: 1em;
+    text-align: center;
+    border: 3px solid black;
+}
+
+span>header {
+    border: 2px solid black;
+}
+
+.body{
+    border: 2px solid black;
+}
+
+.date_recieved{
+    border: 2px solid black;
+}
+
 .address{
     background-color: orange;
+    color: blue;
 }
 .reference {
     background-color: yellow;
+    color: red;
 }
 .applicant-name{
     background-color: green;
+    color: yellow;
+}
+.co-applicant{
+    background-color: blue;
+    color: orange;
 }
 .applicant-info{
-    background-color: blue;
+    background-color: indigo;
+    color: red;
 }
 .emergency_contact{
-    background-color: blue;
+    background-color: violet;
+    color: #c1fffd;
 }
 .occupants{
-    background-color: indigo;
+    background-color: red;
+    color: magenta;
 }
 .current_address{
-    background-color: violet;
+    background-color: orange;
+    color: blue;
 }
 .previous_address{
-    background-color: red;
+    background-color: yellow;
+    color: red;
 }
 .employer{
-    background-color: orange;
+    background-color: green;
+    color: yellow;
+}
+.page{
+    float: right;
+    color: black;
 }
