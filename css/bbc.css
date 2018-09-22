@@ -1,0 +1,40 @@
+header{
+    background-size: cover;
+    margin: 20px;
+
+}
+body{
+    background-color: gray;
+}
+img{
+    max-width: 3em;
+    max-height: 3em;
+}
+:root {
+    --main-bg: rbg(233 233 233);
+    --nav-color: rbg(51	51 51);
+    --nav-text-color: rbg(233 233 233);
+    --main-text: black;
+    --separator-color: rbg(233 233 233);
+}
+.top-nav {
+    background-color: black;
+    width: 100%;
+}
+.nav-item{
+    display: inline-block;
+    padding: 1.5em;
+    border: 1px solid white;
+}
+.nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+
+}
+.nav-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
