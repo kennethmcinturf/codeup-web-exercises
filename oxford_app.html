@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Oxford House Application</title>
+    <link rel="stylesheet" href="css/oxford_app.css">
 </head>
 <body>
     <header>
@@ -21,20 +22,20 @@
             <input type="text" name="address" id="address" placeholder="address">
             <input type="text" name="city" id="city" placeholder="city">
             <input type="text" name="state" id="state" placeholder="state">
-            <input type="text" name="zip" id="zip" placeholder="zip">
+            <input type="text" name="zip" id="zip" placeholder="zip"><br>
             <label for="treat_center">Check if treatment facility</label>
             <input type="checkbox" name="teat_center" id="treat_center">
         </div>
         <div class="dob">
-            <label for="dob">3.Date of Birth</label>
-            <input type="text" name="month" placeholder="MM">
-            <input type="text" name="day" placeholder="DD">
-            <input type="text" name="year" placeholder="YYYY">
+            <label for="dob">3.Date of Birth</label><br>
+            <input type="text" name="month" id="dob" placeholder="MM">
+            <input type="text" name="day" id="dob" placeholder="DD">
+            <input type="text" name="year" id="dob" placeholder="YYYY">
         </div>
         <div class="phone">
             <label for="phone">4.Phone Number</label>
-            <input type="text" name="home_phone" placeholder="Home">
-            <input type="text" name="work_phone" placeholder="Work">
+            <input type="text" name="home_phone" id="phone" placeholder="Home">
+            <input type="text" name="work_phone" id="phone" placeholder="Work">
         </div>
         <div class="alchoholic">
             <p>5.Are you an Alcoholic?</p>
@@ -43,9 +44,10 @@
             </label>
             <label>
                 <input type="radio" name="alcoholic" value="no">No
-            </label>
-            <br><label for="date_drink">6.Date of Last Drink?</label>
-            <input type="text" name="date_drink" placeholder="MM/DD/YYYY">
+            </label><br>
+            <br>
+            <label for="date_drink">6.Date of Last Drink?</label>
+            <input type="text" name="date_drink" id="date_drink" placeholder="MM/DD/YYYY">
         </div>
         <div class="adic_drug">
             <p>7.Are you addicted to drugs?</p>
@@ -54,83 +56,229 @@
             </label>
             <label>
                 <input type="radio" name="adic_drug" value="no">No
-            </label>
-            <br><label for="date_drink">8.Date of Last Drug Use?</label>
-            <input type="text" name="date_drink" placeholder="MM/DD/YYYY">
+            <label><br>
+            <br>
+            <label for="date_drink">8.Date of Last Drug Use?</label>
+            <input type="text" name="date_drink" placeholder="MM/DD/YYYY"><br>
+            <label for="adic_drug_use">9.List of Drugs you've used addictively:</label><br>
+            <input type="text" name="adic_drug_use_1" id="adic_drug_use" placeholder="Drug Name"><br>
+            <input type="text" name="adic_drug_use_2" id="adic_drug_use" placeholder="Drug Name"><br>
+            <input type="text" name="adic_drug_use_3" id="adic_drug_use" placeholder="Drug Name"><br>
+            <input type="text" name="adic_drug_use_4" id="adic_drug_use" placeholder="Drug Name"><br>
+            <input type="text" name="adic_drug_use_5" id="adic_drug_use" placeholder="Drug Name"><br>
+            <input type="text" name="adic_drug_use_6" id="adic_drug_use" placeholder="Drug Name"><br>
         </div>
-        <div class="adic_drug_use">
-            <label for="adic_drug_use">9.List of Drugs you used addictively:</label>
-            <input type="text" name="adic_drug_use_1" placeholder="Drug Name">
-            <input type="text" name="adic_drug_use_2" placeholder="Drug Name">
-            <input type="text" name="adic_drug_use_3" placeholder="Drug Name">
-            <input type="text" name="adic_drug_use_4" placeholder="Drug Name">
-            <input type="text" name="adic_drug_use_5" placeholder="Drug Name">
-            <input type="text" name="adic_drug_use_6" placeholder="Drug Name">
-        </div>
+        <br>
         <div class="aa_info">
             <label for="AA_when">10.When did you attend your first AA of NA meeting?</label>
-            <input type="text" name="AA_when" placeholder="Approx Date">
+            <input type="text" name="AA_when" id="AA_when" placeholder="Approx Date"><br>
             <label for="AA_amount">11.How many AA/NA meetings do you now attend each week?</label>
-            <input type="text" name="AA_amount" placeholder="Approx Amount">
+            <input type="text" name="AA_amount" id="AA_amount" placeholder="Approx Amount">
         </div>
         <div class="stop_using">
             <label for="stop_using">12.Do you want to stop drinking alcohol and using addictive drugs?</label>
+            <input type="checkbox" name="stop_using" id="stop_using">
         </div>
         <div class="employment">
             <label for="employed">13.Are you employed?</label>
-            <label for="welfare">14.Are you getting welfare or other non-job related income?</label>
+            <label>
+                <input type="radio" name="employed" id="employed" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="employed" id="employed" value="no">No
+            </label>
+            <label for="employed_where">If yes, where?</label>
+            <input type="text" name="employed_where" id="employed_where" placeholder="Job"><br>
+            <label for="welfare">14.Are you getting welfare  or other non-job related income?</label>
+            <label>
+                <input type="radio" name="welfare" id="welfare" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="welfare" id="welfare" value="no">No
+            </label>
             <label for="welfare_what">If yes, what?</label>
+            <input type="text" name="welfare_what" id="welfare_what" placeholder="welfare_what"><br>
             <label for="employed_are_you">15.If you do not have a job will you get one?</label>
-            <label for="employed_plan">.If yes, what is your plan</label>
+            <label>
+                <input type="radio" name="employed_are_you" id="employed_are_you" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="employed_are_you" id="employed_are_you" value="no">No
+            </label><br>
+            <label for="employed_plan">If yes, what is your plan?</label><br>
+            <textarea name="employed_plan" id="employed_plan" cols="30" rows="10"></textarea><br>
             <label for="monthly_income">16. What is your monthly income right now?</label>
+            <input type="text" name="monthly_income" id="monthly_income" placeholder="Approx Amount"><br>
             <label for="next_monthly_income">17. What do you expect your monthly income to be next month?</label>
+            <input type="text" name="next_monthly_income" id="next_monthly_income" placeholder="Approx Amount"><br>
         </div>
-        <label for="martial status">Marital Status</label>
-        <label for="doctor">Do you have a medical doctor?</label>
-        <label for="doctor_name">Doctor name:</label>
-        <label for="doctor_phone">Doctor Phone</label>
-        <label for="treat_center">Have you ever been to a treatment facility for alcoholism and/or drug addiction?</label>
-        <label for="treat_center_provider">Treatment Provider</label>
-        <label for="treat_center_phone">Phone Number</label>
-        <label for="treat_center_counselor">Primary Counselor</label>
-        <label for="prescrips">Do you take prescription drugs?</label>
-        <label for="prescrips_name">Drug Name</label>
-        <label for="prescrips_reason">Reason for prescription</label>
-        <label for="prescrips_name">Drug Name</label>
-        <label for="prescrips_reason">Reason for prescription</label>
-        <label for="prescrips_name">Drug Name</label>
-        <label for="prescrips_reason">Reason for prescription</label>
-        <label for="prescrips_name">Drug Name</label>
-        <label for="prescrips_reason">Reason for prescription</label>
-        <label for="prescrips_name">Drug Name</label>
-        <label for="prescrips_reason">Reason for prescription</label>
-        <label for="prescrips_name">Drug Name</label>
-        <label for="prescrips_reason">Reason for prescription</label>
-        <label for="prescrips_name">Drug Name</label>
-        <label for="prescrips_reason">Reason for prescription</label>
-        <label for="date_movein">Date of move in?</label>
-        <!--ask why they not moving in immediatly-->
-        <label for="prev_house">Have you Ever lived in an Oxford House before?</label>
-        <label for="prev_house_loc">If "yes", provide the name and location of the Oxford House</label>
-        <label for="reason_left">I left the previous Oxford House for the following reason:</label>
-        <label for="pay_back">If I do owe money to the Oxford House I left, I will agree to repay the money I own to my former Oxford House?</label>
-        <label for="emg_name">Emergency Contact Name</label>
-        <label for="emg_add">Address</label>
-        <label for="emg_relation">Relationship</label>
-        <label for="emergency_number">Phone Number</label>
-        <label for="add_info">Use this space for additional relevant information:</label>
-        <p> I have read all of the material on this application form including the limitations set forth in item 26. I
+        <div class="marital_status">
+            <label for="martial_status">Marital Status</label>
+            <select name="martial_status" id="martial_status">
+                <option value="single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Seperated">Seperated</option>
+                <option value="Divorced">Divorced</option>
+            </select>
+        </div>
+        <div class="medical">
+            <label for="doctor">Do you have a medical doctor?</label>
+            <label>
+                <input type="radio" name="doctor" id="doctor" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="doctor" id="doctor" value="no">No
+            </label><br>
+            <label for="doctor_name">Doctor name:</label>
+            <input type="text" name="doctor_name" id="doctor_name" placeholder="Name">
+            <label for="doctor_phone">Doctor Phone</label>
+            <input type="text" name="doctor_phone" id="doctor_phone" placeholder="Phone Number"><br>
+            <label for="treat_center">Have you ever been to a treatment facility for alcoholism and/or drug addiction?</label>
+            <label>
+                <input type="radio" name="treat_center" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="treat_center" value="no">No
+            </label><br>
+            <label for="treat_center_provider">Treatment Provider</label>
+            <input type="text" name="treat_center_provider" id="treat_center_provider" placeholder="Provider">
+            <label for="treat_center_phone">Phone Number</label>
+            <input type="text" name="treat_center_phone" id="treat_center_phone" placeholder="Phone Number">
+            <label for="treat_center_counselor">Primary Counselor</label>
+            <input type="text" name="treat_center_counselor" id="treat_center_counselor" placeholder="Name"><br>
+        </div>
+        <div class="prescriptions">
+            <label for="prescrips">Do you take prescription drugs?</label>
+            <label>
+                <input type="radio" name="prescrips" id="prescrips" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="prescrips" id="prescrips" value="no">No
+            </label><br>
+            <label for="prescrips_name_1">Drug Name</label>
+            <input type="text" name="prescrips_name_1" id="prescrips_name_1" placeholder="Name"><br>
+            <label for="prescrips_reason_1">Reason for prescription</label>
+            <input type="text" name="prescrips_reason_1" id="prescrips_reason_1" placeholder="Reason"><br>
+            <label for="prescrips_name_2">Drug Name</label>
+            <input type="text" name="prescrips_name_2" id="prescrips_name_2" placeholder="Name"><br>
+            <label for="prescrips_reason_2">Reason for prescription</label>
+            <input type="text" name="prescrips_reason_2" id="prescrips_reason_2" placeholder="Reason"><br>
+            <label for="prescrips_name_3">Drug Name</label>
+            <input type="text" name="prescrips_name_3" id="prescrips_name_3" placeholder="Name"><br>
+            <label for="prescrips_reason_3">Reason for prescription</label>
+            <input type="text" name="prescrips_reason_3" id="prescrips_reason_3" placeholder="Reason"><br>
+            <label for="prescrips_name_4">Drug Name</label>
+            <input type="text" name="prescrips_name_4" id="prescrips_name_4" placeholder="Name"><br>
+            <label for="prescrips_reason_4">Reason for prescription</label>
+            <input type="text" name="prescrips_reason_4" id="prescrips_reason_4" placeholder="Reason"><br>
+            <label for="prescrips_name_5">Drug Name</label>
+            <input type="text" name="prescrips_name_5" id="prescrips_name_5" placeholder="Name"><br>
+            <label for="prescrips_reason_5">Reason for prescription</label>
+            <input type="text" name="prescrips_reason_5" id="prescrips_reason_5" placeholder="Reason"><br>
+            <label for="prescrips_name_6">Drug Name</label>
+            <input type="text" name="prescrips_name_6" id="prescrips_name_6" placeholder="Name"><br>
+            <label for="prescrips_reason_6">Reason for prescription</label>
+            <input type="text" name="prescrips_reason_6" id="prescrips_reason_6" placeholder="Reason"><br>
+            <label for="prescrips_name_7">Drug Name</label>
+            <input type="text" name="prescrips_name_7" id="prescrips_name_7" placeholder="Name"><br>
+            <label for="prescrips_reason_7">Reason for prescription</label>
+            <input type="text" name="prescrips_reason_7" id="prescrips_reason_7" placeholder="Reason"><br>
+        </div>
+        <div class="move_in">
+            <label for="date_movein">Date of move in?</label>
+            <input type="text" name="date_movein_mm" id="date_movein" placeholder="MM">
+            <input type="text" name="date_movein_dd" id="date_movein" placeholder="DD">
+            <input type="text" name="date_movein_yy" id="date_movein" placeholder="YYYY"><br>
+            <label for="date_movein_reason">If not immediatly, why?</label><br>
+            <textarea name="date_movein_reason" id="date_movein_reason" cols="30" rows="10"></textarea><br>
+            <label for="prev_house">Have you Ever lived in an Oxford House before?</label>
+            <label>
+                <input type="radio" name="prev_house" id="prev_house" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="prev_house" id="prev_house" value="no">No
+            </label><br>
+            <label for="prev_house_loc">If "yes", provide the name and location of the Oxford House</label><br>
+            <input type="text" name="prev_house_loc_1" id="prev_house_loc" placeholder="House name and location"><br>
+            <input type="text" name="prev_house_loc_2" id="prev_house_loc" placeholder="House name and location"><br>
+            <input type="text" name="prev_house_loc_3" id="prev_house_loc" placeholder="House name and location"><br>
+            <label for="reason_left">I left the previous Oxford House for the following reason:</label><br>
+            <textarea name="reason_left" id="reason_left" cols="30" rows="10"></textarea><br>
+            <label for="pay_back">If I do owe money to the Oxford House I left, I will agree to repay the money I own to my former Oxford House?</label>
+            <label>
+                <input type="radio" name="pay_back" id="pay_back" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="pay_back" id="pay_back" value="no">No
+            </label>
+        </div>
+        <div class="emg_cont">
+            <label for="emg_name_1">Emergency Contact Name</label><br>
+            <input type="text" name="emg_name_1" id="emg_name_1" placeholder="Name">
+            <label for="emg_add_1">Address</label>
+            <input type="text" name="emg_add_1" id="emg_add_1" id="" placeholder="Address">
+            <label for="emg_relation_1">Relationship</label>
+            <input type="text" name="emg_relation_1" id="emg_relation_1" placeholder="Relationship">
+            <label for="emergency_number_1">Phone Number</label>
+            <input type="text" name="emg_phone_1" id="emergency_number_1" placeholder="Phone Number"><br>
+            <label for="emg_name_2">Emergency Contact Name</label><br>
+            <input type="text" name="emg_name_2" id="emg_name_2" placeholder="Name">
+            <label for="emg_add_2">Address</label>
+            <input type="text" name="emg_add_2" id="emg_add_2" placeholder="Address">
+            <label for="emg_relation_2">Relationship</label>
+            <input type="text" name="emg_relation_2" id="emg_relation_2" placeholder="Relationship">
+            <label for="emergency_number_2">Phone Number</label>
+            <input type="text" name="emg_number_2" id="emergency_number_2" placeholder="Phone Number"><br>
+            <label for="emg_name_3">Emergency Contact Name</label><br>
+            <input type="text" name="emg_name_3" id="emg_name_3" placeholder="Name">
+            <label for="emg_add_3">Address</label>
+            <input type="text" name="emg_add_3" id="emg_add_3" placeholder="Address">
+            <label for="emg_relation_3">Relationship</label>
+            <input type="text" name="emg_relation_3" id="emg_relation_3" placeholder="Relationship">
+            <label for="emergency_number_3">Phone Number</label>
+            <input type="text" name="emg_number_1" id="emergency_number_3" placeholder="Phone Number"><br>
+        </div>
+        <div class="add_info">
+            <label for="add_info">Use this space for additional relevant information:</label><br>
+            <textarea name="add_info" id="add_info" cols="30" rows="10"></textarea>
+        </div>
+        <div class="read">
+            <label for="read"> I have read all of the material on this application form including the limitations set forth in item 26. I
             have also answered each question honestly and want to achieve comfortable recovery from alcoholism
-            and/or drug addiction without relapse. </p>
-        <label for="signature">Signature</label>
-        <label for="date">Date</label>
-        <p>For use by Oxford House</p>
-        <label for="accepted"></label>
-        <label for="move_in_date">Move In Date</label>
-        <label for="move_out_date"></label>
-        <label for="house_key">House Key Returned</label>
-        <label for="debt">Outstanding Debt to House</label>
-        <label for="date_repaid">Date Repaid</label>
+            and/or drug addiction without relapse. </label>
+            <label>
+                <input type="radio" name="read" id="read" value="yes">Yes
+            </label>
+            <label>
+                <input type="radio" name="read" id="read" value="no">No
+            </label>
+        </div>
+        <div class="signature">
+            <label for="signature">Signature</label>
+            <input type="text" name="signature" id="signature" placeholder="Type Name"><br>
+            <label for="date">Date</label>
+            <input type="text" name="date_mm" id="date" placeholder="MM">
+            <input type="text" name="date_dd" id="date" placeholder="DD">
+            <input type="text" name="date_yy" id="date" placeholder="YYYY">
+        </div>
+        <div class="submit">
+            <input type="submit">
+        </div>
+        <footer>
+            <p>For use by Oxford House</p>
+            <label for="accepted">Accepted</label>
+            <input type="text" name="accepted" id="accepted">
+            <label for="move_in_date">Move In Date</label>
+            <input type="text" name="move_in_date" id="move_in_date">
+            <label for="move_out_date">Move Out Date</label>
+            <input type="text" name="move_out_date" id="move_out_date"><br>
+            <label for="house_key">House Key Returned</label>
+            <input type="text" name="house_key" id="house_key">
+            <label for="debt">Outstanding Debt to House</label>
+            <input type="text" name="debt" id="debt">
+            <label for="date_repaid">Date Repaid</label>
+            <input type="text" name="date_repaidid=" id="date_repaid">
+        </footer>
     </main>
 </body>
 </html>

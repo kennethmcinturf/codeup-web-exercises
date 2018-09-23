@@ -1,0 +1,86 @@
+div{
+    margin: 2em auto;
+    border: 1px solid black;
+    text-align: center;
+    width: 70%;
+    overflow: auto;
+    background-color: white;
+    padding: 1em;
+}
+p{
+    text-align: center;
+}
+body{
+    background-image: url("/Users/kennethmcinturf/IdeaProjects/codeup-web-exercises/img/oxford_logo.jpg");
+}
+header{
+    background-color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+h1{
+    text-align: center;
+}
+footer{
+    border: 1px solid black;
+    background-color: white;
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+.name{
+    width: 20%;
+    float: left;
+}
+.pres_add{
+    width: 40%;
+    float: left;
+    margin: 0 auto 0 auto
+}
+.dob{
+    width: 20%;
+    float: right;
+}
+.phone{
+
+}
+.alchoholic{
+
+}
+.adic_drug{
+
+}
+.aa_info{
+
+}
+.stop_using{
+
+}
+.employment{
+
+}
+.marital_status{
+
+}
+.medical{
+
+}
+.prescriptions{
+
+}
+.move_in{
+
+}
+.emergency_contact{
+
+}
+.add_info{
+
+}
+.read{
+
+}
+.signature{
+
+}
+.submit
