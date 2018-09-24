@@ -6,6 +6,8 @@ div{
     overflow: auto;
     background-color: white;
     padding: 1em;
+    float: left;
+    margin: 2em;
 }
 p{
     text-align: center;
@@ -28,59 +30,66 @@ footer{
     width: 70%;
     text-align: center;
 }
+.container_1{
+    border: none;
+    background-image: url("/Users/kennethmcinturf/IdeaProjects/codeup-web-exercises/img/oxford_logo.jpg");
+}
 .name{
-    width: 20%;
-    float: left;
+    width: 20%
 }
 .pres_add{
-    width: 40%;
-    float: left;
-    margin: 0 auto 0 auto
+    width: 20%;
 }
 .dob{
     width: 20%;
-    float: right;
 }
 .phone{
-
+    width: 20%;
 }
 .alchoholic{
-
+    width: 30%;
 }
 .adic_drug{
-
+    width: 20%;
 }
 .aa_info{
-
+    width: 20%;
 }
 .stop_using{
-
+    width: 20%;
 }
 .employment{
-
+    width: 20%;
+    clear: left;
 }
 .marital_status{
-
+    width: 20%;
 }
 .medical{
-
+    width: 20%;
 }
 .prescriptions{
-
+    width: 20%;
 }
 .move_in{
-
+    width: 20%;
 }
-.emergency_contact{
-
+.emg_cont{
+    width: 20%;
 }
 .add_info{
-
+    width: 20%;
 }
 .read{
-
+    width: 20%;
 }
 .signature{
-
+    width: 20%;
+    clear: left;
 }
-.submit
+.submit{
+    width: 20%;
+}
+.oxford{
+    width: 20%;
+}
