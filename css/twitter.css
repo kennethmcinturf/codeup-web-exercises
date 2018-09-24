@@ -49,6 +49,9 @@ a {
 .nav-link:hover {
     color: var(--link-color);
 }
+.container{
+    height: 80px;
+}
 .profile {
     background: var(--light-bg);
     height: 80px;
@@ -90,7 +93,7 @@ a {
 }
 .profile-details{
     float: left;
-    width: calc(25%-.5em);
+    width: calc(25%-.25em);
     margin: 0 .5em;
 }
 .timeline{
@@ -119,8 +122,8 @@ a {
     margin-top: 1.33em;
 }
 .media-body{
-    float: right;
-    width: calc(100%-50px);
+    float: left;
+    width: calc(100%-25px);
 }
 .profile-items{
     padding: 0;
@@ -130,5 +133,5 @@ a {
     margin: .5em;
 }
 
-/*border is to high*/
+
 
