@@ -1,21 +1,17 @@
-:root {
-    font-size: 10px;
-}
 h1{
-    font-size: 3rem;
+    font-size: 3em;
     text-align: center;
 }
 footer{
     margin-top: 40px;
+    clear: both;
 }
 img{
-    height: 224px;
 }
 .hidden-on-desktop {
     background-color: rgb(192 255 255);
     border: 1px solid rgb(204 204 204);
     margin: 0 auto;
-    width: 100%;
     height: 4rem;
     text-align: center;
 }
@@ -24,6 +20,8 @@ img{
     font-weight: bold;
     text-decoration: none;
     line-height: 40px;
+    position: relative;
+    top: 10px;
 }
 .nav-links {
     margin: auto;
@@ -37,6 +35,9 @@ img{
     height: 5rem;
     display: inline-block;
     line-height: 45px;
+}
+.nav-links>a{
+    text-align: center;
 }
 .sub-section{
     font-style: italic;
@@ -93,6 +94,7 @@ img{
         position: relative;
         left: 8rem;
     }
+    
 
 
 }
