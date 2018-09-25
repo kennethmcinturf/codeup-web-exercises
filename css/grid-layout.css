@@ -1,0 +1,48 @@
+.container{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
+.row{
+    width: 100%;
+    border: 1px solid black;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear:both;
+}
+.column{
+    float: left;
+    padding: 10px;
+    margin-bottom: 10px;
+    /*border: 1px solid black;*/
+    /*box-sizing: border-box;*/
+}
+.column.one-half{
+    width: 50%;
+    /*background-color: red;*/
+}
+.column.one-third{
+    width: 33.33%;
+    /*background-color: orange;*/
+}
+.column.one-fourth{
+    width: 25%;
+    /*background-color: yellow;*/
+}
+.column.one-sixth{
+    width: 16.667%;
+    /*background-color: green;*/
+}
+.column.one-eight{
+    width: 12.5%;
+    /*background-color: blue;*/
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        width: 100%;
+    }
+}
+
