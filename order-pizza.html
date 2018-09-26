@@ -48,10 +48,10 @@
                 <a class="nav-link active" href="size"><span class="badge badge-secondary badge-pill">1</span>Size and Crust</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="cheese"><span class="badge badge-secondary badge-pill">2</span>Cheese and Sauce</a>
+                <a class="nav-link" href="#cheese"><span class="badge badge-secondary badge-pill">2</span>Cheese and Sauce</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><span class="badge badge-secondary badge-pill">3</span>Toppings</a>
+                <a class="nav-link" href="#toppings"><span class="badge badge-secondary badge-pill">3</span>Toppings</a>
             </li>
         </ul>
         <div class="card" style="width: auto;">
@@ -123,7 +123,7 @@
             </div>
         </div>
         <br>
-        <div class="card" style="width: auto;">
+        <div class="card" id="cheese" style="width: auto;">
             <div class="card-header bg-info text-white">
                 Choose Cheese and Sauce
             </div>
@@ -183,7 +183,7 @@
             </div>
         </div>
         <br>
-        <div class="card" style="width: auto;">
+        <div class="card" id="toppings" style="width: auto;">
             <div class="card-header bg-info text-white">
                 Choose Toppings
             </div>
@@ -197,28 +197,28 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item bg-info"><div class="form-check">
-                                    <input class="form-check-input" type="radio"  name="meats" value="beef" id="defaultCheck3">
+                                    <input class="form-check-input" type="checkbox"  name="meats" value="beef" id="defaultCheck3">
                                     <label class="form-check-label" for="defaultCheck3">
                                         Beef
                                     </label>
                                 </div>
                                 </li>
                                 <li class="list-group-item bg-info"><div class="form-check">
-                                    <input class="form-check-input" type="radio" name="meats" value="Ham" id="defaultCheck3">
+                                    <input class="form-check-input" type="checkbox" name="meats" value="Ham" id="defaultCheck3">
                                     <label class="form-check-label" for="defaultCheck3">
                                         Ham
                                     </label>
                                 </div>
                                 </li>
                                 <li class="list-group-item bg-info"><div class="form-check">
-                                    <input class="form-check-input" type="radio" name="meats" value="steak" id="defaultCheck3">
+                                    <input class="form-check-input" type="checkbox" name="meats" value="steak" id="defaultCheck3">
                                     <label class="form-check-label" for="defaultCheck3">
                                         Philly Steak
                                     </label>
                                 </div>
                                 </li>
                                 <li class="list-group-item bg-info"><div class="form-check">
-                                    <input class="form-check-input" type="radio" name="meats" value="bacon" id="defaultCheck3">
+                                    <input class="form-check-input" type="checkbox" name="meats" value="bacon" id="defaultCheck3">
                                     <label class="form-check-label" for="defaultCheck3">
                                         Bacon
                                     </label>
@@ -237,28 +237,28 @@
                             <div class="card-body">
                                 <ul class="list-group">
                                     <li class="list-group-item bg-info"><div class="form-check">
-                                        <input class="form-check-input" type="radio"  name="non-meats" value="green_peppers" id="defaultCheck4">
+                                        <input class="form-check-input" type="checkbox"  name="non-meats" value="green_peppers" id="defaultCheck4">
                                         <label class="form-check-label" for="defaultCheck4">
                                             Green Peppers
                                         </label>
                                     </div>
                                     </li>
                                     <li class="list-group-item bg-info"><div class="form-check">
-                                        <input class="form-check-input" type="radio" name="non-meats" value="mushrooms" id="defaultCheck4">
+                                        <input class="form-check-input" type="checkbox" name="non-meats" value="mushrooms" id="defaultCheck4">
                                         <label class="form-check-label" for="defaultCheck4">
                                             Mushrooms
                                         </label>
                                     </div>
                                     </li>
                                     <li class="list-group-item bg-info"><div class="form-check">
-                                        <input class="form-check-input" type="radio" name="non-meats" value="onions" id="defaultCheck4">
+                                        <input class="form-check-input" type="checkbox" name="non-meats" value="onions" id="defaultCheck4">
                                         <label class="form-check-label" for="defaultCheck4">
                                             Onions
                                         </label>
                                     </div>
                                     </li>
                                     <li class="list-group-item bg-info"><div class="form-check">
-                                        <input class="form-check-input" type="radio" name="non-meats" value="jalepeno" id="defaultCheck4">
+                                        <input class="form-check-input" type="checkbox" name="non-meats" value="jalepeno" id="defaultCheck4">
                                         <label class="form-check-label" for="defaultCheck4">
                                             Jalepeno Peppers
                                         </label>
