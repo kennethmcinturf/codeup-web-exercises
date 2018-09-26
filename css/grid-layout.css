@@ -29,7 +29,8 @@
 .one-third,
 .one-fourth,
 .one-sixth,
-.one-eighth {
+.one-eighth,
+.three-fourths{
     width: 100%;
 }
 
@@ -40,6 +41,7 @@
     .one-fourth {width: 25%;}
     .one-sixth {width: 16.6666%;}
     .one-eighth {width: 12.5%;}
+    .three-fourths{width: 75%}
     .one-half-offset {
         margin-left: 50%;
     }

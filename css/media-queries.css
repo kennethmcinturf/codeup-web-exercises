@@ -7,6 +7,11 @@ footer{
     clear: both;
 }
 img{
+    width: 100%;
+}
+body{
+    width: 100%;
+    margin: 0;
 }
 .hidden-on-desktop {
     background-color: rgb(192 255 255);
@@ -14,6 +19,7 @@ img{
     margin: 0 auto;
     height: 4rem;
     text-align: center;
+    width: 100%;
 }
 .hidden-on-desktop>a{
     color: #000;
@@ -22,6 +28,7 @@ img{
     line-height: 40px;
     position: relative;
     top: 10px;
+    width: 100%;
 }
 .nav-links {
     margin: auto;
@@ -35,8 +42,9 @@ img{
     height: 5rem;
     display: inline-block;
     line-height: 45px;
+    width: 100%;
 }
-.nav-links>a{
+.nav-links>a {
     text-align: center;
 }
 .sub-section{
@@ -54,45 +62,45 @@ img{
     height: 385px;
 }
     footer{
-        margin-top: 100px;
+        margin-top: 400px;
     }
     body {
     }
     .hidden-on-desktop {
-    visibility: hidden;
+        display: none;
 }
     .nav-links {
-    margin: auto;
-    text-align: right;
-    float: right;
-    position: relative;
-    left: -35px;
+        text-align: center;
+        position: relative;
+        left: -35px;
+        top: 40px;
+        float: right;
 
 }
     .nav-links>li {
-    background-color: transparent;
-    list-style: none;
-    margin: 1rem 1rem;
-    text-align: center;
-    height: 5rem;
-    display: inline-block;
-    line-height: 45px;
-    font-size: 2rem;
+        background-color: transparent;
+        list-style: none;
+        margin: 0 1em;
+        text-align: center;
+        display: inline;
+        width: 100%;
+
 }
 
-    .sub-section{
-    font-style: italic;
-    clear: right;
-    margin-left: 1px;
-    position: relative;
-    left: -10px;
-}
     .main {
-    float: left;
-}
+        float: left;
+    }
+    .sub-section{
+        /*clear: right;*/
+        /*margin-left: 1px;*/
+        position: relative;
+        left: -10px;
+        float: right;
+    }
     .alert-info {
         position: relative;
-        left: 8rem;
+        left: 8em;
+        margin-top: 10em;
     }
     
 
