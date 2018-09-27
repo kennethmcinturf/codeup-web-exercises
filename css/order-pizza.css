@@ -1,15 +1,10 @@
-h1{
-    text-align: center;
-    background: white;
-    opacity: .5;
-    margin: 0 auto;
-    width: 100%;
+.pizza-img h1{
+    opacity: .7;
+    width: calc(100%);
+    position: relative;
 
-    /*position: relative;*/
-    /*left: -42px;*/
 }
-.jumbotron{
-    background-image: url("/Users/kennethmcinturf/IdeaProjects/codeup-web-exercises/img/pizza.png");
+.pizza-img{
+    background-image: url("../img/pizza.png");
     background-size: cover;
-    width: 100%;
 }

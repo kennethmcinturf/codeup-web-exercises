@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pizza World-Build your own Pizza</title>
+    <title>Pizza World:Build your own Pizza</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/order-pizza.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -33,28 +33,29 @@
                 </li>
             </ul>
             <form class="form-inline">
-                <button class="btn btn-sm btn-outline-secondary fas fa-user-plus" type="button">Sign Up</button>
+                <button class="btn btn-sm btn-outline-secondary fas fa-user" type="button">Sign Up</button>
             </form>
         </div>
     </nav>
     <div class="container">
-        <div class="jumbotron d-sm-none d-md-block">
-            <h1 class="display-4">Welcome to Pizza World!</h1>
+        <div class="jumbotron d-none d-md-block pizza-img px-0">
+            <h1 class="display-4 text-center bg-white">Welcome to Pizza World!</h1>
         </div>
         <h2>Build your own pizza!</h2>
         <br>
+        <!--Make sure the thing your using matches the funcitionality its supposed to have-->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="size"><span class="badge badge-secondary badge-pill">1</span>Size and Crust</a>
+                <a class="nav-link active" href="#size"><span class="badge badge-secondary badge-pill">1</span> Size and Crust</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#cheese"><span class="badge badge-secondary badge-pill">2</span>Cheese and Sauce</a>
+                <a class="nav-link" href="#cheese"><span class="badge badge-secondary badge-pill">2</span> Cheese and Sauce</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#toppings"><span class="badge badge-secondary badge-pill">3</span>Toppings</a>
+                <a class="nav-link" href="#toppings"><span class="badge badge-secondary badge-pill">3</span> Toppings</a>
             </li>
         </ul>
-        <div class="card" style="width: auto;">
+        <div class="card" style="width: auto" id="size">
             <div class="card-header bg-info text-white">
                 Choose size and crust
             </div>
@@ -270,7 +271,7 @@
                         </div>
                         <div>
                             <form class="form-inline text-right p-0">
-                                <div class="card-header border col">
+                                <div class="card-footer border col">
                                     <button class="btn btn-sm btn-info fas fa-shopping-cart" type="button">Checkout</button>
                                 </div>
                             </form>
