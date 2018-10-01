@@ -1,0 +1,10 @@
+body{
+    background-image: url("/Users/kennethmcinturf/IdeaProjects/codeup-web-exercises/greg_green_grass/grass_background.jpg");
+}
+.divBackg{
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    height: 80px;
+    background: white;
+}
