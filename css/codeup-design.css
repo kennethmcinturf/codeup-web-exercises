@@ -1,0 +1,78 @@
+body{
+
+}
+
+hr{
+    height: 3px;
+}
+
+h1{
+    font-family: 'Anton', sans-serif;
+    font-size: 3.4rem;
+}
+h2{
+    font-size: 33px;
+    font-family: 'Anton', sans-serif;
+}
+h6{
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
+p{
+    font-family: 'Abel', sans-serif;
+}
+button{
+    font-family: 'Anton', sans-serif;
+
+}
+a{
+    color: black;
+}
+.row{
+    box-sizing: border-box;
+}
+.divBackg{
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    height: 80px;
+    background: white;
+}
+.col{
+    padding: 1.5rem;
+}
+.row{
+    padding: 2rem 0;
+}
+
+.row button{
+    margin-right: 20px;
+
+}
+button.btn.rounded-circle.col-2{
+    height: 150px;
+    width: 130px;
+    border: solid white 10px;
+    border-radius: 50%;
+}
+div.row{
+
+}
+
+div.row.justify-content-center{
+    padding:0;
+    margin:0;
+    height: 180px;
+}
+span.badge{
+    margin: 1px;
+    margin-left: 5px;
+}
+p.float-left{
+    font-size: x-small;
+}
+p.float-left , span.badge{
+    margin-top: 4px;
+}
+
+
