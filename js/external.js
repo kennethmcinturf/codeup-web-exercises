@@ -24,6 +24,8 @@ var amazonHours = prompt("How many hours did you work for Amazon?");
 var weeklyPay = (parseFloat(facebookHours)* parseFloat(facebookPay)) + (parseFloat(googleHours)*parseFloat(googlePay)) + (parseFloat(amazonHours)*parseFloat(amazonPay));
 alert("Your total weekly pay is" + " " + "$" + weeklyPay.toFixed(2));
 
+
+
 var classFull = confirm("Does the class have any openings");
 var scheduleConflict = confirm("Does the student have a class at the same time as this class?");
 var enrollElidgble = (classFull) && (!scheduleConflict);
