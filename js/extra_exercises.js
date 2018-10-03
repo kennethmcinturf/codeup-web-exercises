@@ -94,6 +94,36 @@
 
 
 
+function hasLetterA(input) {
+    var output = 0;
+    var indexA = input.indexOf('a');
+    if (indexA === -1) {
+        output = false;
+    } else{
+        output = true;
+    }
+    var indexCapA = input.indexOf('A');
+    if (indexCapA === -1) {
+        output = false;
+    } else{
+        output = true;
+    }
+    return output;
+}
+
+
+function hasLetterA2(input) {
+    var output =0;
+    var lowerCaseInput = input.toLowerCase();
+    var indexOfA = lowerCaseInput.indexOf('a');
+    if (indexOfA === -1) {
+        output = false;
+    } else{
+        output = true;
+    }
+    return output
+}
+
 
 
 

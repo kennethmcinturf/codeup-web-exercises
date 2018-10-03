@@ -1,12 +1,12 @@
-// "use strict"
-//
-// console.log("Hello from External JS");
-//
-// alert("Welcome to my Website!");
-//
-// var userFavColor = prompt("What is your favorite color?");
-//
-// alert("Great" + " " + userFavColor + " " + "is my favorite color too!");
+"use strict"
+
+console.log("Hello from External JS");
+
+alert("Welcome to my Website!");
+
+var userFavColor = prompt("What is your favorite color?");
+
+alert("Great" + " " + userFavColor + " " + "is my favorite color too!");
 
 var liitleMermaid =  prompt("How many days did you rent 'The Little Mermaid' for?");
 var brotherBear =  prompt("How many days did you rent 'Brother Bear' for?");
