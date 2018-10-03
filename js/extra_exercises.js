@@ -92,7 +92,7 @@
 // alert("After " + yearLoan + " at " + parseFloat(rateLoan) + " %, the investment will be worth $" + amountEndOfInvest);
 
 
-
+(function() {
 
 function hasLetterA(input) {
     var output = 0;
@@ -113,7 +113,7 @@ function hasLetterA(input) {
 
 
 function hasLetterA2(input) {
-    var output =0;
+    var output = 0;
     var lowerCaseInput = input.toLowerCase();
     var indexOfA = lowerCaseInput.indexOf('a');
     if (indexOfA === -1) {
@@ -124,6 +124,15 @@ function hasLetterA2(input) {
     return output
 }
 
+function hasLetterA3(input) {
+    var output = true;
+    var lowerCaseInput = input.toLowerCase();
+    var indexOfA = lowerCaseInput.indexOf('a');
+    var output = indexOfA >= -1;
+    return output;
+}
 
 
 
+
+})();
