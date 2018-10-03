@@ -18,9 +18,8 @@ function sayHello(name) {
  *
  * console.log 'helloMessage' to check your work
  */
-var name = "KC"
-var helloMessage = sayHello(name);
-console.log(helloMessage)
+var helloMessage = sayHello("KC");
+console.log(helloMessage);
 
 /**
  * TODO:
@@ -28,6 +27,8 @@ console.log(helloMessage)
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
+var myName = "KC";
+var helloMessage = sayHello(myName)
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -51,6 +52,14 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
+function isTwo(input) {
+    var returnCheckIsTwo = input === 2;
+    return returnCheckIsTwo;
+}
+
+console.log(random);
+console.log(isTwo(random));
+
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -63,12 +72,27 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
+function calculateTip(billDeci,totalBillNumber) {
+    var output = 0;
+    output = billDeci * totalBillNumber;
+    return output;
+}
+ console.log(calculateTip(.2,20));
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+
+// var billPercentage = prompt("What Percent do you want to tip?");
+// var billDeci = (parseFloat(billPercentage) / 100);
+// var totalBillString = prompt("What was the total Bill?");
+// var totalBillNumber = (parseFloat(totalBillString));
+// alert("The amount you should tip is" + " " + calculateTip(billDeci,totalBillNumber));
+
+
 
 /**
  * TODO:
@@ -84,3 +108,36 @@ var random = Math.floor((Math.random() * 3) + 1);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+var discountString = prompt("What is the percentage of discount on this item?");
+do {
+    var discountString = prompt("What is the percentage of discount on this item?");
+}while ((discountString) === "" || (parseFloat(discountString)) = NaN);
+var discountPercent = (parseFloat(discountString) / 100);
+var orignalPriceString = prompt("What is the original price of the item?");
+var originalPrice =  parseFloat(orignalPriceString);
+alert(applyDiscount(originalPrice,discountPercent));
+
+
+function applyDiscount(originalPrice,discountPercent) {
+    var output = 0;
+    output = originalPrice * (1 - discountPercent);
+    return output;
+}
+
+console.log(applyDiscount(100,.2));
+
+
+/*Extra Work*/
+function countLetters(name) {
+    var output = 0;
+    var noWhitespace = name.trim();
+    output = parseFloat(noWhitespace.length);
+    return output;
+}
+
+console.log(countLetters("   Chanky   "));
+
+
+
+
