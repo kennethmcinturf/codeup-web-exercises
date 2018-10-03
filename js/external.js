@@ -42,7 +42,7 @@ if (!classFull){
 var productBasket = prompt("How many items are in the basket?");
 var offerExpired = confirm("Is the offer expiration date in the future?");
 var premiumMember = confirm("Is customer a premium member?");
-var offerValid = (premiumMember || (parseFloat(productBasket) > 2)) && offerExpired;
+var offerValid = (premiumMember || (parseFloat(productBasket) >= 2)) && offerExpired;
 alert("The offer can be applied:" + " " + offerValid);
 
 if ((parseFloat(productBasket) > 2) && (offerExpired)) {
