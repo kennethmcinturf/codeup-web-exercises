@@ -51,6 +51,18 @@
 // var leftoverPizza = (piecesAtParty - totalPiecesOfPizza);
 // alert("You have " + leftoverPizza + " leftover pieces.");
 
+// var ceilingLenght = prompt("What is the length of the ceiling?");
+// var ceilingWidth = prompt("What is the width of the ceiling?");
+// var ceilingOfRoom = ceilingLenght * ceilingWidth;
+// const paintPerFt = 350;
+// var needPaintDeci = ceilingOfRoom / paintPerFt;
+// var needPaintWhole = parseInt(needPaintDeci) + 1;
+// alert("You will need to buy " + needPaintWhole);
+
+
+var amountEuro = prompt("How many Euros do you have?");
+var exchangeRateEuro = prompt("How many euro do you get per dollar?");
+
 
 
 
