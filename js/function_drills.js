@@ -210,14 +210,170 @@ function isFalse(input) {
 }
 
 function isTruthy(input) {
-    var output = 0;
-    output = input == ;
+    var output = true;
+    output = Boolean(input) === true;
     return output;
 }
 
 function isFalsy(input) {
     var output = true;
-    output = input == true;
+    output = Boolean(input) === false;
     return output;
 }
 
+function isVowel(letter) {
+    var output = true;
+    if (letter.toLowerCase() === "a"){
+        output = true
+    } else if (letter.toLowerCase() === "e"){
+        output = true
+    } else if (letter.toLowerCase() === "i"){
+        output = true
+    } else if (letter.toLowerCase() === "o"){
+        output = true
+    } else if (letter.toLowerCase() === "u"){
+        output = true
+    }   else{
+        output = false
+    }
+    return output;
+}
+
+function isConstinant(letter) {
+    var output = true;
+    if (letter.toLowerCase() === "a"){
+        output = false
+    } else if (letter.toLowerCase() === "e"){
+        output = false
+    } else if (letter.toLowerCase() === "i"){
+        output = false
+    } else if (letter.toLowerCase() === "o"){
+        output = false
+    } else if (letter.toLowerCase() === "u"){
+        output = false
+    }   else{
+        output = true
+    }
+    return output;
+}
+
+function isCapital(letter) {
+    var output = true;
+    output = letter === letter.toUpperCase();
+    return output;
+}
+
+function isLowerCase(letter) {
+    var output = true;
+    output = letter === letter.toLowerCase();
+    return output;
+}
+
+function hasLowerCase(string) {
+    var output = true;
+    output = ['a', 'e', 'i', 'o', 'u'].indexOf(string.toLowerCase()) === -1;
+    return output;
+}
+
+function isSpace(letter) {
+    var output = true;
+    output = letter.indexOf(' ') !== -1;
+    return output;
+}
+
+function isZero(number) {
+    var output = true;
+    output = number === 0;
+    return output;
+}
+
+function notZero(number) {
+    var output = true;
+    output = number !== 0;
+    return output;
+}
+
+function lowerCase(input) {
+    var output = 0;
+    output = input.toLowerCase();
+    return output;
+}
+
+function double(n) {
+    var output = 0;
+    output = input * 2;
+    return output;
+}
+
+function triple(n) {
+    var output = 0;
+    output = input * 3;
+    return output;
+}
+
+function quadruple(n) {
+    var output = 0;
+    output = input * 4;
+    return output;
+}
+
+function half(n) {
+    var output = 0;
+    output = input / 2;
+    return output;
+}
+
+function subtract(a,b) {
+    var output = 0;
+    output = a - b;
+    return output;
+}
+
+function modulo(a,b) {
+    var output = 0;
+    var numbersDivided = a / b;
+    output = numbersDivided - numbersDivided.toFixed();
+    return output;
+}
+
+function cube(n) {
+    var output = 0;
+    output = n * n * n;
+    return output;
+}
+
+function squareRoot(n) {
+    var output = 0;
+    output = n * n;
+    return output;
+}
+
+function cubeRoot(n) {
+    var output = 0;
+    output = n * n * n;
+    return output;
+}
+
+function invertSign(number) {
+    var output = 0;
+    if (isNaN(number) === true){
+        output = false;
+    } else{
+    output = -(number);
+    }
+    return output;
+}
+
+function degreesToRadians(number) {
+    var output = 0;
+    const pi = 3.14;
+    output = number * (pi/180);
+    return output;
+}
+
+function radiansToDegree(number) {
+    var output = 0;
+    const pi = 3.14;
+    output = number * (pi/180);
+    return output;
+}
