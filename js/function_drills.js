@@ -374,6 +374,23 @@ function degreesToRadians(number) {
 function radiansToDegree(number) {
     var output = 0;
     const pi = 3.14;
-    output = number * (pi/180);
+    output = number * (180/pi);
     return output;
 }
+
+function isBlank(input) {
+    var output = 0;
+    if (!input.replace(/\s/g, '').length){
+        output = true
+    }else {
+        output = false
+    }
+    return output;
+}
+
+function trim(input) {
+    var output = 0;
+    output = input.trim();
+    return output;
+}
+
