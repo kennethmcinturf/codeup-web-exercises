@@ -394,3 +394,116 @@ function trim(input) {
     return output;
 }
 
+function areEqual(x,y) {
+    var output = true;
+    output = x == y;
+    return output;
+}
+
+
+function areIdentical(x,y) {
+    var output = true;
+    output = x === y;
+    return output;
+}
+
+function not(x) {
+    var output = 0;
+   if (Boolean(x) === true){
+       output = false;
+   } else {
+       output = true;
+   }
+    return output;
+}
+
+function notNot(x) {
+    var output = 0;
+    output = -(-(x));
+    return output;
+}
+
+function and(x,y) {
+    var output = 0;
+    output = Boolean(x) && Boolean(y);
+    return output;
+}
+
+function or(x,y) {
+    var output = 0;
+    output = Boolean(x) || Boolean(y);
+    return output;
+}
+
+function reverseString(input) {
+    var output = "string";
+    var splitString = input.split("");
+    var reverseArray = splitString.reverse();
+    output = reverseArray.join("");
+    return output;
+}
+
+function absoluteValue(number) {
+    var output = 0;
+    output = Math.abs(number);
+    return output;
+}
+
+function rollDice(sides) {
+    var output = 0;
+    output = Math.floor(Math.random() * (sides - 1)) + 1;
+    return output;
+}
+
+function howManyWhitesSpaces(input) {
+    var output = 0;
+    output = (input.length) - ((input.trim()).length);
+    return output;
+}
+
+function secondFromFirst(x,y) {
+    var output = "string";
+    if (x.search(y)){
+        output = x.replace(y," ");
+    }else{
+        output = x;
+    }
+    return output
+}
+
+function stringEndsWithA(input) {
+    var output = true;
+    if (input.substring(input.length-1) === "a"){
+        output = true;
+    } else{
+        output = false;
+    }
+    return output
+}
+
+function whiteSpacesAtBeginning(input) {
+    var output = 0;
+
+}
+
+function returnTrueMessage() {
+    return  "Hey, it's true"
+}
+
+function returnFalseMessage() {
+    return  "Hey, it's false"
+}
+
+function returnMessage(function) {
+    var output = 0;
+    if (Boolean(function) === true) {
+        output = returnTrueMessage();
+    } else{
+        output = returnFalseMessage();
+    }
+    return output;
+}
+
+function willLoginUser() {
+
+}
