@@ -505,5 +505,6 @@ function returnMessage(input) {
 }
 
 function willLoginUser() {
+    var output = 0;
 
 }
