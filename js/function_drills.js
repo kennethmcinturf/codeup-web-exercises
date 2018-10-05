@@ -487,16 +487,16 @@ function whiteSpacesAtBeginning(input) {
 }
 
 function returnTrueMessage() {
-    return  "Hey, it's true"
+    return  "Hey, it's true";
 }
 
 function returnFalseMessage() {
-    return  "Hey, it's false"
+    return  "Hey, it's false";
 }
 
-function returnMessage(function) {
+function returnMessage(input) {
     var output = 0;
-    if (Boolean(function) === true) {
+    if (Boolean(input) === true) {
         output = returnTrueMessage();
     } else{
         output = returnFalseMessage();
