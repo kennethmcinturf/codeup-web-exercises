@@ -1,69 +1,50 @@
 "use strict";
 
 function returnTwo() {
-    var output = 0;
-    output = 2;
-    return output;
+    return 2;
 }
 
 // console.log(returnTwo());
 
 function returnName() {
-    var output = 0;
-    output = "KC";
-    return output;
+    return "KC";
 }
 
 // console.log(returnName());
 
 function addThree(number) {
-    var output = 0;
-    output = number + 3;
-    return output;
+   return number + 3;
 }
 
 // console.log(addThree(5));
 
 function sayString(stringPassed) {
-    var output = "string";
-    output = stringPassed;
-    return output;
+    return stringPassed;
 }
 
 // console.log(sayString("howdy"))
 
-function sayHowdy(string) {
-    var output = "string";
-    output = console.log("Howdy!");
-    return output;
+function sayHowdy() {
+    return console.log("Howdy");
 }
 
 //Challenge Functions
 
 function identity(input) {
-    var output = 0;
-    output = input;
-    return output;
+    return input;
 }
 
 function getRandomNumber(min,max) {
-    var output = 0;
-    var random = Math.floor(Math.random() * max) + min;
-    output = random;
-    return output;
+    return Math.floor(Math.random() * max) + min;
 }
 
 function first(input) {
-    var output = "String";
-    output = input.substring(0,1);
-    return output;
+    return input.substring(0,1);
 }
 
 function last(input) {
-    var output = "string";
     var lengthOfString = input.length;
-    output = ((input.substring(lengthOfString - 1))),(input.substring(lengthOfString-1));
-    return output;
+    return ((input.substring(lengthOfString - 1))),(input.substring(lengthOfString-1));
 }
 
 function rest(input) {
@@ -224,37 +205,35 @@ function isFalsy(input) {
 function isVowel(letter) {
     var output = true;
     if (letter.toLowerCase() === "a"){
-        output = true
+        return true
     } else if (letter.toLowerCase() === "e"){
-        output = true
+        return true
     } else if (letter.toLowerCase() === "i"){
-        output = true
+        return true
     } else if (letter.toLowerCase() === "o"){
-        output = true
+        return true
     } else if (letter.toLowerCase() === "u"){
-        output = true
+        return true
     }   else{
-        output = false
+        return false
     }
-    return output;
 }
 
 function isConstinant(letter) {
     var output = true;
     if (letter.toLowerCase() === "a"){
-        output = false
+        return false
     } else if (letter.toLowerCase() === "e"){
-        output = false
+        return false
     } else if (letter.toLowerCase() === "i"){
-        output = false
+        return false
     } else if (letter.toLowerCase() === "o"){
-        output = false
+        return false
     } else if (letter.toLowerCase() === "u"){
-        output = false
+        return false
     }   else{
-        output = true
+        return true
     }
-    return output;
 }
 
 function isCapital(letter) {
@@ -481,10 +460,10 @@ function stringEndsWithA(input) {
     return output
 }
 
-function whiteSpacesAtBeginning(input) {
-    var output = 0;
-
-}
+// function whiteSpacesAtBeginning(input) {
+//     var regExp = s/\s+//;
+//     return (input.length()) - (whitespaceBegininng.lenght);
+// }
 
 function returnTrueMessage() {
     return  "Hey, it's true";
@@ -504,7 +483,19 @@ function returnMessage(input) {
     return output;
 }
 
-function willLoginUser() {
-    var output = 0;
-
+var username = prompt("Please enter a username");
+var password = prompt("Please enter a password");
+var age = prompt("Please enter your age");
+var admin = username === "Bobby";
+function willLoginUser(username,password,age,admin) {
+    if (username === password){
+        return alert("Password and Username cannot match");
+    }else if(parseFloat(age) < 18 && username !== "Bobby"){
+        return alert("users must be 18 or older!!");
+    }else{
+        return alert("Welcome to the website!");
+    }
 }
+
+console.log((willLoginUser(username, password, age, admin)));
+
