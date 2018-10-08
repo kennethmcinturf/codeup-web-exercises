@@ -48,162 +48,111 @@ function last(input) {
 }
 
 function rest(input) {
-    var output = "string";
     var lenghtOfString = input.length;
-    output = (input.substring(0,lenghtOfString-1))
-    return output;
+    return (input.substring(0,lenghtOfString-1));
 }
 
 function reverse(input) {
-    var output = "string";
     var splitString = input.split("");
     var reverseArray = splitString.reverse();
-    output = reverseArray.join("");
-    return output;
+    return reverseArray.join("");
 }
 
 function isNumeric(input) {
-    var output = false;
-    output = isNaN(input) === false;
-    return output;
+    return isNaN(input) === false;
 }
 
-//Could redo with taking out whitespace
+
 function count(input) {
-    var output = 'string';
-    output = input.length;
-    return output;
+    var noWhitespace = input.trim();
+    return noWhitespace.length;
 }
 
-//could redo, make any input into a number
 function add(a,b) {
-    var output = 0;
-    output = a + b;
-    return output;
+    return parseFloat(a) + parseFloat(b);
 }
 
 function subtract(a,b) {
-    var output = 0;
-    output = a - b;
-    return output;
+    return a - b;
 }
 
 function multiply(a,b) {
-    var output = 0;
-    output = a * b;
-    return output;
+    return a * b;
 }
 
 function divide(numerator, denominator) {
-    var output = 0;
-    output = numerator / denominator;
-    return output;
+    return numerator / denominator;
 }
 
 function remainder(number, divisor) {
-    var output = 0;
-    output = number % divisor;
-    return output;
+    return number % divisor;
 }
 
 function square(a) {
-    var output = 0;
-    output = a * a;
-    return output;
+    return a * a;
 }
 
 function sumOfSquares(a,b) {
-    var output = 0;
-    output = add(square(a),square(b));
-    return output;
+    return add(square(a),square(b));
 }
 
 function doMath(operator,a,b) {
-    var output = 0;
-    output = operator(a,b);
-    return output;
+    return operator(a,b);
 }
 
 function isOdd(number) {
-    var output = true;
-    output = (number % 2 === 1);
-    return output;
+    return (number % 2 === 1);
 }
 
 function isEven(number) {
-    var output = true;
-    output = (number % 2 === 0);
-    return output;
+    return (number % 2 === 0);
 }
 
 function identity(input) {
-    var output = 0;
-    output = input;
-    return output;
+    return input;
 }
 
 function isFive(input) {
-    var output = true;
-    output = input === 5;
-    return output;
+    return input === 5;
 }
 
 function addFive(input) {
-    var output = 0;
-    output = (input + 5);
-    return output;
+    return (input + 5);
 }
 
 function isMultipleOfFive(input) {
-    var output = 0;
-    output = input % 5 === 0;
-    return output;
+    return input % 5 === 0;
 }
 
 function isThree(input) {
-    var output = true;
-    output = input === 3;
-    return output;
+    return input === 3;
 }
 
 function isMultipleOThree(input) {
-    var output = true;
-    output = input % 3 === 0;
-    return output;
+    return input % 3 === 0;
 }
 
 function isMultipleOThreeAndFive(input) {
-    var output = true;
-    output = input % 3 === 0 || input % 5 === 0;
-    return output;
+    return input % 3 === 0 || input % 5 === 0;
 }
 
 function isTrue(input) {
-    var output = true;
-    output = input === true;
-    return output;
+    return input === true;
 }
 
 function isFalse(input) {
-    var output = true;
-    output = input === false;
-    return output;
+    return input === false;
 }
 
-function isTruthy(input) {
-    var output = true;
-    output = Boolean(input) === true;
-    return output;
+function isTruthy(input){
+    return Boolean(input) === true;
 }
 
 function isFalsy(input) {
-    var output = true;
-    output = Boolean(input) === false;
-    return output;
+    return Boolean(input) === false;
 }
 
 function isVowel(letter) {
-    var output = true;
     if (letter.toLowerCase() === "a"){
         return true
     } else if (letter.toLowerCase() === "e"){
@@ -220,7 +169,6 @@ function isVowel(letter) {
 }
 
 function isConstinant(letter) {
-    var output = true;
     if (letter.toLowerCase() === "a"){
         return false
     } else if (letter.toLowerCase() === "e"){
@@ -237,124 +185,90 @@ function isConstinant(letter) {
 }
 
 function isCapital(letter) {
-    var output = true;
-    output = letter === letter.toUpperCase();
-    return output;
+    return letter === letter.toUpperCase();
 }
 
 function isLowerCase(letter) {
-    var output = true;
-    output = letter === letter.toLowerCase();
-    return output;
+    return letter === letter.toLowerCase();
 }
 
-function hasLowerCase(string) {
-    var output = true;
-    output = ['a', 'e', 'i', 'o', 'u'].indexOf(string.toLowerCase()) === -1;
-    return output;
+// function hasLowerCase(string) {
+//     return ['a', 'e', 'i', 'o', 'u'].indexOf(string.toLowerCase()) === -1;
+// }
+
+function hasLowerCase(input) {
+    return input !== input.toUpperCase();
 }
 
 function isSpace(letter) {
-    var output = true;
-    output = letter.indexOf(' ') !== -1;
-    return output;
+    return letter.indexOf(' ') !== -1;
 }
 
 function isZero(number) {
-    var output = true;
-    output = number === 0;
-    return output;
+    return number === 0;
 }
 
 function notZero(number) {
-    var output = true;
-    output = number !== 0;
-    return output;
+    return number !== 0;
 }
 
 function lowerCase(input) {
-    var output = 0;
-    output = input.toLowerCase();
-    return output;
+    return input.toLowerCase();
 }
 
 function double(n) {
-    var output = 0;
-    output = input * 2;
-    return output;
+    return n * 2;
 }
 
 function triple(n) {
-    var output = 0;
-    output = input * 3;
-    return output;
+    return n * 3;
 }
 
 function quadruple(n) {
-    var output = 0;
-    output = input * 4;
-    return output;
+    return n * 4;
 }
 
 function half(n) {
-    var output = 0;
-    output = input / 2;
-    return output;
+    return n / 2;
 }
 
 function subtract(a,b) {
-    var output = 0;
-    output = a - b;
-    return output;
+    return a - b;
 }
 
 function modulo(a,b) {
-    var output = 0;
     var numbersDivided = a / b;
-    output = numbersDivided - numbersDivided.toFixed();
-    return output;
+    return numbersDivided - numbersDivided.toFixed();
 }
 
 function cube(n) {
-    var output = 0;
-    output = n * n * n;
-    return output;
+    return n * n * n
 }
 
 function squareRoot(n) {
-    var output = 0;
-    output = n * n;
-    return output;
+    return n * n;
 }
 
 function cubeRoot(n) {
-    var output = 0;
-    output = n * n * n;
-    return output;
+    return n * n * n;
 }
 
 function invertSign(number) {
-    var output = 0;
     if (isNaN(number) === true){
-        output = false;
+        return false;
     } else{
-    output = -(number);
+    return -(number);
     }
-    return output;
 }
 
 function degreesToRadians(number) {
-    var output = 0;
     const pi = 3.14;
-    output = number * (pi/180);
-    return output;
+    return number * (pi/180);
 }
 
 function radiansToDegree(number) {
-    var output = 0;
     const pi = 3.14;
-    output = number * (180/pi);
-    return output;
+    return number * (180/pi);
 }
 
 function isBlank(input) {
@@ -368,76 +282,55 @@ function isBlank(input) {
 }
 
 function trim(input) {
-    var output = 0;
-    output = input.trim();
-    return output;
+    return input.trim();
 }
 
 function areEqual(x,y) {
-    var output = true;
-    output = x == y;
-    return output;
+    return x == y;
 }
 
 
 function areIdentical(x,y) {
-    var output = true;
-    output = x === y;
-    return output;
+    return x === y;
 }
 
 function not(x) {
-    var output = 0;
    if (Boolean(x) === true){
-       output = false;
+       return false;
    } else {
-       output = true;
+       return true;
    }
-    return output;
 }
 
 function notNot(x) {
-    var output = 0;
-    output = -(-(x));
-    return output;
+    return -(-(x));
 }
 
 function and(x,y) {
-    var output = 0;
-    output = Boolean(x) && Boolean(y);
-    return output;
+    return Boolean(x) && Boolean(y);
 }
 
 function or(x,y) {
-    var output = 0;
-    output = Boolean(x) || Boolean(y);
-    return output;
+    return Boolean(x) || Boolean(y);
 }
 
 function reverseString(input) {
     var output = "string";
     var splitString = input.split("");
     var reverseArray = splitString.reverse();
-    output = reverseArray.join("");
-    return output;
+    return reverseArray.join("");
 }
 
 function absoluteValue(number) {
-    var output = 0;
-    output = Math.abs(number);
-    return output;
+    return Math.abs(number);
 }
 
 function rollDice(sides) {
-    var output = 0;
-    output = Math.floor(Math.random() * (sides - 1)) + 1;
-    return output;
+    return Math.floor(Math.random() * (sides - 1)) + 1;
 }
 
 function howManyWhitesSpaces(input) {
-    var output = 0;
-    output = (input.length) - ((input.trim()).length);
-    return output;
+    return (input.length) - ((input.trim()).length);
 }
 
 function secondFromFirst(x,y) {
@@ -451,19 +344,16 @@ function secondFromFirst(x,y) {
 }
 
 function stringEndsWithA(input) {
-    var output = true;
     if (input.substring(input.length-1) === "a"){
-        output = true;
+        return true;
     } else{
-        output = false;
+        return false;
     }
-    return output
 }
 
-// function whiteSpacesAtBeginning(input) {
-//     var regExp = s/\s+//;
-//     return (input.length()) - (whitespaceBegininng.lenght);
-// }
+function whiteSpacesAtBeginning(input) {
+    return input.match(/^\s+/)[0].length
+}
 
 function returnTrueMessage() {
     return  "Hey, it's true";
@@ -474,28 +364,26 @@ function returnFalseMessage() {
 }
 
 function returnMessage(input) {
-    var output = 0;
     if (Boolean(input) === true) {
-        output = returnTrueMessage();
+        return returnTrueMessage();
     } else{
-        output = returnFalseMessage();
-    }
-    return output;
-}
-
-var username = prompt("Please enter a username");
-var password = prompt("Please enter a password");
-var age = prompt("Please enter your age");
-var admin = username === "Bobby";
-function willLoginUser(username,password,age,admin) {
-    if (username === password){
-        return alert("Password and Username cannot match");
-    }else if(parseFloat(age) < 18 && username !== "Bobby"){
-        return alert("users must be 18 or older!!");
-    }else{
-        return alert("Welcome to the website!");
+        return returnFalseMessage();
     }
 }
 
-console.log((willLoginUser(username, password, age, admin)));
+// var username = prompt("Please enter a username");
+// var password = prompt("Please enter a password");
+// var age = prompt("Please enter your age");
+// var admin = username === "Bobby";
+// function willLoginUser(username,password,age,admin) {
+//     if (username === password){
+//         return alert("Password and Username cannot match");
+//     }else if(parseFloat(age) < 18 && username !== "Bobby"){
+//         return alert("users must be 18 or older!!");
+//     }else{
+//         return alert("Welcome to the website!");
+//     }
+// }
+//
+// console.log((willLoginUser(username, password, age, admin)));
 
