@@ -326,7 +326,7 @@ function absoluteValue(number) {
 }
 
 function rollDice(sides) {
-    return Math.floor(Math.random() * (sides - 1)) + 1;
+    return Math.floor(Math.random() * (sides) + 1);
 }
 
 function howManyWhitesSpaces(input) {
@@ -334,13 +334,11 @@ function howManyWhitesSpaces(input) {
 }
 
 function secondFromFirst(x,y) {
-    var output = "string";
     if (x.search(y)){
-        output = x.replace(y," ");
+        return x.replace(y," ");
     }else{
-        output = x;
+        return x;
     }
-    return output
 }
 
 function stringEndsWithA(input) {
@@ -374,16 +372,16 @@ function returnMessage(input) {
 // var username = prompt("Please enter a username");
 // var password = prompt("Please enter a password");
 // var age = prompt("Please enter your age");
-// var admin = username === "Bobby";
-// function willLoginUser(username,password,age,admin) {
-//     if (username === password){
-//         return alert("Password and Username cannot match");
-//     }else if(parseFloat(age) < 18 && username !== "Bobby"){
-//         return alert("users must be 18 or older!!");
-//     }else{
-//         return alert("Welcome to the website!");
-//     }
-// }
-//
-// console.log((willLoginUser(username, password, age, admin)));
+var admin = username === "Bobby";
+function willLoginUser(username,password,age,admin) {
+    if (username === password){
+        return alert("Password and Username cannot match");
+    }else if(parseFloat(age) < 18 && username !== "Bobby"){
+        return alert("users must be 18 or older!!");
+    }else{
+        return alert("Welcome to the website!");
+    }
+}
+
+console.log((willLoginUser(username, password, age, admin)));
 
