@@ -13,14 +13,17 @@
 // } while (i <= 65536);
 
 var allCones = Math.floor(Math.random() * 50) + 50;
+console.log("Beginning with: " + allCones);
 var cones = Math.floor(Math.random() * 5) + 1;
 do{
     if (allCones > cones){
         allCones = allCones - cones;
         console.log("Sold " + cones + " cones");
-    } else if (allCones < cones){
-        console.log("I dont have that many cones.");
-    } else {
+    }else if(allCones < cones){
+        console.log("I dont have that many cones");
+    }else if (allCones = cones){
+        allCones = allCones - cones;
         console.log("Thats all the cones I have.");
-    }
+    };
+    var cones = Math.floor(Math.random() * 5) + 1;
 } while (allCones > 0);
