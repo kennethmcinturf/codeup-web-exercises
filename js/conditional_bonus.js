@@ -141,7 +141,6 @@ function seasonEntered(season) {
 }
 
 
-//lightyears,miles,feet,inches
 function distanceUnitConversion(x,value,y) {
     var output = 0;
     switch (x) {
@@ -161,6 +160,10 @@ function distanceUnitConversion(x,value,y) {
                 case "inch":
                     var lightyearsToInches = value * 3.725e+17;
                     alert(value + " Lightyears is " + lightyearsToInches + " inches.");
+                    break;
+                case "meter":
+                    var lightyearsToMeters = value * 9.461e+15;
+                    alert(value + " lightyears is " + lightyearsToMeters + " meters.");
                     break;
                 default:
                     alert("That is not a valid input");
@@ -184,6 +187,10 @@ function distanceUnitConversion(x,value,y) {
                     var mileToInch = value * 63360;
                     alert(value + " miles is " + mileToInch + " inches.");
                     break;
+                case "meter":
+                    var milesToMeters = value * 1609.344;
+                    alert(value + " miles is " + milesToMeters + " meters.");
+                    break;
                 default:
                     alert("That is not a valid input");
                     break;
@@ -205,6 +212,10 @@ function distanceUnitConversion(x,value,y) {
                 case "inch":
                     var feetToInch = value * 12;
                     alert(value + " feet is " + feetToInch + " inches.");
+                    break;
+                case "meter":
+                    var feetToMeters = value / 3.281;
+                    alert(value + " feet is " + feetToMeters + " meters.");
                     break;
                 default:
                     alert("That is not a valid input");
@@ -228,11 +239,41 @@ function distanceUnitConversion(x,value,y) {
                 case "inch":
                     alert(value + " inches = " + value + " inches.");
                     break;
+                case "meter":
+                    var inchesToMeters = value / 39.37;
+                    alert(value + " inches is " + inchesToMeters + " meters.");
+                    break;
                 default:
                     alert("That is not a valid input");
                     break;
             }
             break;
+        case "meter":
+            switch (y) {
+                case "lightyear":
+                    var meterToLightyear = value / 9.461e+15;
+                    alert(value + " meters is " + meterToLightyear + " lightyears.");
+                    break;
+                case "mile":
+                    var meterToMiles = value / 1609.344;
+                    alert(value + " meters is " + meterToMiles + " miles.");
+                    break;
+                case "feet":
+                    var meterToFeet = value / 3.281;
+                    alert(value + " meters is " + meterToFeet + " feet.");
+                    break;
+                case "feet":
+                    var meterToInches = value * 39.37;
+                    alert(value + " meters is " + meterToInches + " inches.");
+                    break;
+                case "meter":
+                    alert(value + " meters = " + value + " meters.");
+                    break;
+                default:
+                    alert("That is not a valid input");
+                    break;
+
+            }
         default:
             alert("That is not a valid input");
             break;
