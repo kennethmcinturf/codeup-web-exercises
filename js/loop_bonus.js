@@ -7,14 +7,14 @@ function toggle(input) {
             stringSplit[i] = stringSplit[i].toLowerCase();
         }
     }
-    console.log(stringSplit.join(''))
+    return stringSplit.join('');
 }
 
 //Elephant10
 
 function numberEqualToStringLength(input) {
     var reverseString = input.split("").reverse().join("");
-    var getNumber = parseFloat(reverseString);
+    var getNumber = reverseString.replace(/\D/g,'');
     var numberToString = getNumber + "";
     var reverseNumberString =  numberToString.split("").reverse().join("");
     var backToNumber = parseFloat(reverseNumberString);
@@ -26,52 +26,47 @@ function numberEqualToStringLength(input) {
 }
 
 
-//redo your own way
-
 function getVowelsCheat(input) {
     var m = input.match(/[aeiou]/gi);
     return m === null ? 0 : m.length;
 }
 
-function getVowels(input) {
-    var vowels = ['a','e','i','o','u'];
-    var stringSplit = input.split('');
-    var output = " ";
-    for (var n = 0; n < input.length; n++){
-        if (stringSplit[n] === vowels.indexOf('a')||
-            stringSplit[n] === vowels.indexOf('e')||
-            stringSplit[n] === vowels.indexOf('i')||
-            stringSplit[n] === vowels.indexOf('o')||
-            stringSplit[n] === vowels.indexOf('u')){
-            output.push(stringSplit[n]);
+function getVowels(str) {
+    var vowelsCount = 0;
+    var string = str.toString();
+    for (var i = 0; i <= string.length - 1; i++) {
+        if (string.charAt(i).toLowerCase() == "a" ||
+            string.charAt(i).toLowerCase() == "e" ||
+            string.charAt(i).toLowerCase() == "i" ||
+            string.charAt(i).toLowerCase() == "o" ||
+            string.charAt(i).toLowerCase() == "u") {
+            vowelsCount += 1;
         }
-        console.log(output)
     }
+    return vowelsCount;
 }
 
-function count9(input) {
-    var stringSplit = input.split('');
-    var result = 0;
-    for (var i = 0; i < input.length; i++){
-        if (parseInt(stringSplit[i]) == 9){
-            result.push(stringSplit[i]);
+function countNine(str) {
+    var nineCount = 0;
+    var string = str.toString();
+    for (var i = 0; i <= string.length - 1; i++) {
+        if (string.charAt(i) == "9"){
+            nineCount += 1;
         }
     }
-    console.log(result)
+    return nineCount;
 }
 
 function integersOneThroughHundred() {
+    var output = 0;
     for (var i = 1; i < 101; i++){
-        if (i = 1){
-            console.log(i);
-        }else{
-
-        }
+        output = output + i;
     }
+    return output;
 }
 
-var word = "beers";
-
+// var word = "beers";
+//
 // for (var i = 99; i > 0; i--){
 //     if(i === 1){
 //         word = "beer";
