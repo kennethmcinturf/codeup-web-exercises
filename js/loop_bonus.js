@@ -10,35 +10,43 @@ function toggle(input) {
     console.log(stringSplit.join(''))
 }
 
-//trying flipping the string
+//Elephant10
 
-function numberEqualLength(input) {
-    var lengthOfString = input.length;
-    var stringSplit = input.split('');
-    for (var i = 0; i < input.length; i++)
-        if (stringSplit[i] === parseInt(stringSplit[i])){
-            var isItSame = parseFloat(stringSplit[i]) === parseInt(lengthOfString);
-        }
-        console.log(isItSame);
+function numberEqualToStringLength(input) {
+    var reverseString = input.split("").reverse().join("");
+    var getNumber = parseFloat(reverseString);
+    var numberToString = getNumber + "";
+    var reverseNumberString =  numberToString.split("").reverse().join("");
+    var backToNumber = parseFloat(reverseNumberString);
+    if (backToNumber === input.length){
+        return "yes";
+    }else {
+        return "no";
+    }
 }
+
 
 //redo your own way
 
-// function getVowels(input) {
-//     var m = input.match(/[aeiou]/gi);
-//     return m === null ? 0 : m.length;
-// }
+function getVowelsCheat(input) {
+    var m = input.match(/[aeiou]/gi);
+    return m === null ? 0 : m.length;
+}
 
 function getVowels(input) {
     var vowels = ['a','e','i','o','u'];
     var stringSplit = input.split('');
-    var result = 0;
+    var output = " ";
     for (var n = 0; n < input.length; n++){
-        if (stringSplit[n] === vowels){
-            result.push(stringSplit[n]);
+        if (stringSplit[n] === vowels.indexOf('a')||
+            stringSplit[n] === vowels.indexOf('e')||
+            stringSplit[n] === vowels.indexOf('i')||
+            stringSplit[n] === vowels.indexOf('o')||
+            stringSplit[n] === vowels.indexOf('u')){
+            output.push(stringSplit[n]);
         }
+        console.log(output)
     }
-    console.log()
 }
 
 function count9(input) {
@@ -61,6 +69,25 @@ function integersOneThroughHundred() {
         }
     }
 }
+
+var word = "beers";
+
+// for (var i = 99; i > 0; i--){
+//     if(i === 1){
+//         word = "beer";
+//     }
+//     console.log(i + " " + word + " on the wall,");
+//     console.log(i + " " + word + " on the wall,");
+//     console.log("take one down, pass it around,");
+//     if (i === 2){
+//         word = "beer";
+//     }
+//     if (i === 1){
+//         console.log("No beer left on the wall,");
+//     }else {
+//         console.log((i - 1) + " " + word + " on the wall.");
+//     }
+// }
 
 
 
