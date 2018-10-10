@@ -15,8 +15,7 @@ function toggle(input) {
 function numberEqualToStringLength(input) {
     var reverseString = input.split("").reverse().join("");
     var getNumber = reverseString.replace(/\D/g,'');
-    var numberToString = getNumber + "";
-    var reverseNumberString =  numberToString.split("").reverse().join("");
+    var reverseNumberString =  getNumber.split("").reverse().join("");
     var backToNumber = parseFloat(reverseNumberString);
     if (backToNumber === input.length){
         return "yes";
