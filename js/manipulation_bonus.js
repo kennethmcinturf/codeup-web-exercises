@@ -3,6 +3,8 @@
  * Array creation, manipulation, searching etc...
  */
 
+var exampleArray =
+
 // Exercise 0. Write a function named first()
 function first(input) {
     return input[0];
@@ -16,12 +18,7 @@ function secondToLast(input) {
 
 // Exercise 2. Write a function named rest() that takes an an array and returns an array containing everything except the first element.
 function rest(input) {
-    var output = input.shift();
-    for (var i = 1; i < input.length; i++){
-        if (input[i].length === secondToLast(input)) {
-            ;
-        }
-    }
+
 }
 
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
