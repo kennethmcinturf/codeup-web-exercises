@@ -16,7 +16,12 @@ function secondToLast(input) {
 
 // Exercise 2. Write a function named rest() that takes an an array and returns an array containing everything except the first element.
 function rest(input) {
-    input.forEach(first());
+    var output = input.shift();
+    for (var i = 1; i < input.length; i++){
+        if (input[i].length === secondToLast(input)) {
+            ;
+        }
+    }
 }
 
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
@@ -47,7 +52,8 @@ function addTwoArrays(inputA,inputB) {
     var stringOne = inputA.join('');
     var stringTwo = inputB.join('');
     var comboString = stringOne + stringTwo;
-    var newArray = comboString.split(',');
+    console.log(comboString);
+    var newArray = comboString.split('');
     return newArray;
 }
 
@@ -65,8 +71,7 @@ function getUniqueValues(input) {
 }
 // Exercise 6. Write a function named reverseArray that takes in an array and returns it reversed, but without altering the original array.
 function reverseArray(input) {
-    var newArray = [input, input.reverse()];
-    return newArray;
+    return input.reverse();
 }
 // Exercies 7. Write a function named getRandomQuote().
 //   Inside of the function, create an array of strings where each string is a quote or thought you find inspirational
@@ -74,7 +79,9 @@ function reverseArray(input) {
 //   use the randomly generated number as your index
 //   return a random quote.
 function getRandomQuote() {
-    
+    var quoteArray = ["hey","you","yeah"];
+    var randomQuote = quoteArray[Math.floor(Math.random() * quoteArray.length)];
+    return randomQuote;
 }
 // Exercise 8. Write a function named getIndexesOf() that takes in two arguments.
 // The first argument should be a specific numeral or character
@@ -93,4 +100,36 @@ function getIndexesOf() {
 // Example: removeAll([1, 2, 3], 2) should return [1, 3]
 function removeAll() {
     
+}
+
+// Exercise 10. Write a function named firstTenFibonacciNumbers() that returns an array of the first ten fibonacci numbers
+function firstTenFibonacciNumbers() {
+    var i = 1;
+    var output = 0;
+    do {
+        output = output + i;
+        i++;
+        return output;
+    }while (i > 10);
+}
+
+
+// Exercise 11. Write a function named getNFibonacci(n) that returns an array containing the first n fibonacci numbers
+
+// Exercise 12. Write a function named moveFirstToLast() that takes in an array
+// the function should return the array with the first element at the end
+// Example: moveFirstToLast([1, 2, 3, 4]) should return [2, 3, 4, 1]
+
+
+
+
+// Exercise 13. Write a function named zip() that takes in two arrays with the same number of elements
+// Zip returns a new array of arrays where each element is an array of the two elements at the same index
+// Example: zip([1, 2, 3], [4, 5, 6]) returns [[1, 4], [2, 5], [3, 6])
+// Example: zip(["a", "b", "c"], ["x", "y", "z"]) returns [["a", "x"], ["b", "y"], ["c", "z"]]
+function zip(array1,array2) {
+    var newArray = array1.map(function(value, index) {
+        return array1.slice(index) + array2.slice(index);
+    });
+    return newArray;
 }
