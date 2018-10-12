@@ -4,23 +4,21 @@
     // create a circle object
     var circle = {
         radius: 3,
-
+        //this is refering to the object circle
         getArea: function () {
             // TODO: complete this method
             // hint: area = pi * radius^2
             var area = 0;
-            area = Math.PI * (Math.sqrt(circle.radius))
+            area = Math.PI * Math.pow(this.radius,2)
             return area; // TODO: return the proper value
         },
 
 
         logInfo: function (doRounding) {
             // TODO: complete this method.
-            var area = 0;
+            var area = this.getArea();
             if (doRounding === true){
-                area = Math.round(circle.getArea());
-            }else {
-                area = circle.getArea()
+                area = Math.round(area);
             }
             // If doRounding is true, round the result to the nearest integer.
             // Otherwise, output the complete value
