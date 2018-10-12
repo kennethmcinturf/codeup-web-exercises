@@ -1224,14 +1224,49 @@ profile.profileReport.getAverageBalance = function sumOfAllBalances() {
 
 profile.profileReport.getLowestBalance = function sumOfAllBalances() {
     var balance = parseFloat((profile[0].balance.replace(/[^0-9-.]/g, '')));
+    var lowestName = profile[0].name;
     var profileLowestBalance = profile[0].balance
     profile.forEach(function (element,index,array) {
         if (parseFloat((element.balance).replace(/[^0-9-.]/g, '')) < balance){
-           balance = parseFloat((element.balance).replace(/[^0-9-.]/g, ''))
+           balance = parseFloat((element.balance).replace(/[^0-9-.]/g, ''));
+           lowestName = element.name;
         }
     });
-    return balance.toFixed(2);
+    return lowestName;
 };
+
+profile.profileReport.getHighestBalance = function sumOfAllBalances() {
+    var balance = parseFloat((profile[0].balance.replace(/[^0-9-.]/g, '')));
+    var highestName = profile[0].name;
+    var profileLowestBalance = profile[0].balance
+    profile.forEach(function (element,index,array) {
+        if (parseFloat((element.balance).replace(/[^0-9-.]/g, '')) > balance){
+            balance = parseFloat((element.balance).replace(/[^0-9-.]/g, ''));
+            highestName = element.name;
+        }
+    });
+    return highestName;
+};
+
+// Still need to work on
+
+profile.profileReport.getMostFavoriteFruit = function getMostFavoriteFruit() {
+    var favoriteFruit = {};
+    profile.forEach(function (element,index,array) {
+        element;
+    });
+    favoriteFruit = favoriteFruit.sort();
+    return favoriteFruit;
+};
+
+profile.profileReport.getTotalNumberOfUnreadMessages = function getTotalNumberOfUnreadMessages(){
+    var messages = 0;
+    profile.forEach(function (element,index,array) {
+        messages += parseFloat((element.greeting).replace(/[^0-9-.]/g, ''))
+    });
+    return messages;
+};
+
 
 // Exercise 6. Practice with assignment by reference
 // create a variable named person1 with a name property. Assign it a name property.
