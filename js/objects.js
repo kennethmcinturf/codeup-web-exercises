@@ -1298,11 +1298,33 @@ profile.profileReport.getGenderCounts = function getGenderCounts(){
 };
 
 profile.profileReport.getAllCompanyNames = function getAllCompanyNames(){
+    var companies = [];
+    profile.forEach(function (element,index,array) {
+        companies.push(element.company.toLowerCase());
+    });
+    return companies;
+};
+
+profile.profileReport.getMostCommonEyeColor = function getMostCommonEyeColor(){
     var ages = [];
     profile.forEach(function (element,index,array) {
-        ages.push(element.company);
+        ages.push(element.company.toLowerCase());
     });
     return ages;
+};
+
+profile.profileReport.getBalancesForActiveAndNonActive = function getBalancesForActiveAndNonActive(){
+    var active = 0;
+    var nonactive = 0;
+    profile.forEach(function (element,index,array) {
+        if (element.isActive === true){
+            active += parseFloat((element.balance).replace(/[^0-9-.]/g, ''));
+        }else {
+            nonactive += parseFloat((element.balance).replace(/[^0-9-.]/g, ''));
+        }
+    });
+    console.log("Balance for NonActive Accounts = $" + nonactive.toFixed(2));
+    console.log("Balance for Active Accounts = $" + active.toFixed(2));
 };
 
 
@@ -1313,6 +1335,11 @@ profile.profileReport.getAllCompanyNames = function getAllCompanyNames(){
 // console.log the name property on person 1.
 // Why do you think changing person2 altered person1?
 // The term for this behavior is assignment by reference.
+
+var person1 = {};
+person1.name = "Sue";
+var person2 = person1;
+person2.name = "Bob";
 
 
 // Exercise 7. More practice with assignment by reference
@@ -1325,3 +1352,5 @@ profile.profileReport.getAllCompanyNames = function getAllCompanyNames(){
 // now, run inputElement.value = "I am altering an object by altering its properties" in your JS console.
 // See how both the "input" and "textInput" varialbes are referencing the same underlying HTML element?
 // This behavior is another example of "assignment by reference"
+
+
