@@ -28,7 +28,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
     person.sayHello = function () {
-        console.log("Hello from " + person.firstName + " " + person.lastName);
+        console.log("Hello from " + this.firstName + " " + this.lastName);
     };
 
     console.log(person.sayHello());
@@ -53,20 +53,53 @@
         {name: 'George', amount: 320}
     ];
 
-    function hebDiscount(shopper) {
-        shopper.forEach(function (shoppers) {
-            if (shoppers.amount > 200){
-                console.log(shoppers.name + " original price was $" + shoppers.amount);
-                console.log(shoppers.name + " price after discount was $" + parseFloat(shoppers.amount * .88).toFixed(2));
-                console.log("Their discount was $" + parseFloat(shoppers.amount * .12).toFixed(2));
-            }else {
-                console.log(shoppers.name + " original price was $" + parseFloat(shoppers.amount).toFixed(2));
-                console.log(shoppers.name + "Did not receive a discount");
-            }
+    function calculateDiscount(amount) {
+        var finalAmount = 0;
+        var amountOff = 0;
+        if (amount > 200){
+            amountOff = amount * .12;
+            finalAmount = amount -amountOff;
+        }else {
+            finalAmount = amount;
+        }
+        return{
+            finalAmount : finalAmount,
+            amountOff: amountOff
+        };
+    }
+
+
+
+    function displayShopperInfo(shoppers) {
+        shoppers.forEach(function (shopper) {
+            var amount = calculateDiscount(shopper.amount);
+            var message = "";
+            message += shopper.name + " bought $";
+            message += shopper.amount.toFixed(2);
+            message += " and got $" + amount.amountOff.toFixed(2);
+            message += " off and will pay $";
+            message += amount.finalAmount.toFixed(2) + ".";
+            console.log(message);
         })
     }
 
-    console.log(hebDiscount(shoppers));
+    console.log(displayShopperInfo(shoppers));
+
+
+    // function hebDiscount(shopper) {
+    //     shopper.forEach(function (shoppers) {
+    //         if (shoppers.amount > 200){
+    //             console.log(shoppers.name + " original price was $" + shoppers.amount);
+    //             console.log(shoppers.name + " price after discount was $" + parseFloat(shoppers.amount * .88).toFixed(2));
+    //             console.log("Their discount was $" + parseFloat(shoppers.amount * .12).toFixed(2));
+    //         }else {
+    //             console.log(shoppers.name + " original price was $" + parseFloat(shoppers.amount).toFixed(2));
+    //             console.log(shoppers.name + "Did not receive a discount");
+    //         }
+    //     })
+    // }
+    //
+    // console.log(hebDiscount(shoppers));
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -131,16 +164,18 @@
      *      ---
      *      ...
      */
-    // function bookInfo(input) {
-    //     books.forEach(function (element, index) {
-    //         console.log("Book #" + (index + 1) + "\n");
-    //         console.log("Title: " + element.title + "\n");
-    //         console.log("Author: " + element.author.firstName + " " + element.author.lastName + "\n");
-    //         console.log("--");
-    //     })
-    // }
-    //
-    // console.log(bookInfo(books));
+    function bookInfo(input) {
+        var message = "";
+        books.forEach(function (element, index) {
+            message += ("Book #" + (index + 1) + "\n");
+            message += ("Title: " + element.title + "\n");
+            message += ("Author: " + element.author.firstName + " " + element.author.lastName + "\n");
+            message += ("--" + "\n");
+        });
+        return message;
+    }
+
+    console.log(bookInfo(books));
 
     /**
      * Bonus:
@@ -1142,69 +1177,63 @@ var profile = [
 //  getBalancesForActiveAndNonActive() should return the balance of all non-active accounts vs. the balance of all active accounts?
 //     this last method should return an object that looks like {"active-balances": 23000, "inactive-balances": 4000} w/ different numbers.
 
-profile.profileReport = function profileCount() {
+profile.profileReport = {};
+
+
+profile.profileReport.profileCount = function profileCount() {
     return profile.length;
 };
 
-profile.profileReport = function getActiveCount() {
+profile.profileReport.getActiveCount = function getActiveCount() {
     var count = 0;
-    for ()
+    profile.forEach(function (element,index,array) {
+        if (element.isActive === true){
+            count += 1;
+        }
+    });
+    return count;
 };
 
-profile.profileReport = function getInactiveCount() {
-    return profile.length;
+profile.profileReport.getInactiveCount = function getInactiveCount() {
+    var count = 0;
+    profile.forEach(function (element,index,array) {
+        if (element.isActive === false){
+            count += 1;
+        }
+    });
+    return count;
 };
 
-profile.profileReport = function sumOfAllBalances() {
-    return profile.length;
+profile.profileReport.sumOfAllBalances = function sumOfAllBalances() {
+    var balance = 0;
+    profile.forEach(function (element,index,array) {
+        balance += parseFloat((element.balance).replace(/[^0-9-.]/g, ''));
+    });
+    return balance;
 };
 
-profile.profileReport = function getAverageBalance() {
-    return profile.length;
+profile.profileReport.getAverageBalance = function sumOfAllBalances() {
+    var balance = 0;
+    profile.forEach(function (element,index,array) {
+        balance += parseFloat((element.balance).replace(/[^0-9-.]/g, ''));
+    });
+    return parseFloat((balance / profile.length).toFixed(2));
 };
 
-profile.profileReport = function getLowestBalance() {
-    return profile.length;
+// Needs to output the name of the profile with the lowest balance
+
+profile.profileReport.getLowestBalance = function sumOfAllBalances() {
+    var balance = parseFloat((profile[0].balance.replace(/[^0-9-.]/g, '')));
+    var profileLowestBalance = profile[0].balance
+    profile.forEach(function (element,index,array) {
+        if (parseFloat((element.balance).replace(/[^0-9-.]/g, '')) < balance){
+           balance = parseFloat((element.balance).replace(/[^0-9-.]/g, ''))
+        }
+    });
+    return balance.toFixed(2);
 };
 
-profile.profileReport = function getHighestBalance() {
-    return profile.length;
-};
-
-profile.profileReport = function getMostFavoriteFruit() {
-    return profile.length;
-};
-
-profile.profileReport = function getLeastFavoriteFruit() {
-    return profile.length;
-};
-
-profile.profileReport = function getTotalNumberOfUnreadMessages() {
-    return profile.length;
-};
-
-profile.profileReport = function getAverageAge() {
-    return profile.length;
-};
-
-profile.profileReport = function getGenderCounts() {
-    return profile.length;
-};
-
-profile.profileReport = function getAllCompanyNames() {
-    return profile.length;
-};
-
-profile.profileReport = function getMostCommonEyeColor() {
-    return profile.length;
-};
-
-profile.profileReport = function getBalancesForActiveAndNonActive() {
-    return profile.length;
-};
-
-
-// Exercise 6. Practice with assignment by reference 
+// Exercise 6. Practice with assignment by reference
 // create a variable named person1 with a name property. Assign it a name property.
 // Now create a variable named person2 and assign person1 to it.
 // Then reassign the name property on person2 with person2.name = "Bob";
