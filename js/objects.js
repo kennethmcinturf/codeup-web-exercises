@@ -1267,6 +1267,44 @@ profile.profileReport.getTotalNumberOfUnreadMessages = function getTotalNumberOf
     return messages;
 };
 
+profile.profileReport.getAverageNumberOfUnreadMessages = function getAverageNumberOfUnreadMessages(){
+    var messages = 0;
+    profile.forEach(function (element,index,array) {
+        messages += parseFloat((element.greeting).replace(/[^0-9-.]/g, ''))
+    });
+    return parseInt((messages / profile.length));
+};
+
+profile.profileReport.getAverageAge = function getAverageAge(){
+    var ages = 0;
+    profile.forEach(function (element,index,array) {
+        ages += element.age;
+    });
+    return parseInt((ages / profile.length));
+};
+
+profile.profileReport.getGenderCounts = function getGenderCounts(){
+    var men = 0;
+    var women = 0;
+    profile.forEach(function (element,index,array) {
+        if ((element.gender).toLowerCase() === "male"){
+            men += 1;
+        }else {
+            women += 1;
+        }
+    });
+    console.log("Men = " + men);
+    console.log("Women = " + women);
+};
+
+profile.profileReport.getAllCompanyNames = function getAllCompanyNames(){
+    var ages = 0;
+    profile.forEach(function (element,index,array) {
+        ages += element.age;
+    });
+    return parseInt((ages / profile.length));
+};
+
 
 // Exercise 6. Practice with assignment by reference
 // create a variable named person1 with a name property. Assign it a name property.
