@@ -1298,11 +1298,11 @@ profile.profileReport.getGenderCounts = function getGenderCounts(){
 };
 
 profile.profileReport.getAllCompanyNames = function getAllCompanyNames(){
-    var ages = 0;
+    var ages = [];
     profile.forEach(function (element,index,array) {
-        ages += element.age;
+        ages.push(element.company);
     });
-    return parseInt((ages / profile.length));
+    return ages;
 };
 
 
