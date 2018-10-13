@@ -3,7 +3,9 @@
  * Array creation, manipulation, searching etc...
  */
 
-var exampleArray =
+var houseArray = ["Pat","Shawn","Greg","Tim","Richard","Eric"];
+var codeupArray= ["David","Steven","Pebo","Stuart","Benny","Maria"];
+var repeatingArray = ["Chuckie","Chuckie","Chuckie","Chuckie"];
 
 // Exercise 0. Write a function named first()
 function first(input) {
@@ -18,7 +20,7 @@ function secondToLast(input) {
 
 // Exercise 2. Write a function named rest() that takes an an array and returns an array containing everything except the first element.
 function rest(input) {
-
+   return input.slice(1,input.length);
 }
 
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
@@ -34,24 +36,23 @@ function getLongestString(input) {
 
 // Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array.
 function getShortestString(input) {
-    var output = '                                      ';
-    for (var i = 0; i < input.length; i++){
-        if (input[i].length < output) {
-            output = input[i];
+    var output = input[0];
+    input.forEach(function (element,index,array) {
+        if (element.length < output.length){
+            output = element;
         }
-    }
+    });
     return output;
 }
 
 // Exercise 4. Write a function named addTwoArrays that takes in two, one dimensional arrays. The function should return a single array containing all of the elements of the first array along with all of the elements of the second array
 // Example: addTwoArrays([1, 2, 3], [4, 5, 6]) should return [1, 2, 3, 4, 5, 6]
 function addTwoArrays(inputA,inputB) {
-    var stringOne = inputA.join('');
-    var stringTwo = inputB.join('');
-    var comboString = stringOne + stringTwo;
-    console.log(comboString);
-    var newArray = comboString.split('');
-    return newArray;
+    var output = inputA;
+    inputB.forEach(function (element, index, array) {
+        output.push(element);
+    });
+    return output;
 }
 
 
@@ -59,9 +60,9 @@ function addTwoArrays(inputA,inputB) {
 // Example: getUniqueValues(["a", "b", "a", "b", "c", "c"]) should return ["a", "b", "c"]
 function getUniqueValues(input) {
     var output = [];
-    input.forEach(function(element, index, array) {
-        if (input.indexOf(element) === -1){
-            output.push(element)
+    input.forEach(function (element, index, array) {
+        if (output.indexOf(element) === -1){
+            output.push(element);
         }
     });
     return output;
@@ -86,8 +87,14 @@ function getRandomQuote() {
 // getIndexesOf() should return an array containing all of the indexes of that character in the string
 // Example: getIndexesOf("a", "banana") should return the array [1, 3, 5]
 // Example: getIndexesOf("z", "banana") should return an empty array []
-function getIndexesOf() {
-    
+function getIndexesOf(letter,input) {
+    var output =[];
+    for (var i = 0; i < input.length; i++){
+        if (input.charAt(i) === letter){
+            output.push(i);
+        }
+    }
+    return output;
 }
 // Exercise 9. Write a function named removeAll.
 // It should accept an array and a value
@@ -95,19 +102,23 @@ function getIndexesOf() {
 // iterate across the input array
 // output array
 // Example: removeAll([1, 2, 3], 2) should return [1, 3]
-function removeAll() {
-    
+function removeAll(array, input) {
+    var output = [];
+    array.forEach(function (element) {
+        if (element !== input){
+            output.push(element);
+        }
+    });
+    return output;
 }
 
 // Exercise 10. Write a function named firstTenFibonacciNumbers() that returns an array of the first ten fibonacci numbers
 function firstTenFibonacciNumbers() {
-    var i = 1;
-    var output = 0;
-    do {
-        output = output + i;
-        i++;
-        return output;
-    }while (i > 10);
+    var output = [1,1];
+    for (var i = 0; i <= 8; i++){
+        output.push(parseFloat(parseFloat(output[output.length]) + parseFloat(output[(output.length-1)])))
+    }
+    return output;
 }
 
 
@@ -116,7 +127,12 @@ function firstTenFibonacciNumbers() {
 // Exercise 12. Write a function named moveFirstToLast() that takes in an array
 // the function should return the array with the first element at the end
 // Example: moveFirstToLast([1, 2, 3, 4]) should return [2, 3, 4, 1]
-
+function firstToLast(array) {
+    var output = array;
+    output = array.push(array[0]);
+    output = array.slice(1,array.length);
+    return output;
+}
 
 
 
@@ -124,9 +140,10 @@ function firstTenFibonacciNumbers() {
 // Zip returns a new array of arrays where each element is an array of the two elements at the same index
 // Example: zip([1, 2, 3], [4, 5, 6]) returns [[1, 4], [2, 5], [3, 6])
 // Example: zip(["a", "b", "c"], ["x", "y", "z"]) returns [["a", "x"], ["b", "y"], ["c", "z"]]
-function zip(array1,array2) {
-    var newArray = array1.map(function(value, index) {
-        return array1.slice(index) + array2.slice(index);
+function zip(array1,array2){
+    var output = [];
+    array1.forEach(function (element,index,array) {
+        output.push([element,array2[index]]);
     });
-    return newArray;
+    return output;
 }
