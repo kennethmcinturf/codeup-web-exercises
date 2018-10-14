@@ -1,5 +1,4 @@
-(function() {
-    "use strict";
+ "use strict";
 
     /**
      * TODO:
@@ -198,19 +197,73 @@
         }
     }
 
-    console.log(createBook("Bible", 'Jesus Christo'));
+    var keyword = {};
+    books.forEach(function(obj) { obj.keyword = " "; });
+    books.forEach(function(obj) { obj.isAvalible = true; });
+    books.forEach(function(obj) { obj.dateAvalible = "now"; });
+    books[0].keyword  = "Religous";
+    books[1].keyword  = "Fantasy";
+    books[2].keyword  = "Magic";
+    books[3].keyword  = "Romanance";
+    books[4].keyword  = "Mystery";
 
+    books.lend = function (i) {
+        var today = new Date();
+        var dd = today.getDate() + 21;
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        if(dd < 10) {
+            dd = '0'+dd
+        }
+        if(mm < 10) {
+            mm = '0'+mm
+        }
+        if(dd > 30) {
+            mm = mm + 1;
+            dd = dd - 30;
+        }
+        var twoWeeks = mm + '/' + dd + '/' + yyyy;
+        books.forEach(function (element) {
+            if (element === books[i]){
+                element.isAvalible = false;
+                element.dateAvalible = twoWeeks;
+            }
+        })
+    };
 
+    books.receive = function (i) {
+     books.forEach(function (element) {
+         if (element === books[i]){
+             element.isAvalible = true;
+             element.dateAvalible = "now";
+         }
+     })
+    };
 
+    var building = [
+        {room:{
+                width : 100,
+                length : 100,
+                height : 20
+            }},
+        {room:{
+                width : 50,
+                length : 50,
+                height : 10
+            }
+        }
+    ];
 
+    building.roomVolume = function () {
+        var volume = 0;
+        var roomVolume = 0;
+        building.forEach(function (element,index,array) {
+            roomVolume = element.room.width * element.room.height * element.room.length;
+            volume = volume + roomVolume;
+        });
+        return volume;
+    };
 
-})();
-
-/*
- * Title: JS Objects Practice
- * Author: Ryan Orsinger
- * Topics: JS Objects, arrays, writing methods, iteration
- */
 
 
 // Exercise 1. Write a function called makeCar that takes in two strings, make and model, and returns an object with those properties
@@ -249,7 +302,7 @@ function makeCar(make,model) {
 // 12, Betty, Boop, 67
 
 
-salesReport = {
+var salesReport = {
     title: "Monthly Sales Report",
     date: "03-17-2015",
     office : "Codeup",
@@ -1248,15 +1301,54 @@ profile.profileReport.getHighestBalance = function sumOfAllBalances() {
     return highestName;
 };
 
-// Still need to work on
 
 profile.profileReport.getMostFavoriteFruit = function getMostFavoriteFruit() {
-    var favoriteFruit = {};
+    var favoriteFruit = [];
     profile.forEach(function (element,index,array) {
-        element;
+        favoriteFruit.push(element.favoriteFruit);
     });
-    favoriteFruit = favoriteFruit.sort();
-    return favoriteFruit;
+    function mode(array)
+    {
+        if(array.length == 0)
+            return null;
+        var modeMap = {};
+        var maxEl = array[0], maxCount = 1;
+        for(var i = 0; i < array.length; i++)
+        {
+            var el = array[i];
+            if(modeMap[el] == null)
+                modeMap[el] = 1;
+            else
+                modeMap[el]++;
+            if(modeMap[el] > maxCount)
+            {
+                maxEl = el;
+                maxCount = modeMap[el];
+            }
+        }
+        return maxEl;
+    }
+    return mode(favoriteFruit);
+};
+
+profile.profileReport.getLeastFavoriteFruit = function (){
+    var leastFavoriteFruit = [];
+    profile.forEach(function (element,index,array) {
+        leastFavoriteFruit.push(element.favoriteFruit);
+    });
+    function rarestFromArray(arr) {
+        var arrMap = arr.reduce(function(obj, val) {
+            obj[val] = ++obj[val] || 1;
+            return obj;
+        }, {});
+        var rarest = Object.keys(arrMap)[0];
+        var key = 0;
+        for (key in arrMap) {
+            rarest = arrMap[rarest] > arrMap[key] ? key : rarest;
+        }
+        return rarest;
+    }
+    return rarestFromArray(leastFavoriteFruit);
 };
 
 profile.profileReport.getTotalNumberOfUnreadMessages = function getTotalNumberOfUnreadMessages(){
@@ -1354,3 +1446,43 @@ person2.name = "Bob";
 // This behavior is another example of "assignment by reference"
 
 
+
+
+var dogs = {
+    breed: "Dog",
+    weightInPounds: 100,
+    age: 15,
+    color: 'brown',
+    sterlized: true,
+    shotRecords: []
+};
+
+dogs.shotRecords.push({date: "12/2/2077", typeOfShot: "Rabbie"});
+
+dogs.dogDoesStuff = {};
+dogs.dogDoesStuff.bark = function () {
+    console.log("Woof!");
+};
+
+dogs.dogDoesStuff.getOlder =  function () {
+    dogs.age += 1;
+};
+
+dogs.dogDoesStuff.fix = function () {
+    dogs.sterlized = true;
+};
+
+dogs.dogDoesStuff.vaccinate = function (nameOfShot) {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    if(dd<10) {
+        dd = '0'+dd
+    }
+    if(mm<10) {
+        mm = '0'+mm
+    }
+    today = mm + '/' + dd + '/' + yyyy;
+    dogs.shotRecords.push({date: today, typeOfShot: nameOfShot});
+};
