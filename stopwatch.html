@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stopwatch</title>
+</head>
+<body>
+<section id="stopWatch">
+    <p id="timer"> Time : 00:00:00 </p>
+    <button id="start"> Start </button>
+    <button id="stop"> Stop </button>
+    <p id="fulltime"> </p>
+</section>
+
+<style>
+    #stopWatch {
+        width: 280px;
+        height: auto;
+        text-align: center;
+        display: block;
+        padding: 5px;
+        margin: 0 auto; }
+
+    #timer, #fulltime {
+        width: auto;
+        height: auto;
+        padding: 10px;
+        font-weight: bold;
+        font-family: tahoma;
+        display: block;
+        border: 1px solid #eee;
+        text-align: center;
+        box-shadow: 0 0 5px #ccc;
+        background: #fbfbf0;
+        color: darkblue;
+        border-bottom:4px solid darkgrey; }
+
+    button {
+        cursor: pointer;
+        font-weight: 700; }
+
+    #fulltime {
+        display:none;
+        font-size:16px;
+        font-weight:bold; }
+
+</style>
+
+<script>
+    var startButton = document.getElementById("start");
+    startButton.addEventListener('click', function () {
+        var intervalId = setInterval(function () {
+            startButton = "Time" : 00:00:00
+                })
+    });
+
+
+</script>
+
+</body>
+</html>
