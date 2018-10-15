@@ -5,11 +5,60 @@
     <title>DOM Bonuses</title>
 </head>
 <body>
-<script src="js/dom-bonuses.js"></script>
 <h1>The Ultimate Grocery List!!!</h1>
-<div class="myList">
+<!--<script src="js/dom-bonuses.js"></script>-->
 
-</div>
+<form method="POST" action="https://request-inspector.glitch.me/">
+
+    <label for="firstName">First Name</label>
+    <input id="firstName" name="firstName" type="text">
+    <br>
+
+    <label for="lastName">Last Name</label>
+    <input id="lastName" name="lastName" type="text">
+    <br>
+
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text">
+    <br>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="text">
+    <br>
+
+    <label for="address">Address</label>
+    <input id="address" name="address" type="text">
+    <br>
+
+    <label for="age">Age</label>
+    <input id="age" name="age" type="text">
+    <br>
+
+    <label for="shortBio">Short Bio</label>
+    <input id="shortBio" name="shortBio" type="text">
+    <br>
+
+    <input type="submit" id="userinfo">
+</form>
+
+<script>
+    var formInfo =
+
+    function makeList() {
+        var listData = shoplist.slice(0,shoplist.length -1);
+        var listContainer = document.createElement('div');
+        document.getElementsByTagName('body')[0].appendChild(listContainer);
+        var listElement = document.createElement('ul');
+        listContainer.appendChild(listElement);
+        var numberOfListItems = listData.length;
+        for (var i = 0; i < numberOfListItems; ++i) {
+            var listItem = document.createElement('li');
+            listItem.innerHTML = listData[i];
+            listElement.appendChild(listItem);
+        }
+    }
+
+</script>
 
 </body>
 </html>
