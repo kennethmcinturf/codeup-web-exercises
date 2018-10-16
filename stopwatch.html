@@ -50,13 +50,14 @@
     var startButton = document.getElementById("start");
     var stopButton = document.getElementById("stop");
     var secondTimer = document.getElementById("sec");
-    var minTimer = document.getElementsByTagName("min");
-    var hourTimer = document.getElementsByTagName("hour");
+    var minTimer = document.getElementById("min");
+    var hourTimer = document.getElementById("hour");
     var max = 60;
     var secCount = 1;
     var minCount = 1;
+    var hourCount = 1;
 
-    // startButton.addEventListener('click',function () {
+    startButton.addEventListener('click',function () {
     var secIntervalId = setInterval(function updateTimer() {
         if (secCount == max) {
             clearInterval(secIntervalId);
@@ -68,22 +69,35 @@
 
         secCount++;
     }, 1000);
-    // });
+    });
 
-    // startButton.addEventListener('click',function () {
+    startButton.addEventListener('click',function () {
     var minIntervalId = setInterval(function updateTimer() {
         if (minCount == max) {
             clearInterval(minIntervalId);
             minCount = 0;
-            minIntervalId = setInterval(updateTimer, 1000);
+            minIntervalId = setInterval(updateTimer, 60000);
         } else if (minCount < max) {
             minTimer.innerHTML = minCount;
         }
 
         minCount++;
-    }, 100);
-    // });
-    // });
+    }, 60000);
+    });
+
+    startButton.addEventListener('click',function () {
+        var hourIntervalId = setInterval(function updateTimer() {
+            if (hourCount == max) {
+                clearInterval(hourIntervalId);
+                hourCount = 0;
+                hourIntervalId = setInterval(updateTimer, 3.6e+6);
+            } else if (hourCount < max) {
+                minTimer.innerHTML = hourCount;
+            }
+
+            minCount++;
+        }, 3.6e+6);
+    });
 
 
 </script>
