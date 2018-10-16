@@ -6,7 +6,7 @@
 </head>
 <body>
 <section id="stopWatch">
-    <p id="timer"> Time : 00:00:00 </p>
+    <p id="timer"> Time : <span id="hour">00</span>:<span id="min">00</span>:<span id="sec">00</span></p>
     <button id="start"> Start </button>
     <button id="stop"> Stop </button>
     <p id="fulltime"> </p>
@@ -48,11 +48,42 @@
 
 <script>
     var startButton = document.getElementById("start");
-    startButton.addEventListener('click', function () {
-        var intervalId = setInterval(function () {
-            startButton = "Time" : 00:00:00
-                })
-    });
+    var stopButton = document.getElementById("stop");
+    var secondTimer = document.getElementById("sec");
+    var minTimer = document.getElementsByTagName("min");
+    var hourTimer = document.getElementsByTagName("hour");
+    var max = 60;
+    var secCount = 1;
+    var minCount = 1;
+
+    // startButton.addEventListener('click',function () {
+    var secIntervalId = setInterval(function updateTimer() {
+        if (secCount == max) {
+            clearInterval(secIntervalId);
+            secCount = 0;
+            secIntervalId = setInterval(updateTimer, 1000);
+        } else if (secCount < max) {
+            secondTimer.innerHTML = secCount;
+        }
+
+        secCount++;
+    }, 1000);
+    // });
+
+    // startButton.addEventListener('click',function () {
+    var minIntervalId = setInterval(function updateTimer() {
+        if (minCount == max) {
+            clearInterval(minIntervalId);
+            minCount = 0;
+            minIntervalId = setInterval(updateTimer, 1000);
+        } else if (minCount < max) {
+            minTimer.innerHTML = minCount;
+        }
+
+        minCount++;
+    }, 100);
+    // });
+    // });
 
 
 </script>
