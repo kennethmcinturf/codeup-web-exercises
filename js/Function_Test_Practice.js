@@ -1,3 +1,6 @@
+"use strict";
+
+
 // ------------- PRACTICE 1
 // Write a function, filterNumbers() that takes in an array of mixed data types and returns an array of only the numbers type in ascencding order.
 //     Example input: ["fred", true, 5, 3]
@@ -255,7 +258,7 @@ function countBits(n) {
 function uniqueInOrder(iterable) {
     var uniqueArray = [];
     if (typeof(iterable) === "object" ){
-        uniqueArray.push(iterable);
+        uniqueArray = uniqueArray.concat(iterable);
     }else if(typeof (iterable) === "string"){
         for (var i = 0; i < iterable.length; i++){
             uniqueArray.push(iterable.charAt(i));
@@ -266,14 +269,210 @@ function uniqueInOrder(iterable) {
             uniqueArray.push(iterableString.charAt(i));
         }
     }
-    console.log(uniqueArray);
-    // var uniqueArray2 = [];
-    // uniqueArray.forEach(function (element,array,index) {
-    //     if (index.indexOf(element) === -1){
-    //         uniqueArray2.push(element);
-    //     }
-    // });
-    // return uniqueArray2;
+    var uniqueArray2 = [];
+    for (i = 0; i < uniqueArray.length; i++){
+        if (uniqueArray[i] !== uniqueArray[i-1]){
+            uniqueArray2.push(uniqueArray[i]);
+        }
+    }
+    return uniqueArray2;
+}
+
+// Mr. Scrooge has a sum of money 'P' that wants to invest, and he wants to know how many years 'Y' this sum has to be kept in the bank in order for this sum of money to amount to 'D'.
+//
+//     The sum is kept for 'Y' years in the bank where interest 'I' is paid yearly, and the new sum is re-invested yearly after paying tax 'T'
+//
+// Note that the principal is not taxed but only the year's accrued interest
+
+// Let P be the Principal = 1000.00
+// Let I be the Interest Rate = 0.05
+// Let T be the Tax Rate = 0.18
+// Let D be the Desired Sum = 1100.00
+//
+//
+// After 1st Year -->
+// P = 1041.00
+// After 2nd Year -->
+// P = 1083.86
+// After 3rd Year -->
+// P = 1128.30
+// t = I / Pr
+
+
+// function calculateYears(principal, interest, tax, desired) {
+//     var year1 =  principal * interest;
+//     var totalyears = 1;
+//     if (desired !== year1){
+//
+//     }
+//
+// }
+
+
+
+
+function getPerimeter(length, width){
+    return 2 * (length + width);
 }
 
 
+// Output Format
+//
+// The function must return a RegExp object that matches any string  beginning with and ending in the same vowel.
+
+function regexVar(input) {
+    if (input.charAt(0) !== input.charAt(input.length - 1)){
+        return false;
+    }else if (input.charAt(0) === 'a' || input.charAt(0) === 'e' || input.charAt(0) === 'i' || input.charAt(0) === 'o' || input.charAt(0) === 'u'){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+// function reverseString(str) {
+//     var sArray = str.split('').reverse().join('');
+//     try {
+//         if (typeof str !== "string")
+//         sArray = str.toString();
+//     }
+//     catch(err) {
+//         console.log(err);
+//     }
+//     return sArray;
+// }
+
+function factorial(n) {
+    var factorial = 1;
+    for (var i = n; i > 0; i--){
+        factorial = factorial * i;
+    }
+    return factorial;
+}
+
+
+
+function getGrade(score) {
+    var grade = '';
+    if (score <= 30 && score > 25){
+        grade = 'A';
+    }else if (score <= 25 && score > 20){
+        grade = 'B';
+    }else if (score <= 20 && score > 15){
+        grade = 'C';
+    }else if (score <= 15 && score > 10){
+        grade = 'D';
+    }else if (score <= 10 && score > 5){
+        grade = 'E';
+    }else {
+        grade = 'F';
+    }
+    return grade;
+}
+
+function getLetter(s) {
+    var firstLetter = s.charAt(0);
+    var returnLetter = '';
+    switch(firstLetter) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            returnLetter = 'A';
+            break;
+        case 'b':
+        case 'c':
+        case 'd':
+        case 'f':
+        case 'g':
+            returnLetter = 'B';
+            break;
+        case 'h':
+        case 'j':
+        case 'k':
+        case 'l':
+        case 'm':
+            returnLetter = 'C';
+            break;
+        default:
+            returnLetter = 'D';
+            break;
+    }
+    return returnLetter;
+}
+
+// Complete the getSecondLargest function in the editor below. It has one parameter: an array, , of  numbers. The function must find and return the second largest number in
+
+// function getSecondLargest(nums) {
+//     var sortedArray = nums.sort(function(a, b){return b - a});
+//     for (var i = 0; i > sortedArray.length; i++){
+//         if (sortedArray[i + 1] < sortedArray[i]){
+//             return sortedArray[i];
+//         }
+//     }
+// }
+
+function getSecondLargest(nums){
+    var uniqueArray = [];
+    for (var i = 0; i < nums.length; i++){
+        if (uniqueArray.indexOf(nums[i]) === -1){
+            uniqueArray.push(nums[i]);
+        }
+    }
+    var max = Math.max.apply(null, uniqueArray);
+    uniqueArray.splice(uniqueArray.indexOf(max), 1);
+    return Math.max.apply(null, uniqueArray);
+}
+
+function main(radius) {
+    const PI = Math.PI;
+    var area = PI * (radius * radius);
+    var perimeter = 2 * PI * radius;
+    console.log(area);
+    return perimeter;
+}
+
+function Rectangle(a, b) {
+    var rec = {};
+    rec.length = a;
+    rec.width = b;
+    rec.perimeter = 2 * (a + b);
+    rec.area = a * b;
+    return rec;
+}
+
+function getCount(objects) {
+    var equalArray = [];
+    objects.forEach(function (element,index,array) {
+        if (element.x === element.y){
+            equalArray.push(element)
+        }
+    });
+    return equalArray.length;
+}
+
+// Given: an array containing hashes of names
+//
+// Return: a string formatted as a list of names separated by commas except for the last two names, which should be separated by an ampersand.
+
+//try adding all names, then popping off and on last inputs properly
+
+function list(names){
+    var namesArray = [];
+    for (var i = 0; i < names.length; i++){
+        if (i === 0){
+            namesArray[i] = names[i].name;
+        }else if(i = names.length - 1) {
+            namesArray[i] = " & " + names[i].name;
+        }else{
+            namesArray[i] = " " + names[i].name;
+        }
+    }
+    var namesSentence = (namesArray.toString());
+    return namesSentence
+}
+
+function tickets(peopleInLine){
+
+}
