@@ -1,0 +1,20 @@
+.box {
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em;
+    height:12em;
+    text-align: center;
+}
+.Xs{
+    display: none;
+    font-size: 10em;
+}
+
+.Ys{
+    display: none;
+    font-size: 10em;
+}
+
+#playerO{
+    display: none;
+}
