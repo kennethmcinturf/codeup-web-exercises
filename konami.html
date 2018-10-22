@@ -17,6 +17,7 @@
 
 
     $(document).keydown(function(event){
+        event.preventDefault();
         inputKeys.push(event.which);
         if (inputKeys.toString().indexOf(konamiKeys) >= 0){
             alert('You have 30 lives!!');
