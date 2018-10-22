@@ -458,21 +458,63 @@ function getCount(objects) {
 
 //try adding all names, then popping off and on last inputs properly
 
-function list(names){
-    var namesArray = [];
-    for (var i = 0; i < names.length; i++){
-        if (i === 0){
-            namesArray[i] = names[i].name;
-        }else if(i = names.length - 1) {
-            namesArray[i] = " & " + names[i].name;
-        }else{
-            namesArray[i] = " " + names[i].name;
-        }
+// function list(names){
+//     var namesArray = [];
+//     for (var i = 0; i < names.length; i++){
+//         if (i === 0){
+//             namesArray[i] = names[i].name;
+//         }else if(i = names.length - 1) {
+//             namesArray[i] = " & " + names[i].name;
+//         }else{
+//             namesArray[i] = " " + names[i].name;
+//         }
+//     }
+//     var namesSentence = (namesArray.toString());
+//     return namesSentence
+// }
+//
+// function tickets(peopleInLine){
+
+// }
+
+function reverseInterger(number) {
+    var reverseN = +String(Math.abs(number)).split('').reverse().join('');
+    if (reverseN > 0x7FFFFFFF) {
+        return 0;
     }
-    var namesSentence = (namesArray.toString());
-    return namesSentence
+    return number < 0 ? -reverseN : reverseN;
 }
 
-function tickets(peopleInLine){
+function reverseString(s) {
+    try {
+        console.log(s.split('').reverse().join(''));
+    }
+    catch (e) {
+        console.log(e.message);
+        console.log(s);
+    }
+}
 
+function isPositive(a) {
+    try {
+        if (a < 0){
+            throw 'Negative Error';
+        }else if (a === 0){
+            throw 'Zero Error';
+        }else {
+            return 'YES'
+        }
+    } catch (err) {
+        return err;
+    }
+}
+
+Rectangle.prototype.area = function () {
+    return (this.w * this.h)
+};
+
+class Square extends Rectangle{
+    constructor(s) {
+        super(s, s);
+    }
 }
