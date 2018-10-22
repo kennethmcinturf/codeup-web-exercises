@@ -10,7 +10,7 @@ $(document).ready(function() {
         $(this).css('background-color','pink')
     });
 
-    $('p').dblclick(function (e) {
+    $('p').dblclick(function () {
         $(this).css('font-size','18px');
     });
 
