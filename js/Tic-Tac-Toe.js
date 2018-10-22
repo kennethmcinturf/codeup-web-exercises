@@ -28,5 +28,7 @@ $(document).ready(function () {
        var spaceSeven = $('#bottom-left');
        var spaceEight = $('#bottom-center');
        var spaceNine = $('#bottom-right');
+
+
    }
 });
