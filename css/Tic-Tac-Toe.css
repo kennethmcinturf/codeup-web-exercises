@@ -19,3 +19,11 @@
 #playerO{
     display: none;
 }
+
+#playerOWinner{
+    display: none;
+}
+
+#playerXWinner{
+    display: none;
+}

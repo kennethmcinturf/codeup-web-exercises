@@ -24,8 +24,16 @@ lowerRight = 10;
 
 
 var clickCounter = 0;
+var isGameOver = false;
+
 
 $(document).ready(function () {
+    function gameOver (){
+        if (gameOver = true){
+            $('#playerX').css("display",'none');
+            $('#playerO').css("display",'none');
+        }
+    }
     $('.box').click(function () {
        clickCounter = clickCounter + 1;
        if (clickCounter % 2 === 1){
@@ -109,64 +117,84 @@ $(document).ready(function () {
        if ((upperLeft === upperCenter) && (upperCenter === upperRight)){
            if (upperLeft === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
+               $('.box').off('click');
            } else if (upperLeft === 2){
                alert(Y);
+               $('#playerYWinner').css("display",'initial');
+               $('.box').off('click');
            }
        }
        if ((upperLeft === centerLeft) && (centerLeft === lowerLeft)){
            if (upperLeft === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
        if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
            if (upperCenter === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
        if ((upperRight === centerRight) && (centerRight === lowerRight)){
            if (upperRight === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
        if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
            if (upperCenter === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
        if ((centerLeft === centerCenter) && (centerCenter === centerRight)){
            if (centerLeft === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
        if ((lowerLeft === lowerCenter) && (lowerCenter === lowerRight)){
            if (lowerLeft === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
        if ((upperLeft === centerCenter) && (centerCenter === lowerRight)){
            if (upperLeft === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
        if ((upperRight === centerCenter) && (centerCenter === lowerLeft)){
            if (upperRight === 1){
                alert(X);
+               $('.box').off('click');
            } else {
                alert(Y);
+               $('.box').off('click');
            }
        }
    }
