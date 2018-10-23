@@ -119,83 +119,122 @@ $(document).ready(function () {
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else if (upperLeft === 2){
                alert(Y);
-               $('#playerYWinner').css("display",'initial');
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((upperLeft === centerLeft) && (centerLeft === lowerLeft)){
            if (upperLeft === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
            if (upperCenter === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((upperRight === centerRight) && (centerRight === lowerRight)){
            if (upperRight === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
            if (upperCenter === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((centerLeft === centerCenter) && (centerCenter === centerRight)){
            if (centerLeft === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((lowerLeft === lowerCenter) && (lowerCenter === lowerRight)){
            if (lowerLeft === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((upperLeft === centerCenter) && (centerCenter === lowerRight)){
            if (upperLeft === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
        }
        if ((upperRight === centerCenter) && (centerCenter === lowerLeft)){
            if (upperRight === 1){
                alert(X);
+               $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerO').hide();
            } else {
                alert(Y);
+               $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
+               $('#playerX').hide();
            }
+       }
+       if (clickCounter === 9){
+           alert("No One Wins!!");
+           alert("Game is Restarting...");
+           location.reload();
        }
    }
    $('.col-3').click(function () {
