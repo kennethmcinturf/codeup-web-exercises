@@ -38,6 +38,28 @@
     <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
 </dl>
+<h3>Awesome Park</h3>
+<ul>
+    <li>There is not bigfeet</li>
+    <li>There never was big feet</li>
+    <li>Why would you think that?</li>
+    <li>Bigfeet is dead.</li>
+</ul>
+<h3>Amazing Park</h3>
+<ul>
+    <li>There is not bigfeet</li>
+    <li>There never was big feet</li>
+    <li>Why would you think that?</li>
+    <li>Bigfeet is dead.</li>
+</ul>
+<h3>NoBigFeet Park</h3>
+<ul>
+    <li>There is not bigfeet</li>
+    <li>There never was big feet</li>
+    <li>Why would you think that?</li>
+    <li>Bigfeet is dead.</li>
+</ul>
+<button id="lastLiYellow">Make the last one Yellow</button>
 
 <script src="js/jquery.js"></script>
 <script>
@@ -47,7 +69,22 @@
             $('dd').toggleClass('invisible');
         });
         $('dt').click(function () {
-            $(this).addClass('highlight');
+            $(this).css('background-color','yellow');
+        })
+        $('#lastLiYellow').click(function () {
+            $('ul').each(function (index,element) {
+                $(this).children().last().css('background-color','yellow')
+            })
+        })
+        $('h3').click(function () {
+            $(this).each(function (index,element) {
+                $(this).next().css("font-weight",'bold');
+            })
+        })
+        $('li').click(function () {
+            $(this).each(function (index,element) {
+                $(this).parent().children().first().css("color",'blue');
+            })
         })
     })
 </script>
