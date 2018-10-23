@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>National Park FAQ</title>
+    <style>
+        .invisible{
+            display: none;
+        }
+        .highLight{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<h1>National Park System</h1>
+<h4>Frequently Asked Questions</h4>
+<div class="notInvisible">Press here to uncover all questions</div>
+<dl>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+    <dt>Where are the bigfeet?</dt>
+    <dd class="invisible">Not here</dd>
+</dl>
+
+<script src="js/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.notInvisible').click(function (event) {
+            event.preventDefault();
+            $('dd').toggleClass('invisible');
+        })
+        $('dt').click(function (event) {
+            event.preventDefault();
+            $('dd').addClass('highlight');
+        })
+    })
+</script>
+</body>
+</html>
