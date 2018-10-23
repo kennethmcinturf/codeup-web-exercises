@@ -1,3 +1,6 @@
+body{
+    background-image: url("/Users/kennethmcinturf/IdeaProjects/codeup-web-exercises/img/carolina_panther_logo.png");
+}
 .box {
     background-color: white;
     border: 1px solid black;
@@ -16,14 +19,63 @@
     font-size: 7em;
 }
 
+#top-left{
+    background-color: red;
+}
+
+#top-center{
+    background-color: orange;
+}
+
+#top-right{
+    background-color: yellow;
+}
+
+#center-left{
+    background-color: green;
+}
+
+#center-center{
+    background-color: blue;
+}
+
+#center-right{
+    background-color: indigo;
+}
+
+#bottom-left{
+    background-color: violet;
+}
+
+#bottom-center{
+    background-color: red;
+}
+
+#bottom-right{
+    background-color: blue;
+}
+
+#playerX{
+    font-family: "Courier New";
+    color: blue;
+}
+
 #playerO{
     display: none;
+    font-family: "Courier New";
+    color: red;
 }
 
 #playerOWinner{
     display: none;
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
 }
 
 #playerXWinner{
     display: none;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
 }
