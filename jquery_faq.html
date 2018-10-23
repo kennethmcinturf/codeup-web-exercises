@@ -7,7 +7,7 @@
         .invisible{
             display: none;
         }
-        .highLight{
+        .highLight {
             background-color: yellow;
         }
     </style>
@@ -17,38 +17,37 @@
 <h4>Frequently Asked Questions</h4>
 <div class="notInvisible">Press here to uncover all questions</div>
 <dl>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
-    <dt>Where are the bigfeet?</dt>
+    <dt class="nothighlighted">Where are the bigfeet?</dt>
     <dd class="invisible">Not here</dd>
 </dl>
 
 <script src="js/jquery.js"></script>
 <script>
     $(document).ready(function () {
-        $('.notInvisible').click(function (event) {
+        $('div').click(function (event) {
             event.preventDefault();
             $('dd').toggleClass('invisible');
-        })
-        $('dt').click(function (event) {
-            event.preventDefault();
-            $('dd').addClass('highlight');
+        });
+        $('dt').click(function () {
+            $(this).addClass('highlight');
         })
     })
 </script>
