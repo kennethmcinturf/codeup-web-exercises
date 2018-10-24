@@ -10,9 +10,20 @@
         .highLight {
             background-color: yellow;
         }
+        ul{
+            display: none;
+        }
+        h2{
+            display: none;
+        }
     </style>
 </head>
 <body>
+<div>
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span>X</span>
+</div>
+<h2>Please Register</h2>
 <h1>National Park System</h1>
 <h4>Frequently Asked Questions</h4>
 <div class="notInvisible">Press here to uncover all questions</div>
@@ -86,6 +97,16 @@
                 $(this).parent().children().first().css("color",'blue');
             })
         })
+        $('span').click(function () {
+            $(this).parent().hide();
+        })
+        $('h3').click(function () {
+            $(this).each(function (index,element) {
+                $(this).next().show();
+            })
+        })
+        $('h2').fadeToggle(8000)
+
     })
 </script>
 </body>
