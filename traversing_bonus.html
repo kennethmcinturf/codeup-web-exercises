@@ -142,26 +142,40 @@
 
         // Highlight the first nested element inside all article elements
 
-        $('article').each(function (index,element) {
-            $(this).children().first().css('background-color','yellow')
-        })
+        // $('article').each(function (index,element) {
+        //     $(this).children().first().css('background-color','yellow')
+        // })
 
         // Highlight the second list item of all ordered lists
-
+        // $('ol').each(function (index,element) {
+        //     $(this).children().first().next().css('background-color','yellow')
+        // })
 
         // Highlight the third list item of all ordered lists
-
+        // $('ol').each(function (index,element) {
+        //     $(this).children().first().next().next().css('background-color','yellow')
+        // })
 
         // ========================= more complex combinations =========================
 
         // Highlight the first li of the second ordered list
-
+       // $('article').first().next().children().children().children().first().css('background-color','yellow')
 
         // alert each of the top five items when double clicking on the header for a section
 
+        // $('h3').dblclick(function () {
+        //     $(this).each(function (index,element) {
+        //         $(this).next().next().next().next().next().next().next().children().children().css('background-color','yellow')
+        //     })
+        // })
 
         // Give a azure background color to every other list item (first item should be azure)
-
+        
+        // $('li').each(function (index,element) {
+        //     if (index % 2 === 0){
+        //         $(this).css('background-color','azure')
+        //     }
+        // })
 
         // +++++++++++++++++++++++++++++++++++++++++++++++++POSSIBLE SOLUTIONS+++++++++++++++++++++++++++++++++++++++++++++++++
 
