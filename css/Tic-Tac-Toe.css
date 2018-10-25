@@ -57,13 +57,17 @@ body{
 
 #playerX{
     font-family: "Courier New";
+    background-color: white;
     color: blue;
+    font-size: 20px;
 }
 
 #playerO{
     display: none;
     font-family: "Courier New";
+    background-color: white;
     color: red;
+    font-size: 20px;
 }
 
 #playerOWinner{
@@ -71,6 +75,7 @@ body{
     font-size: 20px;
     color: blue;
     font-weight: bold;
+    background-color: white;
 }
 
 #playerXWinner{
@@ -78,4 +83,5 @@ body{
     font-size: 20px;
     color: red;
     font-weight: bold;
+    background-color: white;
 }
