@@ -37,4 +37,17 @@ $(document).ready(function () {
        }
        colorBonus(people);
    });
+
+    $.ajax({
+        url: "https://swapi.co/api/people/62/",
+        type: "GET",
+        data: {
+            search: "planet"
+        }
+    }).done(function(data) {
+        console.log(data.results);
+    }).fail(function() {
+        console.log("Request failed");
+    });
+
 });
