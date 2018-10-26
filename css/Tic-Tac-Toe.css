@@ -1,5 +1,5 @@
 body{
-    background-image: url("/Users/kennethmcinturf/IdeaProjects/codeup-web-exercises/img/carolina_panther_logo.png");
+    background-image: url("../img/carolina_panther_logo.png");
 }
 .box {
     background-color: white;
