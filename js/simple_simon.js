@@ -6,9 +6,13 @@ var myScore = document.getElementById("round-counter");
 
 
 $(document).ready(function () {
-   $("#playSimon").click(function () {
-       $("#playSimon").prop('disabled',true);
-       function randomMovement() {
+    // function disableButton(){
+    //     if (solutionArray.length > 0){
+    //         return ("button[id=playSimon]").attr('disabled','disabled');
+    //     }
+    // }
+    $("#playSimon").click(function () {
+        function randomMovement() {
            var random = Math.floor((Math.random() * 4) + 1);
            solutionArray.push(random);
            myScore.innerHTML = solutionArray.length;
@@ -35,6 +39,7 @@ $(document).ready(function () {
            })
        }
        randomMovement();
+        // disableButton();
        function checkForWinner(input) {
            var isWinner = true;
            if (input.length === solutionArray.length){

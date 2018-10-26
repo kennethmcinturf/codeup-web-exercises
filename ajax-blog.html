@@ -17,9 +17,8 @@
 <body>
 <div class="container">
     <div id="posts"></div>
-    <div id="emoji"></div>
+    <button class="btn-primary" id="makePost">Make New Post</button>
 </div>
-<img src="" alt="">
     <script src="js/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -38,13 +37,14 @@
                     makeHtml += "</div>" + "</div>";
                     makeHtml += "<div class='row'>";
                     makeHtml += "<div class='col-4'>";
+                    makeHtml += '<h6>' + 'Catagories:' + '</h6>';
                     for (var i = 0; i < element.categories.length; i++){
-                        makeHtml += "<p>" + element.categories[i] + "</p>";
+                        makeHtml += "<div>" + element.categories[i] + "</div>";
                     }
                     makeHtml += "</div>" + "</div>";
                     makeHtml += "<div class='row'>";
                     makeHtml += "<div class='col-4'>";
-                    makeHtml += "<p>" + element.date + "</p>";
+                    makeHtml += "<p class='mt-2'>" + element.date + "</p>";
                     makeHtml += "</div>" + "</div>";
                     makeHtml += "</div>"
                 })
@@ -52,6 +52,11 @@
             }
             $.ajax("data/blog.json").done(function(data){
                 $('#posts').html(makeBlog(data));
+            })
+            $('#makePost').click(function () {
+                $.ajax("data/blog.json").done(function(data){
+                    $('#posts').html(makeBlog(data));
+                })
             })
         })();
     </script>
