@@ -1,17 +1,16 @@
 "use strict";
+//input variable for solution
 var solutionArray = [];
+//input variable for user
 var userInputArray = [];
+//Variable to keep count of score
 var myScore = document.getElementById("round-counter");
 
 
 
 $(document).ready(function () {
-    // function disableButton(){
-    //     if (solutionArray.length > 0){
-    //         return ("button[id=playSimon]").attr('disabled','disabled');
-    //     }
-    // }
     $("#playSimon").click(function () {
+        $(this).attr("disabled", true);
         function randomMovement() {
            var random = Math.floor((Math.random() * 4) + 1);
            solutionArray.push(random);
@@ -39,7 +38,6 @@ $(document).ready(function () {
            })
        }
        randomMovement();
-        // disableButton();
        function checkForWinner(input) {
            var isWinner = true;
            if (input.length === solutionArray.length){
