@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+    <h1>This is a Title</h1>
+</section>
+
+<section>
+    <ol>
+        <li>asdf</li>
+        <li>asdf</li>
+        <li>asdf</li>
+    </ol>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consequuntur cumque debitis, dicta eaque eveniet exercitationem laudantium magnam minima nostrum officia repudiandae tempore, unde. A eum impedit minus non officia?</p>
+
+</section>
+
+<section>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus provident quaerat voluptatem. Consectetur consequatur consequuntur deserunt dignissimos esse eum facilis, iste magnam molestiae, mollitia officia omnis quasi quisquam reprehenderit rerum, unde vitae. Autem deserunt doloribus harum, maxime minima numquam, optio pariatur placeat ratione reprehenderit sapiente sequi similique, suscipit tempora voluptate.</p>
+
+</section>
+
+<section>
+
+    <p>Benny's, consectetur adipisicing elit. Doloribus provident quaerat voluptatem. Consectetur consequatur consequuntur deserunt dignissimos esse eum facilis, iste magnam molestiae, mollitia officia omnis quasi quisquam reprehenderit rerum, unde vitae. Autem deserunt doloribus harum, maxime minima numquam, optio pariatur placeat ratione reprehenderit sapiente sequi similique, suscipit tempora voluptate.</p>
+    <ul>
+        <li>Dog</li>
+        <li>Cat</li>
+        <li>Fish</li>
+    </ul>
+</section>
+
+<section>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus provident quaerat voluptatem. Consectetur consequatur consequuntur deserunt dignissimos esse eum facilis, iste magnam molestiae, mollitia officia omnis quasi quisquam reprehenderit rerum, unde vitae. Autem deserunt doloribus harum, maxime minima numquam, optio pariatur placeat ratione reprehenderit sapiente sequi similique, suscipit tempora voluptate.</p>
+
+</section>
+
+<section>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus provident quaerat voluptatem. Consectetur consequatur consequuntur deserunt dignissimos esse eum facilis, iste magnam molestiae, mollitia officia omnis quasi quisquam reprehenderit rerum, unde vitae. Autem deserunt doloribus harum, maxime minima numquam, optio pariatur placeat ratione reprehenderit sapiente sequi similique, suscipit tempora voluptate.</p>
+
+</section>
+
+<section>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, necessitatibus!</p>
+
+</section>
+
+<ul>
+    <li>Dog</li>
+    <li>Cat</li>
+    <li>Fish</li>
+</ul>
+
+<ul>
+    <li>Red</li>
+    <li>Green</li>
+    <li>Blue</li>
+</ul>
+
+<ul>
+    <li>Sam</li>
+    <li>Fred</li>
+    <li>Smith</li>
+</ul>
+
+<ul>
+    <li>Dog</li>
+    <li>Cat</li>
+    <li>Fish</li>
+</ul>
+
+<ul>
+    <li>Red</li>
+    <li>Green</li>
+    <li>Blue</li>
+</ul>
+
+<ul>
+    <li>Sam</li>
+    <li>Fred</li>
+    <li>Smith</li>
+</ul>
+
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+<p>
+    I'm your cool new webpage. Made with <a href="https://glitch.com">Glitch</a>!
+</p>
+
+<!-- include the Glitch button to show what the webpage is about and
+      to make it easier for folks to view source and remix -->
+<div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+<script src="https://button.glitch.me/button.js"></script>
+<script>
+    $ (function() {
+        "use strict";
+        <!-- 1. Refactor the h1 to have a background color of yellow. -->
+        $("h1").css("background","yellow");
+
+        <!-- 2. refactor the 4th paragraph to "hello study group" -->
+        $('p').eq(3).html('hello study group');
+        // $('section>p').next().next().next().html('hello study group'); -----> ??????????
+
+        <!-- 3. refactor the 5th "ul" of the 'li' list, highlight the 2nd item in that list to green. -->
+        $('ul').eq(4).children().first().next().css('background', 'green');
+
+        <!-- 4. hide the title of the page -->
+        $('h1').hide();
+
+        <!-- 5.	Highlight the 4th paragraph -->
+        $('p').eq(-6).css('background', 'yellow')
+
+        <!-- 6.	Change text color of second item on each list to red -->
+        //========= Option 1
+        // $('ul').each(function() {
+        //   $(this).children().eq(1).css('color', 'red');
+        // })
+
+        //========= Option 2
+        $('ul').each(function() {
+            $(this).children().first().next()
+                .css('color', 'red');
+        })
+
+        // <!-- 7.	Make each item on the list turn to bold when that item is clicked. -->
+        $('li').click(function() {
+            $(this).css('font-weight', 'bold');
+        });
+
+        // <!-- When you hover the second paragraph the third paragraph should turn green-->
+        $('p').eq(1).hover(
+            function() {
+                $('p').eq(2).css('color', 'green');
+            },function(){
+                $('p').eq(2).css('color', 'black');
+            });
+
+
+        // <!-- When you click on the second li in the third ul the first item in the ol should change to 'codeUp'-->
+
+        $('ul').eq(2).children().first().next()
+
+        // <!-- Change the title to 'Carolina Panthers are the best' in green-->
+        $('h1').show().html('Carolina Panthers are the best')
+
+        // <!--When you click on the panthers, all paragraphs hide-->
+        $('h1').click(function(){ // also can use hover, etc.
+            $('p').toggle();
+        })
+
+        // Without using eq(), change the third paragraph font size and font color to blue.
+        $('section').first().next().next().next().children().first().css({color: "blue", "font-size": "20px"})
+    });
+
+</script>
+</body>
+</html>
