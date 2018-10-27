@@ -38,9 +38,11 @@
                     makeHtml += "<div class='row'>";
                     makeHtml += "<div class='col-4'>";
                     makeHtml += '<h6>' + 'Catagories:' + '</h6>';
+                    makeHtml += "<div>"
                     for (var i = 0; i < element.categories.length; i++){
-                        makeHtml += "<div>" + element.categories[i] + "</div>";
+                        makeHtml += element.categories[i];
                     }
+                    makeHtml += "</div>"
                     makeHtml += "</div>" + "</div>";
                     makeHtml += "<div class='row'>";
                     makeHtml += "<div class='col-4'>";
