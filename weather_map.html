@@ -12,9 +12,12 @@
         .box {
             border: 1px solid black;
             padding: 1em;
-            height: 17em;
+            height: 19em;
             text-align: center;
             background-color: white;
+        }
+        h1{
+            font-weight: bold;
         }
     </style>
 </head>
@@ -26,13 +29,13 @@
     <div class="row" id="city">
     </div>
     <div class="row">
-        <div class="col-4 box" id="dayOne">
+        <div class="col-4 box weather" id="dayOne">
 
         </div>
-        <div class="col-4 box" id="dayTwo">
+        <div class="col-4 box weather" id="dayTwo">
 
         </div>
-        <div class="col-4 box" id="dayThree">
+        <div class="col-4 box weather" id="dayThree">
 
         </div>
     </div>
@@ -73,9 +76,8 @@
         var marker;
         google.maps.event.addListener(map, "click", function(e) {
             latLng = e.latLng;
-            console.log(e.latLng.lat());
-            console.log(e.latLng.lng());
-            console.log("Marker");
+            markerLong = e.latLng.lng;
+            markerLat = e.latLng.lat;
             if (marker && marker.setMap) {
                 marker.setMap(null);
             }
@@ -98,9 +100,10 @@
             }).done(function(data) {
                 console.log(data.list[0]);
                 $('#city').html(findCity(data))
-                $('#dayOne').html(dayOneWeather(data));
-                $('#dayTwo').html(dayTwoWeather(data));
-                $('#dayThree').html(dayThreeWeather(data))
+                // $('#dayOne').html(dayOneWeather(data));
+                // $('#dayTwo').html(dayTwoWeather(data));
+                // $('#dayThree').html(dayThreeWeather(data))
+                $('.weather').html(weather(data))
             });
         })
         $.get("http://api.openweathermap.org/data/2.5/forecast", {
@@ -119,8 +122,23 @@
             makeHtml += '<h1>' + data.city.name + '</h1>';
             return makeHtml
         }
+        function weather() {
+            var makeHtml = '';
+            for (var i = 0; i <= 3; i++){
+
+            }
+            for (var i = 0; i <= 16; i = i + 8){
+                makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[i].weather[0].icon + '.png' +'>';
+                makeHtml += '<p>' + info.list[i].weather[0].description + '</p>';
+                makeHtml += '<p>' + info.list[i].main.humidity + '</p>';
+                makeHtml += '<p>' + info.list[i].wind.speed + '</p>';
+                makeHtml += '<p>' + info.list[i].main.pressure + '</p>';
+            }
+            return makeHtml;
+        }
         function dayOneWeather(info) {
             var makeHtml = '';
+            makeHtml += '<h3>' + 'Todays Forecast' + '</h3>';
             makeHtml += '<h2>' + getMinMaxDayTemp(info, 1).min + '/' + getMinMaxDayTemp(info, 1).max + '</h2>';
             makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[0].weather[0].icon + '.png' +'>';
             makeHtml += '<p>' + info.list[0].weather[0].description + '</p>';
@@ -131,6 +149,7 @@
         }
         function dayTwoWeather(info) {
             var makeHtml = '';
+            makeHtml += '<h3>' + 'Tomorrows Forecast' + '</h3>';
             makeHtml += '<h2>' + getMinMaxDayTemp(info, 2).min + '/' + getMinMaxDayTemp(info, 2).max + '</h2>';
             makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[9].weather[0].icon + '.png' +'>';
             makeHtml += '<p>' + info.list[9].weather[0].description + '</p>';
@@ -141,6 +160,7 @@
         }
         function dayThreeWeather(info) {
             var makeHtml = '';
+            makeHtml += '<h3>' + 'The Next day Forecast' + '</h3>';
             makeHtml += '<h2>' + getMinMaxDayTemp(info, 3).min + '/' + getMinMaxDayTemp(info, 3).max + '</h2>';
             makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[17].weather[0].icon + '.png' +'>';
             makeHtml += '<p>' + info.list[17].weather[0].description + '</p>';
