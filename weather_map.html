@@ -6,37 +6,48 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
-        body{
-            background-color: lightblue;
-        }
-        .box {
-            border: 1px solid black;
-            padding: 1em;
-            height: 19em;
-            text-align: center;
-            background-color: white;
+        body {
+            background: url('img/cloudyCity.jpeg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
         h1{
+            font-weight: bold;
+        }
+        .bolded{
             font-weight: bold;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <h1>Weather Application</h1>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h1>Weather Application</h1>
+        </div>
     </div>
-    <div class="row" id="city">
-    </div>
-    <div class="row">
-        <div class="col-4 box weather" id="dayOne">
+    <div class="row justify-content-center">
+        <div class="col-4" id="city">
 
         </div>
-        <div class="col-4 box weather" id="dayTwo">
+    </div>
+    <div class="row">
+        <div class="card text-center text-white bg-info col-4" style="width: 18rem;">
+            <div class="card-body" id="dayOne">
 
+            </div>
         </div>
-        <div class="col-4 box weather" id="dayThree">
+        <div class="card text-center text-white bg-info col-4" style="width: 18rem;">
+            <div class="card-body" id="dayTwo">
 
+            </div>
+        </div>
+        <div class="card text-center text-white bg-info col-4" style="width: 18rem;">
+            <div class="card-body" id="dayThree">
+
+            </div>
         </div>
     </div>
     <div class="row">
@@ -90,6 +101,34 @@
             {lat: 29.423017, lng: -98.48527},
         ];
     }
+    var date = new Date();
+    function getDayOfWeek(today) {
+        var dayOfWeek = '';
+        var dayOfWeekInt = 0;
+        dayOfWeekInt += (date.getDay() + today);
+        if (dayOfWeekInt === 7){
+            dayOfWeekInt = 0;
+        } else if (dayOfWeekInt === 7){
+            dayOfWeekInt = 1;
+        }
+        if (dayOfWeekInt === 0){
+            dayOfWeek = "Sunday";
+        }else if (dayOfWeekInt === 1){
+            dayOfWeek = "Monday";
+        }else if (dayOfWeekInt === 2){
+            dayOfWeek = "Tuesday";
+        }else if (dayOfWeekInt === 3){
+            dayOfWeek = "Wednesday";
+        }else if (dayOfWeekInt === 4){
+            dayOfWeek = "Thursday";
+        }else if (dayOfWeekInt === 5){
+            dayOfWeek = "Friday";
+        }else if (dayOfWeekInt === 6){
+            dayOfWeek = "Saturday";
+        }
+        console.log(dayOfWeek);
+        return dayOfWeek
+    }
     (function() {
         $('#map').click(function () {
             $.get("http://api.openweathermap.org/data/2.5/forecast", {
@@ -98,12 +137,10 @@
                 lon:   markerLong,
                 units: "imperial"
             }).done(function(data) {
-                console.log(data.list[0]);
-                $('#city').html(findCity(data))
-                // $('#dayOne').html(dayOneWeather(data));
-                // $('#dayTwo').html(dayTwoWeather(data));
-                // $('#dayThree').html(dayThreeWeather(data))
-                $('.weather').html(weather(data))
+                $('#city').html(findCity(data));
+                $('#dayOne').html(dayOneWeather(data));
+                $('#dayTwo').html(dayTwoWeather(data));
+                $('#dayThree').html(dayThreeWeather(data))
             });
         })
         $.get("http://api.openweathermap.org/data/2.5/forecast", {
@@ -122,51 +159,51 @@
             makeHtml += '<h1>' + data.city.name + '</h1>';
             return makeHtml
         }
-        function weather() {
-            var makeHtml = '';
-            for (var i = 0; i <= 3; i++){
-
-            }
-            for (var i = 0; i <= 16; i = i + 8){
-                makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[i].weather[0].icon + '.png' +'>';
-                makeHtml += '<p>' + info.list[i].weather[0].description + '</p>';
-                makeHtml += '<p>' + info.list[i].main.humidity + '</p>';
-                makeHtml += '<p>' + info.list[i].wind.speed + '</p>';
-                makeHtml += '<p>' + info.list[i].main.pressure + '</p>';
-            }
-            return makeHtml;
-        }
+        // function weather() {
+        //     var makeHtml = '';
+        //     for (var i = 0; i <= 3; i++){
+        //
+        //     }
+        //     for (var i = 0; i <= 16; i = i + 8){
+        //         makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[i].weather[0].icon + '.png' +'>';
+        //         makeHtml += '<p>' + info.list[i].weather[0].description + '</p>';
+        //         makeHtml += '<p>' + info.list[i].main.humidity + '</p>';
+        //         makeHtml += '<p>' + info.list[i].wind.speed + '</p>';
+        //         makeHtml += '<p>' + info.list[i].main.pressure + '</p>';
+        //     }
+        //     return makeHtml;
+        // }
         function dayOneWeather(info) {
             var makeHtml = '';
-            makeHtml += '<h3>' + 'Todays Forecast' + '</h3>';
-            makeHtml += '<h2>' + getMinMaxDayTemp(info, 1).min + '/' + getMinMaxDayTemp(info, 1).max + '</h2>';
+            makeHtml += '<h5 class="card-title">' + getDayOfWeek(0) + '</h5>';
+            makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 1).min) + '/' + parseInt(getMinMaxDayTemp(info, 1).max) + '</h6>';
             makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[0].weather[0].icon + '.png' +'>';
-            makeHtml += '<p>' + info.list[0].weather[0].description + '</p>';
-            makeHtml += '<p>' + info.list[0].main.humidity + '</p>';
-            makeHtml += '<p>' + info.list[0].wind.speed + '</p>';
-            makeHtml += '<p>' + info.list[0].main.pressure + '</p>';
+            makeHtml += '<p class="card-text">' + info.list[0].weather[0].description + '</p>';
+            makeHtml += '<p class="card-title">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[0].main.humidity + '</p>';
+            makeHtml += '<p class="card-title">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[0].wind.speed + '</p>';
+            makeHtml += '<p class="card-title">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[0].main.pressure + '</p>';
             return makeHtml
         }
         function dayTwoWeather(info) {
             var makeHtml = '';
-            makeHtml += '<h3>' + 'Tomorrows Forecast' + '</h3>';
-            makeHtml += '<h2>' + getMinMaxDayTemp(info, 2).min + '/' + getMinMaxDayTemp(info, 2).max + '</h2>';
+            makeHtml += '<h5 class="card-title">' + getDayOfWeek(1) + '</h5>';
+            makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 2).min) + '/' + parseInt(getMinMaxDayTemp(info, 2).max) + '</h6>';
             makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[9].weather[0].icon + '.png' +'>';
-            makeHtml += '<p>' + info.list[9].weather[0].description + '</p>';
-            makeHtml += '<p>' + info.list[9].main.humidity + '</p>';
-            makeHtml += '<p>' + info.list[9].wind.speed + '</p>';
-            makeHtml += '<p>' + info.list[9].main.pressure + '</p>';
+            makeHtml += '<p class="card-text">'  + info.list[9].weather[0].description + '</p>';
+            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[9].main.humidity + '</p>';
+            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Wind: ' +  '</span>' + info.list[9].wind.speed + '</p>';
+            makeHtml += '<p class="card-text">' + '<span class="bolded">' +  'Pressure: ' +  '</span>'  + info.list[9].main.pressure + '</p>';
             return makeHtml
         }
         function dayThreeWeather(info) {
             var makeHtml = '';
-            makeHtml += '<h3>' + 'The Next day Forecast' + '</h3>';
-            makeHtml += '<h2>' + getMinMaxDayTemp(info, 3).min + '/' + getMinMaxDayTemp(info, 3).max + '</h2>';
+            makeHtml += '<h5 class="card-title">' + getDayOfWeek(2) + '</h5>';
+            makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 3).min) + '/' + parseInt(getMinMaxDayTemp(info, 3).max) + '</h6>';
             makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[17].weather[0].icon + '.png' +'>';
-            makeHtml += '<p>' + info.list[17].weather[0].description + '</p>';
-            makeHtml += '<p>' + info.list[17].main.humidity + '</p>';
-            makeHtml += '<p>' + info.list[17].wind.speed + '</p>';
-            makeHtml += '<p>' + info.list[17].main.pressure + '</p>';
+            makeHtml += '<p class="card-text">' + info.list[17].weather[0].description + '</p>';
+            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[17].main.humidity + '</p>';
+            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[17].wind.speed + '</p>';
+            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[17].main.pressure + '</p>';
             return makeHtml
         }
         const getMinMaxDayTemp = (data, day) => {
