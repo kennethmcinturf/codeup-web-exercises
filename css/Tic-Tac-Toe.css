@@ -1,6 +1,9 @@
 body{
     background-image: url("../img/carolina_panther_logo.png");
 }
+button{
+    height: 40px;
+}
 .box {
     background-color: white;
     border: 1px solid black;

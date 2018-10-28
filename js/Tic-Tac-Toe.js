@@ -24,7 +24,7 @@ lowerRight = 10;
 
 
 var clickCounter = 0;
-var isGameOver = false;
+var continueGame = true;
 
 
 $(document).ready(function () {
@@ -120,118 +120,130 @@ $(document).ready(function () {
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else if (upperLeft === 2){
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((upperLeft === centerLeft) && (centerLeft === lowerLeft)){
+       }else if ((upperLeft === centerLeft) && (centerLeft === lowerLeft)){
            if (upperLeft === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
+       }else if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
            if (upperCenter === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((upperRight === centerRight) && (centerRight === lowerRight)){
+       }else if ((upperRight === centerRight) && (centerRight === lowerRight)){
            if (upperRight === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
+       }else if ((upperCenter === centerCenter) && (centerCenter === lowerCenter)){
            if (upperCenter === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((centerLeft === centerCenter) && (centerCenter === centerRight)){
+       }else if ((centerLeft === centerCenter) && (centerCenter === centerRight)){
            if (centerLeft === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((lowerLeft === lowerCenter) && (lowerCenter === lowerRight)){
+       }else if ((lowerLeft === lowerCenter) && (lowerCenter === lowerRight)){
            if (lowerLeft === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((upperLeft === centerCenter) && (centerCenter === lowerRight)){
+       }else if ((upperLeft === centerCenter) && (centerCenter === lowerRight)){
            if (upperLeft === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
-       }
-       if ((upperRight === centerCenter) && (centerCenter === lowerLeft)){
+       }else if ((upperRight === centerCenter) && (centerCenter === lowerLeft)){
            if (upperRight === 1){
                alert(X);
                $('#playerXWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerO').hide();
+               continueGame = false;
            } else {
                alert(Y);
                $('#playerOWinner').css("display",'initial');
                $('.box').off('click');
                $('#playerX').hide();
+               continueGame = false;
            }
        }
-       if (clickCounter === 9){
+   }
+   function restartGame (){
+       if (clickCounter === 9 && continueGame === true){
            alert("No One Wins!!");
            alert("Game is Restarting...");
            location.reload();
@@ -239,6 +251,9 @@ $(document).ready(function () {
    }
    $('.col-3').click(function () {
        checkForWinner();
+       setTimeout(function () {
+           restartGame();
+       }, 100)
    });
    $('.restartButton').click(function () {
        location.reload();
