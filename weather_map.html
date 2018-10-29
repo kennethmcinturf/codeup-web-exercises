@@ -43,31 +43,31 @@
     <div class="row justify-content-center">
         <div class="form-check mr-2">
             <input class="form-check-input" type="checkbox" value="" id="icon" checked>
-            <label class="form-check-label" for="icon">
+            <label class="form-check-label text-white" for="icon">
                 Icon
             </label>
         </div>
         <div class="form-check mr-2">
             <input class="form-check-input" type="checkbox" value="" id="sky" checked>
-            <label class="form-check-label" for="sky">
+            <label class="form-check-label text-white" for="sky">
                 Sky
             </label>
         </div>
         <div class="form-check mr-2">
             <input class="form-check-input" type="checkbox" value="" id="humidity" checked>
-            <label class="form-check-label" for="humidity">
+            <label class="form-check-label text-white" for="humidity">
                 Humidity
             </label>
         </div>
         <div class="form-check mr-2">
             <input class="form-check-input" type="checkbox" value="" id="wind" checked>
-            <label class="form-check-label" for="wind">
+            <label class="form-check-label text-white" for="wind">
                 Wind
             </label>
         </div>
         <div class="form-check mr-2">
             <input class="form-check-input" type="checkbox" value="" id="pressure" checked>
-            <label class="form-check-label" for="pressure">
+            <label class="text-white form-check-label" for="pressure">
                 Pressure
             </label>
         </div>
@@ -125,9 +125,7 @@
     var map;
     var markerLat;
     var markerLong;
-    var coordinateButton = document.getElementById('coordinates');
-    var cordLat = document.getElementById('cordLat').valueOf();
-    var cordLong = document.getElementById('cordLong').valueOf();
+    var markerLatandLong;
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 4
@@ -146,9 +144,11 @@
             position: startingCoordinates,
             map: map,
             animation: google.maps.Animation.DROP,
+            draggable: true
         });
         google.maps.event.addListener(map, "click", function(e) {
             latLng = e.latLng;
+            markerLatandLong = e.latLng;
             markerLong = e.latLng.lng;
             markerLat = e.latLng.lat;
             if (marker && marker.setMap) {
@@ -157,7 +157,13 @@
             marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
+                draggable: true
             });
+        });
+        google.maps.event.addListener(marker, "position_changed", function() {
+            var position = marker.getPosition();
+            markerLong = position.lng;
+            markerLat = position.lat;
         });
     }
     var date = new Date();
@@ -240,6 +246,54 @@
                 }
             });
         })
+        // $('#map').click(function () {
+        //     $.get("http://api.openweathermap.org/data/2.5/forecast", {
+        //         APPID: "eb6b49e473ed32520a0acef71159e770",
+        //         lat:    markerLat,
+        //         lon:   markerLong,
+        //         units: "imperial"
+        //     }).done(function(data) {
+        //         $('#city').html(findCity(data));
+        //         $('#dayOne').html(dayOneWeather(data));
+        //         $('#dayTwo').html(dayTwoWeather(data));
+        //         $('#dayThree').html(dayThreeWeather(data));
+        //         if (data.list[0].weather[0].main === 'Clear'){
+        //             $('body').css('background', "url('img/sunny_background.jpg') no-repeat center center fixed");
+        //             $('body').css('-webkit-background-size', "cover");
+        //             $('body').css('-moz-background-size', "cover");
+        //             $('body').css('-o-background-size', "cover");
+        //             $('body').css('background-size', "cover");
+        //         }
+        //         if (data.list[0].weather[0].main === 'Drizzle' || data.list[0].weather[0].main === 'Rain'){
+        //             $('body').css('background', "url('img/cloudyCity.jpeg') no-repeat center center fixed");
+        //             $('body').css('-webkit-background-size', "cover");
+        //             $('body').css('-moz-background-size', "cover");
+        //             $('body').css('-o-background-size', "cover");
+        //             $('body').css('background-size', "cover");
+        //         }
+        //         if (data.list[0].weather[0].main === 'Snow'){
+        //             $('body').css('background', "url('img/snowy-background.jpg') no-repeat center center fixed");
+        //             $('body').css('-webkit-background-size', "cover");
+        //             $('body').css('-moz-background-size', "cover");
+        //             $('body').css('-o-background-size', "cover");
+        //             $('body').css('background-size', "cover");
+        //         }
+        //         if (data.list[0].weather[0].main === 'Clouds'){
+        //             $('body').css('background', "url('img/sky-background.jpg') no-repeat center center fixed");
+        //             $('body').css('-webkit-background-size', "cover");
+        //             $('body').css('-moz-background-size', "cover");
+        //             $('body').css('-o-background-size', "cover");
+        //             $('body').css('background-size', "cover");
+        //         }
+        //         if (data.list[0].weather[0].main === 'Thunderstorm'){
+        //             $('body').css('background', "url('img/thunderstorm-background.jpg') no-repeat center center fixed");
+        //             $('body').css('-webkit-background-size', "cover");
+        //             $('body').css('-moz-background-size', "cover");
+        //             $('body').css('-o-background-size', "cover");
+        //             $('body').css('background-size', "cover");
+        //         }
+        //     });
+        // })
         $('#selectDays').click(function () {
             console.log($('#daysForecast')[0].value);
             if ($('#daysForecast')[0].value === 'threeDay'){
@@ -324,7 +378,6 @@
             lon:   -98.48527,
             units: "imperial"
         }).done(function(data) {
-            console.log(data);
             $('#city').html(findCity(data))
             $('#dayOne').html(dayOneWeather(data));
             $('#dayTwo').html(dayTwoWeather(data));
