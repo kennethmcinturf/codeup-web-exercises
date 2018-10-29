@@ -109,23 +109,35 @@
 <script>
     $ (function() {
         "use strict";
-        <!-- 1. Refactor the h1 to have a background color of yellow. -->
+
+//===
+//====== 1. Refactor the h1 to have a background color of yellow. -->
         $("h1").css("background","yellow");
 
-        <!-- 2. refactor the 4th paragraph to "hello study group" -->
+
+//=== Changing Text ===
+//====== 2. refactor the 4th paragraph to "hello study group" -->
         $('p').eq(3).html('hello study group');
         // $('section>p').next().next().next().html('hello study group'); -----> ??????????
 
-        <!-- 3. refactor the 5th "ul" of the 'li' list, highlight the 2nd item in that list to green. -->
+
+//===
+//====== 3. refactor the 5th "ul" of the 'li' list, highlight the 2nd item in that list to green. -->
         $('ul').eq(4).children().first().next().css('background', 'green');
 
-        <!-- 4. hide the title of the page -->
+
+//=== .hide() ===
+//====== 4. hide the title of the page -->
         $('h1').hide();
 
-        <!-- 5.	Highlight the 4th paragraph -->
-        $('p').eq(-6).css('background', 'yellow')
 
-        //<!-- 6.	Change text color of second item on each list to red -->
+//===
+//====== 5.	Highlight the 4th paragraph -->
+        $('p').eq(-6).css('background', 'yellow');
+
+
+//=== Changing Text ===
+//====== 6.	Change text color of second item on each list to red
         //========= Option 1
         // $('ul').each(function() {
         //   $(this).children().eq(1).css('color', 'red');
@@ -135,14 +147,18 @@
         $('ul').each(function() {
             $(this).children().first().next()
                 .css('color', 'red');
-        })
+        });
 
-        // <!-- 7.	Make each item on the list turn to bold when that item is clicked. -->
+
+//=== .click() ===
+//====== 7.	Make each item on the list turn to bold when that item is clicked. -->
         $('li').click(function() {
             $(this).css('font-weight', 'bold');
         });
 
-        // <!-- When you hover the second paragraph the third paragraph should turn green-->
+
+//=== .hover() ==
+//====== 8. When you hover the second paragraph the third paragraph should turn green-->
         $('p').eq(1).hover(
             function() {
                 $('p').eq(2).css('color', 'green');
@@ -151,20 +167,49 @@
             });
 
 
-        // <!-- When you click on the second li in the third ul the first item in the ol should change to 'codeUp'-->
+//===
+//====== 9. When you click on the second li in the third ul the first item in the ol should change to 'codeUp'-->
 
-        $('ul').eq(2).children().first().next()
+        $('ul').eq(2).children().first().next();
 
-        // <!-- Change the title to 'Carolina Panthers are the best' in green-->
-        $('h1').show().html('Carolina Panthers are the best')
 
-        // <!--When you click on the panthers, all paragraphs hide-->
+//===
+//====== 10. Change the title to 'Carolina Panthers are the best' in green-->
+        $('h1').show().html('Carolina Panthers are the best');
+
+
+//===
+//====== 11. When you click on the panthers, all paragraphs hide-->
         $('h1').click(function(){ // also can use hover, etc.
             $('p').toggle();
-        })
+        });
 
-        // Without using eq(), change the third paragraph font size and font color to blue.
+
+//====== 12. Without using eq(), change the third paragraph font size and font color to blue.
         $('section').first().next().next().next().children().first().css({color: "blue", "font-size": "20px"})
+
+
+//      <section> -------- 1st Section ***** STARTING POINT *****
+//          <h1></h1>
+//      </<section>
+
+//      <section> -------- 2nd Section
+//          <p></p> ----------------------------- 1st Paragraph
+//      </<section>
+
+//      <section> -------- 3rd Section
+//          <p></p> ----------------------------- 2nd Paragraph
+//      </<section>
+
+//      <section> -------- 4th Section
+//          <p></> ----------------------- 3rd Paragraph (first child of this section) ***** TARGET *****
+//              <ul> --------------------- (2nd child of this section)
+//                  <li></li>
+//                  <li></li>
+//                  <li></li>
+//              </ul>
+//
+
     });
 
 </script>
