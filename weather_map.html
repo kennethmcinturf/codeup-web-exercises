@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
         body {
-            background: url('img/cloudyCity.jpeg') no-repeat center center fixed;
+            background: url('img/sunny_background.jpg') no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -26,12 +26,59 @@
             <p class="lead text-center text-white bg-info">How to find the weather for this place you are trying to find the weather for.</p>
         </div>
     </div>
+    <div class="row justify-content-center mb-4">
+        <h2 class="text-center text-white">How many days would you like the forecast for?</h2>
+    </div>
+    <div class="row justify-content-center mb-4">
+        <select id="daysForecast">
+            <option value="threeDay" id="threeDay">3 Days</option>
+            <option value="fourDay" id="fourDay">4 days</option>
+            <option value="fiveDay" id="fiveDay">5 days</option>
+        </select>
+        <button id="selectDays" class="ml-5">Submit</button>
+    </div>
+    <div class="row justify-content-center mb-4">
+        <h2 class="text-center text-white">And What type of Info would you like</h2>
+    </div>
     <div class="row justify-content-center">
-        <div class="col-4 text-white text-center" id="city">
+        <div class="form-check mr-2">
+            <input class="form-check-input" type="checkbox" value="" id="icon" checked>
+            <label class="form-check-label" for="icon">
+                Icon
+            </label>
+        </div>
+        <div class="form-check mr-2">
+            <input class="form-check-input" type="checkbox" value="" id="sky" checked>
+            <label class="form-check-label" for="sky">
+                Sky
+            </label>
+        </div>
+        <div class="form-check mr-2">
+            <input class="form-check-input" type="checkbox" value="" id="humidity" checked>
+            <label class="form-check-label" for="humidity">
+                Humidity
+            </label>
+        </div>
+        <div class="form-check mr-2">
+            <input class="form-check-input" type="checkbox" value="" id="wind" checked>
+            <label class="form-check-label" for="wind">
+                Wind
+            </label>
+        </div>
+        <div class="form-check mr-2">
+            <input class="form-check-input" type="checkbox" value="" id="pressure" checked>
+            <label class="form-check-label" for="pressure">
+                Pressure
+            </label>
+        </div>
+        <button id="selectInfo" class="ml-5">Submit</button>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4 text-white text-center mt-5" id="city">
 
         </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center" id="forecast">
         <div class="card text-center text-white bg-info col-4" style="width: 18rem;">
             <div class="card-body" id="dayOne">
 
@@ -44,6 +91,18 @@
         </div>
         <div class="card text-center text-white bg-info col-4" style="width: 18rem;">
             <div class="card-body" id="dayThree">
+
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" id="forecast2">
+        <div class="card text-center text-white bg-info col-6 hidden" style="width: 18rem;" id="cardForDayFour">
+            <div class="card-body" id="dayFour">
+
+            </div>
+        </div>
+        <div class="card text-center text-white bg-info col-6 hidden" style="width: 18rem;" id="cardForDayFive">
+            <div class="card-body" id="dayFive">
 
             </div>
         </div>
@@ -87,11 +146,9 @@
             position: startingCoordinates,
             map: map,
             animation: google.maps.Animation.DROP,
-            // draggable:true,
         });
         google.maps.event.addListener(map, "click", function(e) {
             latLng = e.latLng;
-            console.log(latLng);
             markerLong = e.latLng.lng;
             markerLat = e.latLng.lat;
             if (marker && marker.setMap) {
@@ -100,19 +157,6 @@
             marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
-            });
-        });
-        google.maps.event.addListener(coordinateButton, "click", function() {
-            markerLong = cordLong;
-            markerLat = cordLat;
-            var cordObject = {lat: markerLat, lng: markerLong};
-            console.log(cordObject);
-            if (marker && marker.setMap) {
-                marker.setMap(null);
-            }
-            marker = new google.maps.Marker({
-                position: cordObject,
-                map: map
             });
         });
     }
@@ -144,21 +188,10 @@
         return dayOfWeek
     }
     (function() {
-        $('#coordinates').click(function () {
-            var cordLat = $('#cordLat');
-            var cordLong = $('#cordLong');
-            $.get("http://api.openweathermap.org/data/2.5/forecast", {
-                APPID: "eb6b49e473ed32520a0acef71159e770",
-                lat:    cordLat.val(),
-                lon:   cordLong.val(),
-                units: "imperial"
-            }).done(function(data) {
-                $('#city').html(findCity(data));
-                $('#dayOne').html(dayOneWeather(data));
-                $('#dayTwo').html(dayTwoWeather(data));
-                $('#dayThree').html(dayThreeWeather(data))
-            });
-        });
+        markerLat = 29.423017;
+        markerLong = -98.48527
+        $('#cardForDayFour').hide();
+        $('#cardForDayFive').hide();
         $('#map').click(function () {
             $.get("http://api.openweathermap.org/data/2.5/forecast", {
                 APPID: "eb6b49e473ed32520a0acef71159e770",
@@ -169,8 +202,121 @@
                 $('#city').html(findCity(data));
                 $('#dayOne').html(dayOneWeather(data));
                 $('#dayTwo').html(dayTwoWeather(data));
-                $('#dayThree').html(dayThreeWeather(data))
+                $('#dayThree').html(dayThreeWeather(data));
+                if (data.list[0].weather[0].main === 'Clear'){
+                    $('body').css('background', "url('img/sunny_background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Drizzle' || data.list[0].weather[0].main === 'Rain'){
+                    $('body').css('background', "url('img/cloudyCity.jpeg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Snow'){
+                    $('body').css('background', "url('img/snowy-background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Clouds'){
+                    $('body').css('background', "url('img/sky-background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Thunderstorm'){
+                    $('body').css('background', "url('img/thunderstorm-background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
             });
+        })
+        $('#selectDays').click(function () {
+            console.log($('#daysForecast')[0].value);
+            if ($('#daysForecast')[0].value === 'threeDay'){
+                $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                    APPID: "eb6b49e473ed32520a0acef71159e770",
+                    lat:    markerLat,
+                    lon:   markerLong,
+                    units: "imperial"
+                }).done(function(data) {
+                    $('#city').html(findCity(data));
+                    $('#dayOne').html(dayOneWeather(data));
+                    $('#dayTwo').html(dayTwoWeather(data));
+                    $('#dayThree').html(dayThreeWeather(data));
+                    $('#cardForDayFour').hide();
+                    $('#cardForDayFive').hide();
+                });
+            }
+            if ($('#daysForecast')[0].value === 'fourDay'){
+                $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                    APPID: "eb6b49e473ed32520a0acef71159e770",
+                    lat:    markerLat,
+                    lon:   markerLong,
+                    units: "imperial"
+                }).done(function(data) {
+                    $('#city').html(findCity(data));
+                    $('#dayOne').html(dayOneWeather(data));
+                    $('#dayTwo').html(dayTwoWeather(data));
+                    $('#dayThree').html(dayThreeWeather(data));
+                    $('#dayFour').html(dayFourWeather(data))
+                    $('#cardForDayFour').show();
+                    $('#cardForDayFive').hide();
+                });
+            }
+            if ($('#daysForecast')[0].value === 'fiveDay'){
+                $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                    APPID: "eb6b49e473ed32520a0acef71159e770",
+                    lat:    markerLat,
+                    lon:   markerLong,
+                    units: "imperial"
+                }).done(function(data) {
+                    $('#city').html(findCity(data));
+                    $('#dayOne').html(dayOneWeather(data));
+                    $('#dayTwo').html(dayTwoWeather(data));
+                    $('#dayThree').html(dayThreeWeather(data));
+                    $('#cardForDayFour').show();
+                    $('#cardForDayFive').show();
+                    $('#dayFour').html(dayFourWeather(data));
+                    $('#dayFive').html(dayFiveWeather(data));
+                });
+            }
+        });
+        $('#selectInfo').click(function () {
+            if ($('#icon')[0].checked === true){
+                $('img.icon').show();
+            }else {
+                $('img.icon').hide();
+            }
+            if ($('#sky')[0].checked === true){
+                $('p.sky').show();
+            }else {
+                $('p.sky').hide();
+            }
+            if ($('#humidity')[0].checked === true){
+                $('p.humidity').show();
+            }else {
+                $('p.humidity').hide();
+            }
+            if ($('#wind')[0].checked === true){
+                $('p.wind').show();
+            }else {
+                $('p.wind').hide();
+            }
+            if ($('#pressure')[0].checked === true){
+                $('p.pressure').show();
+            }else {
+                $('p.pressure').hide();
+            }
         })
         $.get("http://api.openweathermap.org/data/2.5/forecast", {
             APPID: "eb6b49e473ed32520a0acef71159e770",
@@ -178,10 +324,39 @@
             lon:   -98.48527,
             units: "imperial"
         }).done(function(data) {
+            console.log(data);
             $('#city').html(findCity(data))
             $('#dayOne').html(dayOneWeather(data));
             $('#dayTwo').html(dayTwoWeather(data));
             $('#dayThree').html(dayThreeWeather(data))
+            if (data.list[0].weather[0].main === 'Clear'){
+                $('body').css('background', "url('img/sunny_background.jpg') no-repeat center center fixed");
+                $('body').css('-webkit-background-size', "cover");
+                $('body').css('-moz-background-size', "cover");
+                $('body').css('-o-background-size', "cover");
+                $('body').css('background-size', "cover");
+            }
+            if (data.list[0].weather[0].main === 'Thunderstorm' || data.list[0].weather[0].main === 'Drizzle' || data.list[0].weather[0].main === 'Rain'){
+                $('body').css('background', "url('img/cloudyCity.jpeg') no-repeat center center fixed");
+                $('body').css('-webkit-background-size', "cover");
+                $('body').css('-moz-background-size', "cover");
+                $('body').css('-o-background-size', "cover");
+                $('body').css('background-size', "cover");
+            }
+            if (data.list[0].weather[0].main === 'Snow'){
+                $('body').css('background', "url('img/snowy-background.jpg') no-repeat center center fixed");
+                $('body').css('-webkit-background-size', "cover");
+                $('body').css('-moz-background-size', "cover");
+                $('body').css('-o-background-size', "cover");
+                $('body').css('background-size', "cover");
+            }
+            if (data.list[0].weather[0].main === 'Clouds'){
+                $('body').css('background', "url('img/sky-background.jpg') no-repeat center center fixed");
+                $('body').css('-webkit-background-size', "cover");
+                $('body').css('-moz-background-size', "cover");
+                $('body').css('-o-background-size', "cover");
+                $('body').css('background-size', "cover");
+            }
         });
         function findCity(data) {
             var makeHtml = '';
@@ -192,33 +367,55 @@
             var makeHtml = '';
             makeHtml += '<h5 class="card-title">' + getDayOfWeek(0) + '</h5>';
             makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 1).min) + '/' + parseInt(getMinMaxDayTemp(info, 1).max) + '</h6>';
-            makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[0].weather[0].icon + '.png' +'>';
-            makeHtml += '<p class="card-text">' + info.list[0].weather[0].description + '</p>';
-            makeHtml += '<p class="card-title">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[0].main.humidity + '</p>';
-            makeHtml += '<p class="card-title">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[0].wind.speed + '</p>';
-            makeHtml += '<p class="card-title">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[0].main.pressure + '</p>';
+            makeHtml += '<img class="icon" src=' + "http://openweathermap.org/img/w/" + info.list[0].weather[0].icon + '.png' +'>';
+            makeHtml += '<p class="card-text sky">' + info.list[0].weather[0].description + '</p>';
+            makeHtml += '<p class="card-title humidity">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[0].main.humidity + '</p>';
+            makeHtml += '<p class="card-title wind">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[0].wind.speed + '</p>';
+            makeHtml += '<p class="card-title pressure">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[0].main.pressure + '</p>';
             return makeHtml
         }
         function dayTwoWeather(info) {
             var makeHtml = '';
             makeHtml += '<h5 class="card-title">' + getDayOfWeek(1) + '</h5>';
             makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 2).min) + '/' + parseInt(getMinMaxDayTemp(info, 2).max) + '</h6>';
-            makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[7].weather[0].icon + '.png' +'>';
-            makeHtml += '<p class="card-text">'  + info.list[7].weather[0].description + '</p>';
-            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[7].main.humidity + '</p>';
-            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Wind: ' +  '</span>' + info.list[7].wind.speed + '</p>';
-            makeHtml += '<p class="card-text">' + '<span class="bolded">' +  'Pressure: ' +  '</span>'  + info.list[7].main.pressure + '</p>';
+            makeHtml += '<img class="icon" src=' + "http://openweathermap.org/img/w/" + info.list[7].weather[0].icon + '.png' +'>';
+            makeHtml += '<p class="card-text sky">'  + info.list[7].weather[0].description + '</p>';
+            makeHtml += '<p class="card-text humidity">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[7].main.humidity + '</p>';
+            makeHtml += '<p class="card-text wind">' + '<span class="bolded">' + 'Wind: ' +  '</span>' + info.list[7].wind.speed + '</p>';
+            makeHtml += '<p class="card-text pressure">' + '<span class="bolded">' +  'Pressure: ' +  '</span>'  + info.list[7].main.pressure + '</p>';
             return makeHtml
         }
         function dayThreeWeather(info) {
             var makeHtml = '';
             makeHtml += '<h5 class="card-title">' + getDayOfWeek(2) + '</h5>';
             makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 3).min) + '/' + parseInt(getMinMaxDayTemp(info, 3).max) + '</h6>';
-            makeHtml += '<img src=' + "http://openweathermap.org/img/w/" + info.list[15].weather[0].icon + '.png' +'>';
-            makeHtml += '<p class="card-text">' + info.list[15].weather[0].description + '</p>';
-            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[15].main.humidity + '</p>';
-            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[15].wind.speed + '</p>';
-            makeHtml += '<p class="card-text">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[15].main.pressure + '</p>';
+            makeHtml += '<img class="icon" src=' + "http://openweathermap.org/img/w/" + info.list[15].weather[0].icon + '.png' +'>';
+            makeHtml += '<p class="card-text sky">' + info.list[15].weather[0].description + '</p>';
+            makeHtml += '<p class="card-text humidity">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[15].main.humidity + '</p>';
+            makeHtml += '<p class="card-text wind">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[15].wind.speed + '</p>';
+            makeHtml += '<p class="card-text pressure">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[15].main.pressure + '</p>';
+            return makeHtml
+        }
+        function dayFourWeather(info) {
+            var makeHtml = '';
+            makeHtml += '<h5 class="card-title">' + getDayOfWeek(3) + '</h5>';
+            makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 4).min) + '/' + parseInt(getMinMaxDayTemp(info, 4).max) + '</h6>';
+            makeHtml += '<img class="icon" src=' + "http://openweathermap.org/img/w/" + info.list[23].weather[0].icon + '.png' +'>';
+            makeHtml += '<p class="card-text sky">' + info.list[23].weather[0].description + '</p>';
+            makeHtml += '<p class="card-text humidity">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[23].main.humidity + '</p>';
+            makeHtml += '<p class="card-text wind">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[23].wind.speed + '</p>';
+            makeHtml += '<p class="card-text pressure">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[23].main.pressure + '</p>';
+            return makeHtml
+        }
+        function dayFiveWeather(info) {
+            var makeHtml = '';
+            makeHtml += '<h5 class="card-title">' + getDayOfWeek(4) + '</h5>';
+            makeHtml += '<h6 class="card-title">' + parseInt(getMinMaxDayTemp(info, 5).min) + '/' + parseInt(getMinMaxDayTemp(info, 5).max) + '</h6>';
+            makeHtml += '<img class="icon" src=' + "http://openweathermap.org/img/w/" + info.list[31].weather[0].icon + '.png' +'>';
+            makeHtml += '<p class="card-text sky">' + info.list[31].weather[0].description + '</p>';
+            makeHtml += '<p class="card-text humidity">' + '<span class="bolded">' + 'Humidity: ' + '</span>' + info.list[31].main.humidity + '</p>';
+            makeHtml += '<p class="card-text wind">' + '<span class="bolded">' + 'Wind: ' + '</span>' + info.list[31].wind.speed + '</p>';
+            makeHtml += '<p class="card-text pressure">' + '<span class="bolded">' + 'Pressure: ' + '</span>' + info.list[31].main.pressure + '</p>';
             return makeHtml
         }
         const getMinMaxDayTemp = (data, day) => {
