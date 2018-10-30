@@ -1,128 +1,174 @@
 "use strict";
 
-function returnTwo() {
-    return 2;
-}
+// function returnTwo() {
+//     return 2;
+// }
+
+const returnTwo = () => 2;
 
 // console.log(returnTwo());
 
-function returnName() {
-    return "KC";
-}
+// function returnName() {
+//     return "KC";
+// }
+
+const returnName  = () => 'KC';
 
 // console.log(returnName());
 
-function addThree(number) {
-   return number + 3;
-}
+// function addThree(number) {
+//    return number + 3;
+// }
+
+const addThree = number => number + 3;
 
 // console.log(addThree(5));
 
-function sayString(stringPassed) {
-    return stringPassed;
-}
+// function sayString(stringPassed) {
+//     return stringPassed;
+// }
+
+const sayString = string => string
 
 // console.log(sayString("howdy"))
 
-function sayHowdy() {
-    return console.log("Howdy");
-}
+// function sayHowdy() {
+//     return console.log("Howdy");
+// }
+
+const sayHowdy = () => 'Howdy';
 
 //Challenge Functions
 
-function identity(input) {
-    return input;
-}
+// function identity(input) {
+//     return input;
+// }
 
-function getRandomNumber(min,max) {
-    return Math.floor(Math.random() * max) + min;
-}
+const whatIsIt = input => typeof input;
 
-function first(input) {
-    return input.substring(0,1);
-}
+// function getRandomNumber(min,max) {
+//     return Math.floor(Math.random() * max) + min;
+// }
 
-function last(input) {
-    var lengthOfString = input.length;
-    return ((input.substring(lengthOfString - 1))),(input.substring(lengthOfString-1));
-}
+const getRandomNumber = (min,max) => (Math.floor(Math.random() * max) + min);
 
-function rest(input) {
-    var lenghtOfString = input.length;
-    return (input.substring(0,lenghtOfString-1));
-}
+// function first(input) {
+//     return input.substring(0,1);
+// }
 
-function reverse(input) {
-    var splitString = input.split("");
-    var reverseArray = splitString.reverse();
-    return reverseArray.join("");
-}
+const first = input => input.substring(0,1);
 
-function isNumeric(input) {
-    return isNaN(input) === false;
-}
+// function last(input) {
+//     var lengthOfString = input.length;
+//     return ((input.substring(lengthOfString - 1))),(input.substring(lengthOfString-1));
+// }
 
+const last = input => ((input.substring(input.length - 1)));
 
-function count(input) {
-    var noWhitespace = input.trim();
-    return noWhitespace.length;
-}
+// function rest(input) {
+//     var lenghtOfString = input.length;
+//     return (input.substring(0,lenghtOfString-1));
+// }
 
-function add(a,b) {
-    return parseFloat(a) + parseFloat(b);
-}
+const rest = input => input.substring(1,(input.length - 1));
 
-function subtract(a,b) {
-    return a - b;
-}
+// function reverse(input) {
+//     var splitString = input.split("");
+//     var reverseArray = splitString.reverse();
+//     return reverseArray.join("");
+// }
 
-function multiply(a,b) {
-    return a * b;
-}
+const reverse = string => string.split('').reverse().join('');
 
-function divide(numerator, denominator) {
-    return numerator / denominator;
-}
+// function isNumeric(input) {
+//     return isNaN(input) === false;
+// }
+const isNumerics = input => isNaN(input) === false;
 
-function remainder(number, divisor) {
-    return number % divisor;
-}
+// function count(input) {
+//     var noWhitespace = input.trim();
+//     return noWhitespace.length;
+// }
 
-function square(a) {
-    return a * a;
-}
+const count = input => input.trim().length;
 
-function sumOfSquares(a,b) {
-    return add(square(a),square(b));
-}
+// function add(a,b) {
+//     return parseFloat(a) + parseFloat(b);
+// }
 
-function doMath(operator,a,b) {
-    return operator(a,b);
-}
+const add = (a,b) => parseFloat(a) + parseFloat(b);
 
-function isOdd(number) {
-    return (number % 2 === 1);
-}
+// function subtract(a,b) {
+//     return a - b;
+// }
 
-function isEven(number) {
-    return (number % 2 === 0);
-}
+const subtract = (a,b) => a - b;
 
-function identity(input) {
-    return input;
-}
+// function multiply(a,b) {
+//     return a * b;
+// }
 
-function isFive(input) {
-    return input === 5;
-}
+const multiply = (a,b) => a * b;
 
-function addFive(input) {
-    return (input + 5);
-}
+// function divide(numerator, denominator) {
+//     return numerator / denominator;
+// }
 
-function isMultipleOfFive(input) {
-    return input % 5 === 0;
-}
+const divide = (a,b) => a / b;
+
+// function remainder(number, divisor) {
+//     return number % divisor;
+// }
+
+const remainder = (number,divisor) => number % divisor;
+
+// function square(a) {
+//     return a * a;
+// }
+
+const square = a => a**2;
+
+// function sumOfSquares(a,b) {
+//     return add(square(a),square(b));
+// }
+
+const sumOfSquares = (a,b) => (a**2) + (b**2);
+
+// function doMath(operator,a,b) {
+//     return operator(a,b);
+// }
+
+const doMath = (operator,a,b) => operator(a,b);
+
+// function isOdd(number) {
+//     return (number % 2 === 1);
+// }
+
+const isOdd = number => number % 2 ===1;
+
+// function isEven(number) {
+//     return (number % 2 === 0);
+// }
+
+const isOdd = number => number % 2 === 0;
+
+// function isFive(input) {
+//     return input === 5;
+// }
+
+const isFive = input => input === 5;
+
+// function addFive(input) {
+//     return (input + 5);
+// }
+
+const addFive = input => input + 5;
+
+// function isMultipleOfFive(input) {
+//     return input % 5 === 0;
+// }
+
+const isMultipleOfFive = input => input % 5 === 0;
 
 function isThree(input) {
     return input === 3;
@@ -372,16 +418,16 @@ function returnMessage(input) {
 // var username = prompt("Please enter a username");
 // var password = prompt("Please enter a password");
 // var age = prompt("Please enter your age");
-var admin = username === "Bobby";
-function willLoginUser(username,password,age,admin) {
-    if (username === password){
-        return alert("Password and Username cannot match");
-    }else if(parseFloat(age) < 18 && username !== "Bobby"){
-        return alert("users must be 18 or older!!");
-    }else{
-        return alert("Welcome to the website!");
-    }
-}
+// var admin = username === "Bobby";
+// function willLoginUser(username,password,age,admin) {
+//     if (username === password){
+//         return alert("Password and Username cannot match");
+//     }else if(parseFloat(age) < 18 && username !== "Bobby"){
+//         return alert("users must be 18 or older!!");
+//     }else{
+//         return alert("Welcome to the website!");
+//     }
+// }
 
-console.log((willLoginUser(username, password, age, admin)));
+// console.log((willLoginUser(username, password, age, admin)));
 
