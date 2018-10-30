@@ -110,13 +110,12 @@
     <div class="row justify-content-center">
         <div class="col-8 text-white text-center mt-5"><h2>See how the weather is in your neck of the woods!</h2></div>
     </div>
-    <div class="row justify-content-center text-center mt-5">
-        <div class="col-4"><input type="text" id="cordLat" placeholder="Enter Latitutde"> </div>
-        <div class="col-4"><input type="text" id="cordLong" placeholder="Enter Longitude"></div>
-        <div class="col-4"><button id="coordinates">Enter your own coordinates</button></div>
+    <div class="form-group row justify-content-center text-center mt-5">
+        <input class="form-control col-4" id="address" placeholder="Enter address">
+        <button type="submit" class="btn btn-primary ml-2" id="addressSubmit">Submit</button>
     </div>
     <div class="row">
-    <div id="map"  style="width:100%;height:400px;" class="mt-5"></div>
+        <div id="map"  style="width:100%;height:400px;" class="mt-5"></div>
     </div>
 </div>
 <script src="js/jquery.js"></script>
@@ -126,22 +125,34 @@
     var markerLat;
     var markerLong;
     var markerLatandLong;
+    var startingCoordinates;
+    var address = "600 Navarro St #350, San Antonio, TX 78205";
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4
+            zoom: 13
         });
-        var address = "11 N 4th St, St. Louis, MO 63102";
+        console.log(address);
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({"address": address}, function (results, status) {
+            markerLat = 0;
+            markerLong = 0;
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
+                markerLat = results[0].geometry.location.lat;
+                markerLong = results[0].geometry.location.lng;
+                startingCoordinates = { lat : results[0].geometry.location.lat, lng : results[0].geometry.location.lat};
             } else {
                 alert("Geocoding was not successful - STATUS: " + status);
             }
         });
-        var startingCoordinates = { lat: 29.4241, lng: -98.4936};
+        markerLat = parseFloat(markerLat);
+        markerLong = parseFloat(markerLong);
+        console.log(markerLat);
+        console.log(markerLong);
+        markerLatandLong = {lat: markerLat, lng: markerLong}
+        console.log(markerLatandLong);
         var marker = new google.maps.Marker({
-            position: startingCoordinates,
+            position: markerLatandLong,
             map: map,
             animation: google.maps.Animation.DROP,
             draggable: true
@@ -158,6 +169,64 @@
                 position: latLng,
                 map: map,
                 draggable: true
+            });
+            google.maps.event.addListener(marker, "position_changed", function() {
+                var position = marker.getPosition();
+                markerLong = position.lng;
+                markerLat = position.lat;
+            });
+        });
+        google.maps.event.addListener(marker, "position_changed", function() {
+            var position = marker.getPosition();
+            markerLong = position.lng;
+            markerLat = position.lat;
+        });
+    }
+    function reInitMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13
+        });
+        console.log(address);
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({"address": address}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                markerLat = results[0].geometry.location.lat;
+                markerLong = results[0].geometry.location.lng;
+                startingCoordinates = { lat : results[0].geometry.location.lat, lng : results[0].geometry.location.lat};
+            } else {
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+        markerLat = parseFloat(markerLat);
+        markerLong = parseFloat(markerLong);
+        console.log(markerLat);
+        console.log(markerLong);
+        markerLatandLong = {lat: markerLat, lng: markerLong}
+        console.log(markerLatandLong);
+        var marker = new google.maps.Marker({
+            position: markerLatandLong,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            draggable: true
+        });
+        google.maps.event.addListener(map, "click", function(e) {
+            latLng = e.latLng;
+            markerLatandLong = e.latLng;
+            markerLong = e.latLng.lng;
+            markerLat = e.latLng.lat;
+            if (marker && marker.setMap) {
+                marker.setMap(null);
+            }
+            marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                draggable: true
+            });
+            google.maps.event.addListener(marker, "position_changed", function() {
+                var position = marker.getPosition();
+                markerLong = position.lng;
+                markerLat = position.lat;
             });
         });
         google.maps.event.addListener(marker, "position_changed", function() {
@@ -246,54 +315,6 @@
                 }
             });
         })
-        // $('#map').click(function () {
-        //     $.get("http://api.openweathermap.org/data/2.5/forecast", {
-        //         APPID: "eb6b49e473ed32520a0acef71159e770",
-        //         lat:    markerLat,
-        //         lon:   markerLong,
-        //         units: "imperial"
-        //     }).done(function(data) {
-        //         $('#city').html(findCity(data));
-        //         $('#dayOne').html(dayOneWeather(data));
-        //         $('#dayTwo').html(dayTwoWeather(data));
-        //         $('#dayThree').html(dayThreeWeather(data));
-        //         if (data.list[0].weather[0].main === 'Clear'){
-        //             $('body').css('background', "url('img/sunny_background.jpg') no-repeat center center fixed");
-        //             $('body').css('-webkit-background-size', "cover");
-        //             $('body').css('-moz-background-size', "cover");
-        //             $('body').css('-o-background-size', "cover");
-        //             $('body').css('background-size', "cover");
-        //         }
-        //         if (data.list[0].weather[0].main === 'Drizzle' || data.list[0].weather[0].main === 'Rain'){
-        //             $('body').css('background', "url('img/cloudyCity.jpeg') no-repeat center center fixed");
-        //             $('body').css('-webkit-background-size', "cover");
-        //             $('body').css('-moz-background-size', "cover");
-        //             $('body').css('-o-background-size', "cover");
-        //             $('body').css('background-size', "cover");
-        //         }
-        //         if (data.list[0].weather[0].main === 'Snow'){
-        //             $('body').css('background', "url('img/snowy-background.jpg') no-repeat center center fixed");
-        //             $('body').css('-webkit-background-size', "cover");
-        //             $('body').css('-moz-background-size', "cover");
-        //             $('body').css('-o-background-size', "cover");
-        //             $('body').css('background-size', "cover");
-        //         }
-        //         if (data.list[0].weather[0].main === 'Clouds'){
-        //             $('body').css('background', "url('img/sky-background.jpg') no-repeat center center fixed");
-        //             $('body').css('-webkit-background-size', "cover");
-        //             $('body').css('-moz-background-size', "cover");
-        //             $('body').css('-o-background-size', "cover");
-        //             $('body').css('background-size', "cover");
-        //         }
-        //         if (data.list[0].weather[0].main === 'Thunderstorm'){
-        //             $('body').css('background', "url('img/thunderstorm-background.jpg') no-repeat center center fixed");
-        //             $('body').css('-webkit-background-size', "cover");
-        //             $('body').css('-moz-background-size', "cover");
-        //             $('body').css('-o-background-size', "cover");
-        //             $('body').css('background-size', "cover");
-        //         }
-        //     });
-        // })
         $('#selectDays').click(function () {
             console.log($('#daysForecast')[0].value);
             if ($('#daysForecast')[0].value === 'threeDay'){
@@ -411,6 +432,56 @@
                 $('body').css('background-size', "cover");
             }
         });
+        $('#addressSubmit').click(function () {
+            address = $('#address').val();
+            reInitMap();
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: "eb6b49e473ed32520a0acef71159e770",
+                lat:    markerLat,
+                lon:   markerLong,
+                units: "imperial"
+            }).done(function(data) {
+                $('#city').html(findCity(data));
+                $('#dayOne').html(dayOneWeather(data));
+                $('#dayTwo').html(dayTwoWeather(data));
+                $('#dayThree').html(dayThreeWeather(data));
+                if (data.list[0].weather[0].main === 'Clear'){
+                    $('body').css('background', "url('img/sunny_background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Drizzle' || data.list[0].weather[0].main === 'Rain'){
+                    $('body').css('background', "url('img/cloudyCity.jpeg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Snow'){
+                    $('body').css('background', "url('img/snowy-background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Clouds'){
+                    $('body').css('background', "url('img/sky-background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+                if (data.list[0].weather[0].main === 'Thunderstorm'){
+                    $('body').css('background', "url('img/thunderstorm-background.jpg') no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background-size', "cover");
+                }
+            });
+        })
         function findCity(data) {
             var makeHtml = '';
             makeHtml += '<h1 class="bolded" id="cityName">' + data.city.name + '</h1>';
