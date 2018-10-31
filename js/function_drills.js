@@ -150,7 +150,7 @@ const isOdd = number => number % 2 ===1;
 //     return (number % 2 === 0);
 // }
 
-const isOdd = number => number % 2 === 0;
+// const isOdd = number => number % 2 === 0;
 
 // function isFive(input) {
 //     return input === 5;
@@ -170,33 +170,46 @@ const addFive = input => input + 5;
 
 const isMultipleOfFive = input => input % 5 === 0;
 
-function isThree(input) {
-    return input === 3;
-}
+// function isThree(input) {
+//     return input === 3;
+// }
+const isThree = input => input === 3;
 
 function isMultipleOThree(input) {
     return input % 3 === 0;
 }
 
-function isMultipleOThreeAndFive(input) {
-    return input % 3 === 0 || input % 5 === 0;
-}
+const isMultipleOfThree = input => input % 3 === 0;
 
-function isTrue(input) {
-    return input === true;
-}
+// function isMultipleOThreeAndFive(input) {
+//     return input % 3 === 0 || input % 5 === 0;
+// }
 
-function isFalse(input) {
-    return input === false;
-}
+const isMultipleOfThreeAndFive = input => input % 3 === 0 && input % 5 === 0
 
-function isTruthy(input){
-    return Boolean(input) === true;
-}
+// function isTrue(input) {
+//     return input === true;
+// }
 
-function isFalsy(input) {
-    return Boolean(input) === false;
-}
+const isTrue = input => input === true;
+
+// function isFalse(input) {
+//     return input === false;
+// }
+
+const isFalse = input => input === false;
+
+// function isTruthy(input){
+//     return Boolean(input) === true;
+// }
+
+const isTruthy = input => Boolean(input) === true;
+
+// function isFalsy(input) {
+//     return Boolean(input) === false;
+// }
+
+const isFalsy = input => Boolean(input) === false;
 
 function isVowel(letter) {
     if (letter.toLowerCase() === "a"){
@@ -214,21 +227,26 @@ function isVowel(letter) {
     }
 }
 
-function isConstinant(letter) {
-    if (letter.toLowerCase() === "a"){
-        return false
-    } else if (letter.toLowerCase() === "e"){
-        return false
-    } else if (letter.toLowerCase() === "i"){
-        return false
-    } else if (letter.toLowerCase() === "o"){
-        return false
-    } else if (letter.toLowerCase() === "u"){
-        return false
-    }   else{
-        return true
-    }
-}
+var vowels = ['a','e','i','o','u'];
+
+// not done
+const isConstiant = letter => vowels.indexOf(letter) === -1;
+
+// function isConstinant(letter) {
+//     if (letter.toLowerCase() === "a"){
+//         return false
+//     } else if (letter.toLowerCase() === "e"){
+//         return false
+//     } else if (letter.toLowerCase() === "i"){
+//         return false
+//     } else if (letter.toLowerCase() === "o"){
+//         return false
+//     } else if (letter.toLowerCase() === "u"){
+//         return false
+//     }   else{
+//         return true
+//     }
+// }
 
 function isCapital(letter) {
     return letter === letter.toUpperCase();
@@ -278,9 +296,9 @@ function half(n) {
     return n / 2;
 }
 
-function subtract(a,b) {
-    return a - b;
-}
+// function subtract(a,b) {
+//     return a - b;
+// }
 
 function modulo(a,b) {
     var numbersDivided = a / b;
