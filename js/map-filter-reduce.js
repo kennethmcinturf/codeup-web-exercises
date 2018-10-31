@@ -58,25 +58,43 @@ const longestEmail = users.reduce((accumulator,user) =>{
     }
 }, '');
 
-const singleName = users.reduce((accumulator,user) => {
-    let names = accumulator + user.name;
-    let namesWithSentence = `${names}, `;
-    return `${namesWithSentence}`
-}, 'Your instructors are ');
+// const singleName = users.reduce((accumulator,user) => {
+//     let names = accumulator + user.name;
+//     let namesWithSentence = `${names}, `;
+//     console.log(namesWithSentence);
+//     return namesWithSentence.substring(0,namesWithSentence - 2);
+// }, 'Your instructors are ');
+//
+// console.log(singleName);
 
-console.log(`${singleName.substring(0,singleName.length-2)}.`);
+// let intialValue = '';
+// users.forEach(user => {
+//     intialValue += user.name + ',';
+// })
+//
+// intialValue = intialValue.substring(0,intialValue.length - 1) + '.'
+//
+// console.log(intialValue);
 
-const uniqueLangaugaes = users.reduce((uniqueArray,user) =>{
-    for (var i = 0; i < user.languages.length; i++){
-        if (uniqueArray.indexOf(user.languages[i]) === -1){
-            uniqueArray.push(user.languages[i]);
-        }
-    }
-    return uniqueArray;
+let initialValue = '';
+let nameString = users.reduce((prev,curr) =>{
+    return prev + curr.name + ', ';
+}, initialValue)
+
+nameString = nameString.substring(0,nameString.length - 2) + '.'
+nameString = `Your intructors are ${nameString}`
+console.log(nameString);
+
+let langauges = users.reduce((prev,curr) =>{
+    curr.languages.map(language => {
+        prev.push(language);
+    });
+    return prev
+
 }, []);
 
-console.log(uniqueLangaugaes);
-
+langauges = new Set(langauges)
+console.log(langauges);
 // const uniqueLangaugaes = users.reduce((accumulator,user) =>{
 //     return `${accumulator},${user.languages}`
 // }, '')
@@ -130,12 +148,11 @@ const nameAndAge = customers.map(customer => {
 
 // PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
 // containing the same properties as the objects on the customers objects
-const civilServants = customers.filter(customer => {
-    if (['Police Officer','Teacher'].includes(customer.occupation)){
-        return {name: customer.name, age: customer.age}
-    }
+let civilServant = customers.filter(customer => {
+    return ['Police Officer','Teacher'].includes(customer.occupation)
 })
-console.log(civilServants);
+///try reseting the value of the variable here
+console.log(civilServant);
 // PROBLEM 4 - determine the average age of customers
 const totalAge = customers.reduce((accumulator,customer) =>{
     return accumulator + customer.age
@@ -172,12 +189,21 @@ const lastTwoLetter = names.map(name => {
     return name.substring(name.length - 2, name.length)
 });
 
-console.log(lastTwoLetter);
-// - Create a total count of all letters
+// console.log(lastTwoLetter);
+// - Create a total count of all letter
+const countLetters = names.reduce((prev,curr) =>{
+    return prev + curr.length;
+}, 0)
 
-// const countLetters = names.reduce((total,))
+// console.log(countLetters);
 // - Create a string of all letters in alphabetical order
+const letterString = names.reduce((prev,curr) => {
+    return prev + curr
+}, '')
+
+// console.log(letterString);
 // - Create an array of word objects with properties of wordLength, firstLetter, lastLetter
+
 // - Create a string of all vowels in the entire array of names
 // - Create a single object with properties
 // ======= BONUS 3 Problems
