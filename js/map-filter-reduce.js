@@ -152,7 +152,10 @@ let civilServant = customers.filter(customer => {
     return ['Police Officer','Teacher'].includes(customer.occupation)
 })
 ///try reseting the value of the variable here
-console.log(civilServant);
+let civilServantCorrectFormat = civilServant.map(customer => {
+    return{name: customer.name, age: customer.age}
+})
+// console.log(civilServantCorrectFormat);
 // PROBLEM 4 - determine the average age of customers
 const totalAge = customers.reduce((accumulator,customer) =>{
     return accumulator + customer.age
