@@ -211,26 +211,27 @@ const isTruthy = input => Boolean(input) === true;
 
 const isFalsy = input => Boolean(input) === false;
 
-function isVowel(letter) {
-    if (letter.toLowerCase() === "a"){
-        return true
-    } else if (letter.toLowerCase() === "e"){
-        return true
-    } else if (letter.toLowerCase() === "i"){
-        return true
-    } else if (letter.toLowerCase() === "o"){
-        return true
-    } else if (letter.toLowerCase() === "u"){
-        return true
-    }   else{
-        return false
-    }
-}
+// function isVowel(letter) {
+//     if (letter.toLowerCase() === "a"){
+//         return true
+//     } else if (letter.toLowerCase() === "e"){
+//         return true
+//     } else if (letter.toLowerCase() === "i"){
+//         return true
+//     } else if (letter.toLowerCase() === "o"){
+//         return true
+//     } else if (letter.toLowerCase() === "u"){
+//         return true
+//     }   else{
+//         return false
+//     }
+// }
 
 var vowels = ['a','e','i','o','u'];
 
 // not done
 const isConstiant = letter => vowels.indexOf(letter) === -1;
+const isVowel = letter => vowels.indexOf(letter) !== -1;
 
 // function isConstinant(letter) {
 //     if (letter.toLowerCase() === "a"){
@@ -248,25 +249,33 @@ const isConstiant = letter => vowels.indexOf(letter) === -1;
 //     }
 // }
 
-function isCapital(letter) {
-    return letter === letter.toUpperCase();
-}
+// function isCapital(letter) {
+//     return letter === letter.toUpperCase();
+// }
 
-function isLowerCase(letter) {
-    return letter === letter.toLowerCase();
-}
+const isCapital = letters => letters === letters.toUpperCase();
+
+// function isLowerCase(letter) {
+//     return letter === letter.toLowerCase();
+// }
+
+const isCapital = letters => letters === letters.toLowerCase();
 
 // function hasLowerCase(string) {
 //     return ['a', 'e', 'i', 'o', 'u'].indexOf(string.toLowerCase()) === -1;
 // }
 
-function hasLowerCase(input) {
-    return input !== input.toUpperCase();
-}
+// function hasLowerCase(input) {
+//     return input !== input.toUpperCase();
+// }
 
-function isSpace(letter) {
-    return letter.indexOf(' ') !== -1;
-}
+const hasLowerCase = input => input !== input.toUpperCase();
+
+// function isSpace(letter) {
+//     return letter.indexOf(' ') !== -1;
+ //}
+
+const isSpace = letters => letters.indexOf('') !== -1;
 
 function isZero(number) {
     return number === 0;

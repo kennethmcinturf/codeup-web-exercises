@@ -5,6 +5,38 @@
 //         console.log(input + " x " + multiple + " = " + multiply);
 //     }
 // }
+
+let numbersHere = [1,2,3,4,5,6,7,8,9,10];
+let showMultiplicationTable = numbersHere.map(number => {
+    let multiplicationTable = [];
+    for (let i = 1; i <= 12; i++){
+        multiplicationTable.push(number * i);
+    }
+    return multiplicationTable;
+});
+
+let listOfMultiples = '<ul>'
+
+for (const tables of showMultiplicationTable){
+    listOfMultiples += `<p>The multiples of ${tables[0]} are ${tables.join(', ')}</p>`
+}
+
+listOfMultiples += '</ul>'
+
+$('#multiplicationTable').append(listOfMultiples);
+
+let crazyNumbers = numbersHere.map(number => {
+    return (number ** number)*number;
+})
+
+let divisibleByFifteen = crazyNumbers.filter(number => {
+    return number % 12 === 0;
+})
+
+let craziestOfCrazy = crazyNumbers.reduce((accumulator,currentValue) => {
+    return accumulator * currentValue
+}, 1);
+
 //
 // for (var i = 1; i < 11; i++){
 //     var random = Math.floor(Math.random() * 200) + 20;
