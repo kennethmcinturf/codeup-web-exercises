@@ -202,12 +202,25 @@ const countLetters = names.reduce((prev,curr) =>{
 // - Create a string of all letters in alphabetical order
 const letterString = names.reduce((prev,curr) => {
     return prev + curr
-}, '')
+}, '');
 
 // console.log(letterString);
 // - Create an array of word objects with properties of wordLength, firstLetter, lastLetter
+const wordObjects = names.map(name => {
+    return {wordLength: name.length, firstLetter: name.substring(0,1), lastLetter: name.substring(name.length -1,name.length)}
+})
+
+// console.log(wordObjects);
 
 // - Create a string of all vowels in the entire array of names
+const string = names.toString().split('');
+
+const vowels = string.filter(letter => {
+    return ['a','e','i','o','u'].includes(letter)
+})
+
+// console.log(vowels);
+
 // - Create a single object with properties
 // ======= BONUS 3 Problems
 // Given the following array...
@@ -230,9 +243,51 @@ const family = [
 ];
 // complete the bonuses below...
 // - Calculate the average age of family members
+const totalFamilyAge = family.reduce((prev,curr) => {
+    return prev + curr.age
+}, 0);
+
+const avgFamilyAge = totalFamilyAge/(family.length);
+
+// console.log(avgFamilyAge);
+
 // - Create an array of family objects without the age property
+const noAge = family.map(member => {
+    return {name: member.name, gender: member.gender}
+})
+
+// console.log(noAge);
+
 // - Create an array of all minors
+const minors = family.filter(member => {
+    return member.age < 18;
+})
+
+
 // - Calculate the total age combined of family members
-// - Create an array of only female family member objects
+const totalFamilyAgeForThisProblem = family.reduce((prev,curr) => {
+    return prev + curr.age
+}, 0);
+
+
 // - Create a single object with properties containing arrays of all names, genders, and ages
+const nameArray = [];
+const genderArray = [];
+const ageArray = [];
+
+family.forEach(({name,gender,age}) => {
+    nameArray.push(name);
+    genderArray.push(gender);
+    ageArray.push(age);
+})
+
+let namesObject = {nameArray,genderArray,ageArray};
+// console.log(namesObject);
+
+// - Create an array of only female family member objects
+const onlyLadies = family.filter(member => {
+    return ['female'].includes(member.gender)
+})
+
+console.log(onlyLadies);
 
