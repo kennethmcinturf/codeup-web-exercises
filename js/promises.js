@@ -7,23 +7,30 @@ let wait = number => {
     })
 }
 
-const timer = wait(100);
-console.log(timer);
-timer.then(data => console.log('Promise resolved!', data));
-timer.catch(error => console.log('Promise rejected!', error));
 
-// 'Authorization': 'token c05fec6ed0324e415f24edbc698c5c30fd6bf1fc'
+wait(1000).then((data) => {
+    console.log(data)
+});
+// timer.then(data => console.log('Promise resolved!', data));
+// timer.catch(error => console.log('Promise rejected!', error));
 
-//Your going to have to get a new token tmrw when you do this, make sure you do that user thing ryan talked about on slack
-// look farther into events
 
-let gitHubLastCommit = (username, token) => {
+let gitHubLastCommit = (username, repo,token) => {
     fetch(`https://api.github.com/users/${username}/events`, {headers: {'Authorization': `token ${token}`}})
     .then(response =>
         response.json().then(data => {
-            console.log((data[0].created_at).substring(0,10)    );
+            for (let i = 0; i < data.length; i++){
+                if (data[i].type === 'PushEvent'){
+                    fetch(`https://api.github.com/repos/${data[i].repo.name}/commits`,{headers: {'Authorization': `token ${token}`}})
+                        .then(response =>
+                            response.json().then(data =>{
+                                console.log((data[0].commit.author.date).substring(0,10));
+                            })
+                        )
+                    break
+                }
+            }
         })
             .catch(error => console.error(error)));
 }
-
 

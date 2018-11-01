@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises Bonus</title>
+</head>
+<body>
+<input type="text" id="eyeColor">
+<button id="search">Search Eye Color</button>
+
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script>
+    $ (function() {
+        // fetch('https://swapi.co/api/')
+        // .then(response =>{
+        //     response.json().then(data =>{
+        //         console.log(data);
+        //     })})
+
+
+        $('#search').click(function (e) {
+            let searchedEyeColor = $('#eyeColor').val();
+            e.preventDefault();
+            fetch('data/profiles.json')
+                .then(response =>{
+                    response.json().then(data =>{
+                        let dataArray = Object.keys(data).map(function(key) {
+                            return [key, data[key]];
+                        });
+                        console.log(dataArray);
+                        console.log(searchedEyeColor);
+                        let filteredData = dataArray.filter(user => {
+                            return [searchedEyeColor].includes(user[0]);
+                        });
+                        console.log(filteredData);
+                        let splitArray = filteredData.pop().pop();
+                        $('body').css('background-color', splitArray)
+                    })
+                })
+        })
+    })
+</script>
+</body>
+</html>
