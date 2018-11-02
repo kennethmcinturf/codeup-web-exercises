@@ -24,7 +24,14 @@ let gitHubLastCommit = (username, repo,token) => {
                     fetch(`https://api.github.com/repos/${data[i].repo.name}/commits`,{headers: {'Authorization': `token ${token}`}})
                         .then(response =>
                             response.json().then(data =>{
-                                console.log((data[0].commit.author.date).substring(0,10));
+                                // console.log((data[0].commit.author.date).substring(11,13));
+                                // console.log((data[1].commit.author.date).substring(11,13));
+                                // console.log((data[2].commit.author.date).substring(11,13));
+                                let dateOne = (data[0].commit.author.date).substring(11,13);
+                                let dateTwo = (data[1].commit.author.date).substring(11,13);
+                                let dateThree = (data[2].commit.author.date).substring(11,13);
+                                let avgOfDates = (parseInt(dateOne) + parseInt(dateTwo) + parseInt(dateThree))/3;
+                                console.log(avgOfDates - 11);
                             })
                         )
                     break

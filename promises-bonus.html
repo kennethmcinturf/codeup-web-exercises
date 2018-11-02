@@ -8,17 +8,60 @@
 <input type="text" id="eyeColor">
 <button id="search">Search Eye Color</button>
 
+<input type="text" id="swCharacter">
+<button id="searchCharacter">Search for a starwars character</button>
+
+<div id="starwarsData"></div>
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
 <script>
     $ (function() {
-        // fetch('https://swapi.co/api/')
-        // .then(response =>{
-        //     response.json().then(data =>{
-        //         console.log(data);
-        //     })})
+        // $('#searchCharacter').click(function (e) {
+        //     e.preventDefault();
+        //     let character = $('#swCharacter').val();
+        //     fetch(`https://swapi.co/api/people/?search=${character.toLowerCase()}`)
+        //         .then(response =>{
+        //             response.json().then(data =>{
+        //                 $('#starwarsData').append(`<p>${data.results[0].name}</p>`)
+        //                 $('#starwarsData').append(`<p>${data.results[0].birth_year}</p>`)
+        //                 $('#starwarsData').append(`<p>${data.results[0].skin_color}</p>`)
+        //                 $('#starwarsData').append(`<p>${data.results[0].mass}</p>`)
+        //                 $('#starwarsData').append(`<p>${data.results[0].height}</p>`)
+        //             })})
+        // })
+
+        // $('#searchCharacter').click(function (e) {
+        //     e.preventDefault();
+        //     let character = $('#swCharacter').val()
+        //     let homeWorld = ['Tatooine'];
+        //         fetch('data/star-chars.json')
+        //             .then(response => {
+        //                 response.json().then(data => {
+        //                     for (let i = 0; i < data.length; i++){
+        //                         console.log(data);
+        //                         fetch(`https://swapi.co/api/people/?search=${data[i].name}`)
+        //                             .then(response => {
+        //                                 response.json().then(data => {
+        //                                     if (data.count === 1){
+        //                                         fetch(`${data.results[0].homeworld}`)
+        //                                             .then(response => {
+        //                                                 response.json().then(data => {
+        //                                                     homeWorld.push(data.name)
+        //                                                     console.log(homeWorld);
+        //                                                 })
+        //                                             })
+        //                                     }
+        //                                 })
+        //                             })
+        //                     }
+        //                 })
+        //             })
+        //     })
+
+
+
 
 
         $('#search').click(function (e) {
@@ -30,12 +73,9 @@
                         let dataArray = Object.keys(data).map(function(key) {
                             return [key, data[key]];
                         });
-                        console.log(dataArray);
-                        console.log(searchedEyeColor);
                         let filteredData = dataArray.filter(user => {
                             return [searchedEyeColor].includes(user[0]);
                         });
-                        console.log(filteredData);
                         let splitArray = filteredData.pop().pop();
                         $('body').css('background-color', splitArray)
                     })
