@@ -14,7 +14,18 @@ wait(1000).then((data) => {
 // timer.then(data => console.log('Promise resolved!', data));
 // timer.catch(error => console.log('Promise rejected!', error));
 
+$.getJSON("https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=starwars&callback=?", function(json) {
+    if (json != "Nothing found.") {
+        console.log(json.results[0].poster_path);
+        $('body').css('background-image', `url('http://image.tmdb.org/t/p/w500${json.results[0].poster_path}')`)
+    }})
 
+fetch("https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=starwars&callback=?")
+    .then(data => {
+            console.log(data.results);
+    // <img src=\"http://image.tmdb.org/t/p/w500/' + json.results[0].poster_path + '\" class=\"img-responsive\" >'
+    //         $('body').css('background image', `'url(' + http://image.tmdb.org/t/p/w500/${data} + ')'`)
+        })
 let gitHubLastCommit = (username, repo,token) => {
     fetch(`https://api.github.com/users/${username}/events`, {headers: {'Authorization': `token ${token}`}})
     .then(response =>
