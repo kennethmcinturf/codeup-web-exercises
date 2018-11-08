@@ -12,4 +12,3 @@
 //         alert('Thanks for your comment!');
 //     }
 // });
-
