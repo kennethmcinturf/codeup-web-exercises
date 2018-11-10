@@ -10,8 +10,6 @@ const doMath = (leftOperand,symbol,rightOperand) => {
     }
 };
 
-console.log(doMath(5, "-", 4));
-
 let leftOrRight = "left";
 let numberString = "";
 let leftNumberString = "";
@@ -107,6 +105,56 @@ $("#nine").click(() => {
     }
 });
 
+$("#zero").click(() => {
+    if (leftOrRight === "left"){
+        numberString = numberString + "0";
+        $("#leftOperand").val(numberString);
+    }else {
+        leftNumberString = leftNumberString + "0";
+        $("#rightOperand").val(leftNumberString);
+    }
+});
+
+$("#decimal").click(() => {
+    if (leftOrRight === "left"){
+        if (numberString.indexOf('.') === -1) {
+            numberString = numberString + ".";
+            $("#leftOperand").val(numberString);
+        }
+    }else {
+        if (leftNumberString.indexOf('.') === -1) {
+            leftNumberString = leftNumberString + ".";
+            $("#rightOperand").val(leftNumberString);
+        }
+    }
+});
+
+$("#percentage").click(() => {
+    if (leftOrRight === "left"){
+        if (numberString.indexOf('.') === -1) {
+            numberString = "." + numberString;
+            $("#leftOperand").val(numberString);
+        }
+    }else {
+        if (numberString.indexOf('.') === -1) {
+            leftNumberString = leftNumberString + ".";
+            $("#rightOperand").val(leftNumberString);
+        }
+    }
+    console.log(numberString);
+});
+
+$("#negative").click(() => {
+    if (leftOrRight === "left"){
+        numberString = "-" + numberString;
+        $("#leftOperand").val(-Math.abs(numberString));
+    }else {
+        numberString = "-" + numberString;
+        $("#rightOperand").val(leftNumberString);
+    }
+});
+
+
 $("#plus").click(() => {
     symbolString = "";
     symbolString = symbolString + "+";
@@ -131,6 +179,21 @@ $("#divide").click(() => {
     $("#operator").val(symbolString);
 });
 
+$("#squareRoot").click(() => {
+    if (leftOrRight === "left"){
+        let number = parseFloat(numberString);
+        let numberToSquareRoot = Math.sqrt(number);
+        $("#leftOperand").val(numberToSquareRoot);
+        numberString = numberToSquareRoot.toString();
+    }else {
+        let number = parseFloat(leftNumberString);
+        let numberToSquareRoot = Math.sqrt(number);
+        $("#rightOperand").val(numberToSquareRoot);
+        leftNumberString = numberToSquareRoot.toString();
+    }
+});
+
+
 $("#equal").click(() => {
     if (numberString === ""){
         numberString = "0" + numberString;
@@ -139,16 +202,22 @@ $("#equal").click(() => {
         leftNumberString = "0" + numberString;
     }
    let number = parseFloat(numberString);
-   let leftNumber = parseFloat(leftNumberString);
+    let leftNumber = parseFloat(leftNumberString);
     let compliedNumber = doMath(leftNumber,symbolString,number);
-    console.log(compliedNumber);
     $("#leftOperand").val(compliedNumber);
     numberString = compliedNumber.toString();
     $("#rightOperand").val('');
     leftNumberString = "";
 });
 
-
+$("#clear").click(() => {
+   numberString = '';
+   leftNumberString = '';
+   leftOrRight = "left";
+    $("#leftOperand").val("");
+    $("#rightOperand").val("");
+    $("#operator").val("");
+});
 
 $(".symbol").click(() => {
     leftOrRight = "right";
