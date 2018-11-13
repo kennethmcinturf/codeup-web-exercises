@@ -1,0 +1,35 @@
+img{
+    visibility: hidden;
+}
+
+.hide-background-img{
+    background-size: 0 0;
+}
+
+.img-one{
+    background-image: url("../img/cam_newton_2.jpeg");
+}
+
+.img-two{
+    background-image: url("../img/carolina-panthers.png");
+}
+
+.img-three{
+    background-image: url("../img/charlotte_hornets_logo.jpeg");
+}
+
+.img-four{
+    background-image: url("../img/chrisitan-mccaffery.jpeg");
+}
+
+.img-five{
+    background-image: url("../img/kawann_short.jpeg");
+}
+
+.img-six{
+    background-image: url("../img/luke_Kuechly.jpeg");
+}
+
+.correct{
+
+}
