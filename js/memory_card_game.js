@@ -51,9 +51,13 @@ checkIfMatch = () => {
         })
     }
     clickCounter = 0;
+    roundCounter++;
+    $('#round-counter').val(roundCounter);
 };
 
 let clickCounter = 0;
+let roundCounter = 0;
+$('#round-counter').val(roundCounter);
 
 $("#1").click(function () {
     clickCounter++;
