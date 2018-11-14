@@ -37,51 +37,56 @@ addPicture();
 let matches = false;
 
 checkIfMatch = () => {
-    $('.card-body').each(
-        function() {
-            var classes = this.classList;
-            for (let i=0,len=classes.length; i<len; i++){
-                if ($('body').hasClass(classes[i])){
-                    $(this).removeClass('"hide-background-img"');
-                    matches = true;
-                }
-            }
+    if($(".clickedOne").css("background-image") === $(".clickedTwo").css("background-image")){
+        $(".clickedOne").addClass("correct");
+        $(".clickedTwo").addClass("correct");
+        $("section").each(function () {
+            $(this).removeClass("clickedOne").removeClass("clickedTwo");
         })
+    }else {
+        $(".clickedOne").addClass("hide-background-img");
+        $(".clickedTwo").addClass("hide-background-img");
+        $("section").each(function () {
+            $(this).removeClass("clickedOne").removeClass("clickedTwo");
+        })
+    }
+    clickCounter = 0;
 };
 
 let clickCounter = 0;
 
-
-$("#1").click(() => {
+$("#1").click(function () {
     clickCounter++;
-    if (clickCounter === 0){
-        $("#1").removeClass("hide-background-img");
-    } else if (clickCounter === 1){
-        $("#1").removeClass("hide-background-img");
-    }else if (clickCounter >= 3){
-        checkIfMatch();
-        if (matches === false){
-            setTimeout(function(){
-                $("#1").addClass("hide-background-img")
-            }, 1000);
-        }
-        matches = false;
-        clickCounter = 0;
-}});
+    if (clickCounter === 1){
+        $("#1").removeClass("hide-background-img").addClass("clickedOne");
+    }else if (clickCounter === 2){
+        $("#1").removeClass("hide-background-img").addClass("clickedTwo");
+        setTimeout(function () {
+            checkIfMatch();
+        }, 1000)
+    }
+});
 
-$("#2").click(() => {
+$("#1").click(function () {
     clickCounter++;
-    if (clickCounter === 0){
-        $("#2").removeClass("hide-background-img");
-    } else if (clickCounter === 1){
-        $("#2").removeClass("hide-background-img");
-    }else if (clickCounter >= 3){
-        checkIfMatch();
-        if (matches === false){
-            setTimeout(function(){
-                $("#2").addClass("hide-background-img")
-            }, 1000);
-        }
-        matches = false;
-        clickCounter = 0;
-    }});
+    if (clickCounter === 1){
+        $("#1").removeClass("hide-background-img").addClass("clickedOne");
+    }else if (clickCounter === 2){
+        $("#1").removeClass("hide-background-img").addClass("clickedTwo");
+        setTimeout(function () {
+            checkIfMatch();
+        }, 1000)
+    }
+});
+
+$("#2").click(function () {
+    clickCounter++;
+    if (clickCounter === 1){
+        $("#2").removeClass("hide-background-img").addClass("clickedOne");
+    }else if (clickCounter === 2){
+        $("#2").removeClass("hide-background-img").addClass("clickedTwo");
+        setTimeout(function () {
+            checkIfMatch();
+        }, 1000)
+    }
+});
