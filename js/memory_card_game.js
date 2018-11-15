@@ -1,20 +1,20 @@
-generateRandoms = () => {
+generateRandoms = (numberOfCards) => {
     randomArray = [];
     do {
-        for (let i = 0; i < 13; i++){
-            number = Math.floor((Math.random() * 12) + 1);
+        for (let i = 0; i < numberOfCards + 1; i++){
+            number = Math.floor((Math.random() * numberOfCards) + 1);
             if (randomArray.indexOf(number) === -1){
                 randomArray.push(number);
             }
         }
-    }while (randomArray.length < 12);
+    }while (randomArray.length < numberOfCards);
     return randomArray;
 };
 
 
 
-addPicture = () => {
-    generateRandoms();
+addPicture = (numberOfCards) => {
+    generateRandoms(numberOfCards);
     for (let i = 0; i <= randomArray.length - 1; i++){
         if (randomArray[i] === 1 || randomArray[i] === 2){
             $(`#${i}`).addClass("img-one")
@@ -32,73 +32,159 @@ addPicture = () => {
     } 
 };
 
-addPicture();
+addPicture(12);
+
+let clickCounter = 0;
+let roundCounter = 0;
+let amountOfCards = parseInt($("#amountOfCards").val());
+let score = $('#round-counter').val();
+let numberCorrect = $('#container .correct').length;
+
+if (localStorage.highscoretwelve === undefined){
+    localStorage.setItem("highscoretwelve", "1000")
+}else if (localStorage.highscoreten === undefined){
+    localStorage.setItem("highscoreten", "1000")
+}else if (localStorage.highscoreeight === undefined){
+    localStorage.setItem("highscoreeight", "1000")
+}else if (localStorage.highscoresix === undefined){
+    localStorage.setItem("highscoresix", "1000")
+}else if (localStorage.highscorefour === undefined){
+    localStorage.setItem("highscorefour", "1000")
+}
+
+if (localStorage.highscore === "1000"){
+    $('#highScore').val(0);
+}else {
+    $('#highScore').val(localStorage.highscore);
+}
 
 checkIfMatch = () => {
     if($(".clickedOne").css("background-image") === $(".clickedTwo").css("background-image")){
         $(".clickedOne").addClass("correct");
         $(".clickedTwo").addClass("correct");
-        $("section").each(function () {
-            $(this).removeClass("clickedOne").removeClass("clickedTwo").removeClass("click-event");
-        })
     }else {
-        $(".clickedOne").addClass("hide-background-img");
-        $(".clickedTwo").addClass("hide-background-img");
-        $("section").each(function () {
-            $(this).removeClass("clickedOne").removeClass("clickedTwo");
-        })
+        $(".clickedOne").addClass("hide-background-img").removeClass("disabled");
+        $(".clickedTwo").addClass("hide-background-img").removeClass("disabled");
     }
+    $("section").each(function () {
+        $(this).removeClass("clickedOne").removeClass("clickedTwo");
+    });
     clickCounter = 0;
     roundCounter++;
     $('#round-counter').val(roundCounter);
     numberCorrect = $('#container .correct').length;
-    if (numberCorrect === 12){
+    if (numberCorrect === amountOfCards){
         score = $('#round-counter').val();
-        let storagedHighScore = localStorage.getItem("highscore");
-        if (storagedHighScore  || score < parseInt(storagedHighScore)) {
+        let storageHighScore;
+        if (numberCorrect === 12){
+            storageHighScore = localStorage.highscoretwelve
+        }else if(numberCorrect === 10){
+            storageHighScore = localStorage.highscoreten;
+        }else if(numberCorrect === 8){
+            storageHighScore = localStorage.highscoreeight;
+        }else if(numberCorrect === 6){
+            storageHighScore = localStorage.highscoresix;
+        }else if(numberCorrect === 4){
+            storageHighScore = localStorage.highscorefour;
+        }
+        if (score < parseInt(storageHighScore)) {
             localStorage.setItem("highscore", score);
             $('#highScore').val(localStorage.highscore);
         }
     }
 };
 
-let clickCounter = 0;
-let roundCounter = 0;
 $('#round-counter').val(roundCounter);
-if (localStorage.highscore === "100"){
-    $('#highScore').val(0);
-}else {
-    $('#highScore').val(localStorage.highscore);
 
-}
-let score = $('#round-counter').val();
-let numberCorrect = $('#container .correct').length;
 
-$("#resetGame").click(function (e) {
-    e.preventDefault();
-    $('section').removeClass("img-one img-two img-three img-four img-five img-six correct clickedOne clickedTwo").addClass("hide-background-img click-event");
-    addPicture();
+let resetGame = (numberOfCards) => {
+    $('section').removeClass("img-one img-two img-three img-four" +
+        " img-five img-six correct clickedOne clickedTwo disabled")
+        .addClass("hide-background-img click-event");
+    addPicture(numberOfCards);
     clickCounter = 0;
     roundCounter = 0;
     $('#round-counter').val(roundCounter);
+    amountOfCards = parseInt($("#amountOfCards").val());
+};
+
+$("#resetGame").click(function (e) {
+    e.preventDefault();
+    resetGame(amountOfCards);
 });
 
 $("#resetHighScore").click(function (e) {
     e.preventDefault();
     localStorage.highscore = 1000;
     $('#highScore').val(0);
+    amountOfCards = parseInt($("#amountOfCards").val());
 });
 
 
 $(".click-event").click(function () {
+    if($(this).hasClass('disabled')){
+        return;
+    }
     clickCounter++;
     if (clickCounter === 1){
-        $(this).removeClass("hide-background-img").addClass("clickedOne");
+        $(this).removeClass("hide-background-img click-event").addClass("clickedOne disabled");
     }else if (clickCounter === 2){
-        $(this).removeClass("hide-background-img").addClass("clickedTwo");
+        $(this).removeClass("hide-background-img click-event").addClass("clickedTwo disabled");
         setTimeout(function () {
             checkIfMatch();
-        }, 1000)
+        }, 500)
     }
 });
+
+$("#resetCards").click(function (e) {
+    e.preventDefault();
+    let theAmountOfCards = $("#amountOfCards").val();
+    if (theAmountOfCards === "12"){
+        $("#card-twelve").show();
+        $("#card-eleven").show();
+        $("#card-ten").show();
+        $("#card-nine").show();
+        $("#card-eight").show();
+        $("#card-seven").show();
+        $("#card-six").show();
+        $("#card-five").show();
+    }else if(theAmountOfCards === "10"){
+        $("#card-twelve").hide();
+        $("#card-eleven").hide();
+        $("#card-ten").show();
+        $("#card-nine").show();
+        $("#card-eight").show();
+        $("#card-seven").show();
+        $("#card-six").show();
+        $("#card-five").show();
+    }else if(theAmountOfCards === "8"){
+        $("#card-twelve").hide();
+        $("#card-eleven").hide();
+        $("#card-ten").hide();
+        $("#card-nine").hide();
+        $("#card-eight").show();
+        $("#card-seven").show();
+        $("#card-six").show();
+        $("#card-five").show();
+    }else if(theAmountOfCards === "6"){
+        $("#card-twelve").hide();
+        $("#card-eleven").hide();
+        $("#card-ten").hide();
+        $("#card-nine").hide();
+        $("#card-eight").hide();
+        $("#card-seven").hide();
+        $("#card-six").show();
+        $("#card-five").show();
+    }else if(theAmountOfCards === "4"){
+        $("#card-twelve").hide();
+        $("#card-eleven").hide();
+        $("#card-ten").hide();
+        $("#card-nine").hide();
+        $("#card-eight").hide();
+        $("#card-seven").hide();
+        $("#card-six").hide();
+        $("#card-five").hide();
+    }
+    resetGame(parseInt(theAmountOfCards));
+})
 

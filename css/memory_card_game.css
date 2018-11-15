@@ -3,7 +3,6 @@ img{
 }
 
 .hide-background-img{
-    /*background-size: 0 0;*/
     background-position: -9999px -9999px
 }
 
@@ -42,3 +41,4 @@ img{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
