@@ -34,14 +34,12 @@ addPicture = () => {
 
 addPicture();
 
-let matches = false;
-
 checkIfMatch = () => {
     if($(".clickedOne").css("background-image") === $(".clickedTwo").css("background-image")){
         $(".clickedOne").addClass("correct");
         $(".clickedTwo").addClass("correct");
         $("section").each(function () {
-            $(this).removeClass("clickedOne").removeClass("clickedTwo");
+            $(this).removeClass("clickedOne").removeClass("clickedTwo").removeClass("click-event");
         })
     }else {
         $(".clickedOne").addClass("hide-background-img");
@@ -53,152 +51,54 @@ checkIfMatch = () => {
     clickCounter = 0;
     roundCounter++;
     $('#round-counter').val(roundCounter);
+    numberCorrect = $('#container .correct').length;
+    if (numberCorrect === 12){
+        score = $('#round-counter').val();
+        let storagedHighScore = localStorage.getItem("highscore");
+        if (storagedHighScore  || score < parseInt(storagedHighScore)) {
+            localStorage.setItem("highscore", score);
+            $('#highScore').val(localStorage.highscore);
+        }
+    }
 };
 
 let clickCounter = 0;
 let roundCounter = 0;
 $('#round-counter').val(roundCounter);
+if (localStorage.highscore === "100"){
+    $('#highScore').val(0);
+}else {
+    $('#highScore').val(localStorage.highscore);
 
-$("#1").click(function () {
+}
+let score = $('#round-counter').val();
+let numberCorrect = $('#container .correct').length;
+
+$("#resetGame").click(function (e) {
+    e.preventDefault();
+    $('section').removeClass("img-one img-two img-three img-four img-five img-six correct clickedOne clickedTwo").addClass("hide-background-img click-event");
+    addPicture();
+    clickCounter = 0;
+    roundCounter = 0;
+    $('#round-counter').val(roundCounter);
+});
+
+$("#resetHighScore").click(function (e) {
+    e.preventDefault();
+    localStorage.highscore = 1000;
+    $('#highScore').val(0);
+});
+
+
+$(".click-event").click(function () {
     clickCounter++;
     if (clickCounter === 1){
-        $("#1").removeClass("hide-background-img").addClass("clickedOne");
+        $(this).removeClass("hide-background-img").addClass("clickedOne");
     }else if (clickCounter === 2){
-        $("#1").removeClass("hide-background-img").addClass("clickedTwo");
+        $(this).removeClass("hide-background-img").addClass("clickedTwo");
         setTimeout(function () {
             checkIfMatch();
         }, 1000)
     }
 });
 
-$("#0").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#0").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#0").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#2").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#2").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#2").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#3").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#3").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#3").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#4").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#4").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#4").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#5").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#5").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#5").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#6").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#6").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#6").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#7").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#7").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#7").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#8").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#8").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#8").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#9").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#9").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#9").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#10").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#10").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#10").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});
-
-$("#11").click(function () {
-    clickCounter++;
-    if (clickCounter === 1){
-        $("#11").removeClass("hide-background-img").addClass("clickedOne");
-    }else if (clickCounter === 2){
-        $("#11").removeClass("hide-background-img").addClass("clickedTwo");
-        setTimeout(function () {
-            checkIfMatch();
-        }, 1000)
-    }
-});

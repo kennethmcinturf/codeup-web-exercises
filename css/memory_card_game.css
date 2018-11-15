@@ -3,29 +3,42 @@ img{
 }
 
 .hide-background-img{
-    background-size: 0 0;
+    /*background-size: 0 0;*/
+    background-position: -9999px -9999px
 }
 
 .img-one{
     background-image: url("../img/cam_newton_2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .img-two{
     background-image: url("../img/carolina-panthers.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .img-three{
     background-image: url("../img/charlotte_hornets_logo.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .img-four{
     background-image: url("../img/chrisitan-mccaffery.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .img-five{
     background-image: url("../img/kawann_short.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .img-six{
     background-image: url("../img/luke_Kuechly.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
