@@ -2,13 +2,25 @@ img{
     visibility: hidden;
 }
 
+h1{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div{
+    font-family: 'Roboto Mono', monospace;
+}
+
+body{
+    background-color: purple;
+}
+
 .hide-background-img{
     background-position: -9999px -9999px;
     background: none !important;
 }
 
 .img-one{
-    /*background-image: url("../img/cam_newton_2.jpeg");*/
+    /*background-image: url("../img/carolina-panthers.png");*/
     background: red;
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,7 +42,7 @@ img{
 
 .img-four{
     /*background-image: url("../img/chrisitan-mccaffery.jpeg");*/
-    background: purple;
+    background: green;
     background-repeat: no-repeat;
     background-size: cover;
 }
