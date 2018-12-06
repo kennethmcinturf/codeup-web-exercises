@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Budget APP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-4">
+            <h1>Track your Budget</h1>
+        </div>
+    </div>
+    <div class="border border-black">
+        <div class="row">
+            <div class="col-6 text-center border-right border-black">
+                <label for="pay_often">How often do you get paid?</label><br>
+                <select id="pay_often">
+                    <option value="weekly">Weekly</option>
+                    <option value="bi-weekly">Bi-Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+            </div>
+            <div class="col-6 text-center">
+                <label for="pay">Pay</label><br>
+                <input type="text" id="pay">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center mt-3">
+            <h3>Monthly Expenses</h3>
+        </div>
+    </div>
+    <div class="border border-black">
+        <div class="row">
+            <div class="col-6 text-center">
+                <label for="Rent">Rent</label>
+                <input type="text" id="Rent" class="budgetItem">
+            </div>
+            <div class="col-6 text-center">
+                <label for="utilities">Utilities</label>
+                <input type="text" id="utilities" class="budgetItem">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-center">
+                <label for="Food">Food</label>
+                <input type="text" id="Food" class="budgetItem">
+            </div>
+            <div class="col-6 text-center">
+                <label for="misc">Miscellaneous</label>
+                <input type="text" id="misc" class="budgetItem">
+            </div>
+        </div>
+        <div class="row" id="thePlaceToPutNewBudgetItems">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 text-center">
+            <button id="addBudgetItem">Add Budget Item</button>
+        </div>
+        <div class="col-6 text-center">
+            <button id="budgetBreakdown">Submit for Budget Breakdown</button>
+        </div>
+    </div>
+    <div class="row mt-5" id="hiddenContent" hidden>
+        <div class="col-4">
+            <p>What Item would you like to add to the budget?</p>
+        </div>
+        <div class="col-4">
+            <input type="text" id="itemToAdd">
+        </div>
+        <div>
+            <button id="addItem">Add item to budget Breakdown</button>
+        </div>
+    </div>
+    <div id="sentences"></div>
+    <div id="chart_div"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="budget_project.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
