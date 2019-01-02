@@ -15,24 +15,48 @@
             <h1>Track your Budget</h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 text-center mt-5 mb-2">
+            <h3>Monthly Income</h3>
+        </div>
+    </div>
     <div class="border border-black">
         <div class="row">
             <div class="col-6 text-center border-right border-black">
-                <label for="pay_often">How often do you get paid?</label><br>
-                <select id="pay_often">
+                <label for="payPrimary">How often do you get paid?</label><br>
+                <select id="payPrimary">
                     <option value="weekly">Weekly</option>
                     <option value="bi-weekly">Bi-Weekly</option>
                     <option value="monthly">Monthly</option>
                 </select>
             </div>
             <div class="col-6 text-center">
-                <label for="pay">Pay</label><br>
-                <input type="text" id="pay">
+                <label for="Primary">Primary Income</label><br>
+                <input type="text" id="Primary" class="payItem">
             </div>
+        </div>
+        <div id="thePlaceToAddPayItems">
+
+        </div>
+    </div>
+    <div class="row justify-content-center mt-2">
+            <div class="col-6 text-center">
+                <button id="addPayItem">Add Another Income Source</button>
+            </div>
+    </div>
+    <div class="row mt-5" id="hiddenContentPay" hidden>
+        <div class="col-4">
+            <p>What Income Source would you like to add to the budget?</p>
+        </div>
+        <div class="col-4">
+            <input type="text" id="payItemToAdd">
+        </div>
+        <div>
+            <button id="payAddItem">Add item to budget Breakdown</button>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 text-center mt-3">
+        <div class="col-12 text-center mt-5 mb-2">
             <h3>Monthly Expenses</h3>
         </div>
     </div>
@@ -80,8 +104,12 @@
             <button id="addItem">Add item to budget Breakdown</button>
         </div>
     </div>
-    <div id="sentences"></div>
-    <div id="chart_div"></div>
+    <div id="sentences" class="container"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div id="chart_div"></div>
+        </div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="budget_project.js"></script>
